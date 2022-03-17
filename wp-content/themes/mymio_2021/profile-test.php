@@ -389,44 +389,21 @@ get_header();
                                         'items' => [
                                             [
                                                 'label' => 'Данные заполнены верно',
-                                                'name' => 'date_of_birth'
+                                                'name' => ''
                                             ],
                                         ],
                                     ],
                                     /*[
-                                        'kind' => 'input',
-                                        'type' => 'text',
-                                        'elma_name' => 'main_ank_email',
-                                        'placeholder' => 'Электронная почта',
-                                        'label' => '',
-                                        'required' => true,
-                                        'name' => 'email'
-                                    ],*/
-                                    /*[
-                                        'kind' => 'input',
-                                        'type' => 'address',
-                                        'elma_name' => 'main_ank_address_reg_pred',
-                                        'required' => true,
-                                        'placeholder' => 'Адрес регистрации',
-                                        'label' => '',
-                                        'name' => 'address_reg_pred'
-                                    ],
-                                    [
-                                        'kind' => 'input',
-                                        'elma_name' => 'main_ank_address_act_pred',
-                                        'type' => 'address',
-                                        'required' => true,
-                                        'placeholder' => 'Адрес проживания',
-                                        'label' => '',
-                                        'name' => 'address_reg__pod'
-                                    ],*/
-                                    /*[
-                                        'kind' => 'input',
-                                        'type' => 'text',
-                                        'placeholder' => 'Почтовый индекс',
-                                        'label' => '',
-                                        'required' => true,
-                                        'name' => 'postal_code',
+                                        'kind' => 'checkbox',
+                                        'question' => '',
+                                        'elma_name' => '',
+                                        'required'	=> true,
+                                        'items' => [
+                                            [
+                                                'label' => 'Согласен на обработку персональных данных',
+                                                'name' => ''
+                                            ],
+                                        ],
                                     ],*/
                                 ],
                             ];
@@ -456,6 +433,7 @@ get_header();
                                 $form_settings = [
                                     'caption' => 'Общая информация о пациенте и заболевании',
                                     'submit_button' => 'Продолжить',
+                                    'subcaption' => 'Анкета заполняется законным представителем подопечного. Даже, если Вы наш совершеннолетний подопечный, просим заполнять анкету вместе с представителем. От полноты и правильности данных зависит работа Регистра. Спасибо вам!',
                                     'tab' => '1',
                                     'name' => 'common_info',
                                     'form_fields' => [
