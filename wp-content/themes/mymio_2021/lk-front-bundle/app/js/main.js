@@ -12,6 +12,7 @@ import {maskInit} from "./formFunctions/inputMask";
 import {selectMkb} from "./formFunctions/selectMkb";
 import {tabs, checkLastActiveTabs, checkLockedTabs} from "./utils/tabs";
 import './forms';
+import './mixins/conditionFields';
 
 checkLastActiveTabs('.lk-tab');
 checkLastActiveTabs('.lk-form__tab');

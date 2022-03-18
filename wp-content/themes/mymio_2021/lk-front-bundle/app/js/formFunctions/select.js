@@ -5,6 +5,8 @@ if (jQuery('.select').length > 1) {
         $this.select2({
             minimumResultsForSearch: Infinity,
             dropdownParent: parent
+        }).on('select2:select', function (e) {
+            conditionFields($this);
         });
     });
     jQuery('.select-search').each(function () {
@@ -12,6 +14,8 @@ if (jQuery('.select').length > 1) {
         let parent = jQuery(this).parents('.select');
         $this.select2({
             dropdownParent: parent
+        }).on('select2:select', function (e) {
+            conditionFields($this);
         });
     });
 } else {
@@ -36,3 +40,43 @@ $('.select').parent().on('click', function () {
         }
     });
 });
+
+function conditionFields(elem) {
+    const value = elem.val();
+    const conditionName = elem.data('condRelation');
+
+    if (!conditionName) return;
+
+    const dependFields = $(`[data-cond-dep-name="${conditionName}"]`);
+
+    dependFields.each(function () {
+        const needValue = $(this).data('condDepValue');
+
+        if (needValue.includes('|,|')) {
+            const needValuesArr = needValue.split('|,|');
+
+            if (needValuesArr.includes(value) && $(this).hasClass('show')) {
+                return;
+            }
+
+            if (needValuesArr.includes(value) && !$(this).hasClass('show')) {
+                $(this).addClass('show');
+                return;
+            }
+
+            $(this).removeClass('show');
+            return;
+        }
+
+        if (needValue === value && $(this).hasClass('show')) {
+            return;
+        }
+
+        if (needValue === value && !$(this).hasClass('show')) {
+            $(this).addClass('show');
+            return;
+        }
+
+        $(this).removeClass('show');
+    })
+}

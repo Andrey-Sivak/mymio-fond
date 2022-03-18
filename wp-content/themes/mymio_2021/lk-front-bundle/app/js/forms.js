@@ -84,36 +84,3 @@ jQuery.validator.addMethod('_name', function (value, element) {
 }, 'Введите корректное имя');
 
 // field dependencies
-
-const fieldsRelation = $('[data-cond-relation]');
-
-fieldsRelation.each(function () {
-    const ctx = $(this);
-    const conditionName = $(this).data('condRelation');
-    const dependFields = $(`[data-cond-dep-name="${conditionName}"]`);
-
-    $(this).on('change', function () {
-        let value = $(this).val();
-
-        if ($(this).attr('type') === 'checkbox') {
-            value = $(this).prop('checked');
-        } else if ($(this).attr('type') === 'radio') {
-            value = $(this).val() === 'Да';
-        }
-
-        dependFields.each(function () {
-            const needValue = $(this).data('condDepValue');
-
-            if (needValue === value && $(this).hasClass('show')) {
-                return;
-            }
-
-            if (needValue === value && !$(this).hasClass('show')) {
-                $(this).addClass('show');
-                return;
-            }
-
-            $(this).removeClass('show');
-        })
-    })
-})

@@ -116,6 +116,15 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.contact-form__form-field.radio[data-cond-dep-name] {
+    display: none;
+}
+
+.contact-form__form-field.radio.show[data-cond-dep-name] {
+    display: flex;
 }
 
 .contact-form__form-field.radio .contact-form__label {
@@ -621,6 +630,7 @@ textarea.contact-form__input {
     margin-bottom: 5px;
     font-size: 14px;
     font-weight: 600;
+    width: 100%;
 }
 
 .lk-form-container .lk-form__tab_content,

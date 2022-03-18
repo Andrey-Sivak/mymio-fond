@@ -49,32 +49,39 @@ get_header();
                     });
                 });
             </script>
-            
-            
+
+
             <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.min.js" integrity="sha512-TToQDr91fBeG4RE5RjMl/tqNAo35hSRR4cbIFasiV2AAMQ6yKXXYhdSdEpUcRE6bqsTiB+FPLPls4ZAFMoK5WA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.css" integrity="sha512-uq8QcHBpT8VQcWfwrVcH/n/B6ELDwKAdX4S/I3rYSwYldLVTs7iII2p6ieGCM13QTPEKZvItaNKBin9/3cjPAg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.min.js"
+                    integrity="sha512-TToQDr91fBeG4RE5RjMl/tqNAo35hSRR4cbIFasiV2AAMQ6yKXXYhdSdEpUcRE6bqsTiB+FPLPls4ZAFMoK5WA=="
+                    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <link rel="stylesheet"
+                  href="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.css"
+                  integrity="sha512-uq8QcHBpT8VQcWfwrVcH/n/B6ELDwKAdX4S/I3rYSwYldLVTs7iII2p6ieGCM13QTPEKZvItaNKBin9/3cjPAg=="
+                  crossorigin="anonymous" referrerpolicy="no-referrer"/>
             <link rel="stylesheet" href="https://releases.jquery.com/git/ui/jquery-ui-git.css"/>
             <style>
-            	.ui-state-active:hover {
-					border: 1px solid #009d9a;
-					background: #009d9a;
-					font-weight: normal;
-					color: #ffffff;
-				}
-				.ui-menu {
-					background: #EDFFFE;
-					max-width: 530px;
-					max-height:300px;
-					overflow-y:auto;
-					overflow-x:hidden;
-				}
-				.ui-menu .ui-menu-item {
-				    line-height: 22px;
-				    font-size: 16px;
-				    color: grey;
-				}
-			</style>
+                .ui-state-active:hover {
+                    border: 1px solid #009d9a;
+                    background: #009d9a;
+                    font-weight: normal;
+                    color: #ffffff;
+                }
+
+                .ui-menu {
+                    background: #EDFFFE;
+                    max-width: 530px;
+                    max-height: 300px;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                }
+
+                .ui-menu .ui-menu-item {
+                    line-height: 22px;
+                    font-size: 16px;
+                    color: grey;
+                }
+            </style>
         </div>
 
         <div class="maxwidth-theme overfl">
@@ -317,7 +324,7 @@ get_header();
                                         'label' => '',
                                         'name' => 'phone2'
                                     ],
-									[
+                                    [
                                         'kind' => 'text_block',
                                         'caption' => 'Адрес:',
                                         'text' => 'В этом окне просим вас ввести адрес регистрации по шаблону. Пожалуйста, очень внимательно заполняйте поле. Если будут допущены ошибки, мы не сможем доставить вам адресную помощь.
@@ -352,11 +359,10 @@ get_header();
                                         'placeholder' => 'Адрес фактического проживания',
                                         'label' => '',
                                         'name' => 'address_act_pod',
-
                                         'condition' => [
                                             'condition_dependency' => 'diff_act_address',
                                             'require_value' => 'false',
-                                        ]
+                                        ],
                                     ],
                                     [
                                         'kind' => 'radio',
@@ -368,7 +374,7 @@ get_header();
                                         ],
                                         'condition_relation' => 'diff_post_address'
                                     ],
-									[
+                                    [
                                         'kind' => 'input',
                                         'elma_name' => 'main_ank_address_mail_pod',
                                         'type' => 'address',
@@ -385,7 +391,7 @@ get_header();
                                         'kind' => 'checkbox',
                                         'question' => '',
                                         'elma_name' => '',
-                                        'required'	=> true,
+                                        'required' => true,
                                         'items' => [
                                             [
                                                 'label' => 'Данные заполнены верно',
@@ -466,7 +472,8 @@ get_header();
                                                 '18',
                                                 '19',
                                                 '20',
-                                            ]
+                                            ],
+                                            'condition_relation' => 'diagnosis_age',
                                         ],
                                         [
                                             'kind' => 'select',
@@ -637,12 +644,13 @@ get_header();
                                                 'Использует кресло, требуется поддержка тела и головы. использует руки, но функциональность снижена',
                                             ],
                                             'elma_name' => 'mank_motor_abilities_2',
+                                            'condition_relation' => 'lost_ability',
                                         ],
                                         [
                                             'kind' => 'select',
                                             'placeholder' => 'Выбрать',
                                             'with_input' => false,
-                                            'required' => true,
+                                            'required' => false,
                                             'name' => 'mank_neuro_lost_ability',
                                             'question' => 'В каком возрасте ваш сын потерял способность самостоятельной ходьбы?',
                                             'options' => [
@@ -660,6 +668,13 @@ get_header();
                                                 '17',
                                             ],
                                             'elma_name' => 'mank_neuro_lost_ability',
+                                            'condition' => [
+                                                'condition_dependency' => 'lost_ability',
+                                                'require_value' => [
+                                                    'Пользуется инвалидным креслом (скутером или подобным), способен удерживать тело, не нужен подголовник, активно пользуется руками',
+                                                    'Использует кресло, требуется поддержка тела и головы. использует руки, но функциональность снижена'
+                                                ],
+                                            ]
                                         ],
                                         [
                                             'kind' => 'radio',
@@ -671,19 +686,26 @@ get_header();
                                                 'Нет',
                                             ],
                                             'elma_name' => 'mank_neuro_steroids_2',
+                                            'condition_relation' => 'neuro_steroids'
                                         ],
                                         [
                                             'kind' => 'textarea',
+                                            'required' => false,
                                             'placeholder' => 'Укажите схему приема и дозировку',
                                             'label' => 'Укажите схему приема и дозировку',
                                             'question' => 'Укажите схему приема и дозировку',
                                             'name' => 'steroid_therapy_amount',
                                             'elma_name' => 'mank_neuro_steroids_treatment_2',
+                                            'condition' => [
+                                                'condition_dependency' => 'neuro_steroids',
+                                                'require_value' => 'true',
+                                            ],
                                         ],
                                         [
                                             'kind' => 'select',
                                             'placeholder' => 'Bозраст',
                                             'with_input' => false,
+                                            'required' => false,
                                             'question' => 'С какого возраста начали применение терапии?',
                                             'name' => 'steroid_therapy_since',
                                             'options' => [
@@ -703,12 +725,17 @@ get_header();
                                                 '15',
                                             ],
                                             'elma_name' => 'mank_neuro_treatment_start_age_2',
+                                            'condition' => [
+                                                'condition_dependency' => 'neuro_steroids',
+                                                'require_value' => 'true',
+                                            ],
                                         ],
                                         [
                                             'kind' => 'checkbox',
                                             'question' => 'Наблюдаются ли побочные эффекты от стероидной терапии?',
                                             'name' => 'steroid_therapy_side_effects',
-                                            'is_input_exist' => true,
+                                            'is_input_exist' => false,
+                                            'required' => false,
                                             'items' => [
                                                 [
                                                     'label' => 'Набор веса и ожирение',
@@ -772,6 +799,10 @@ get_header();
                                                 ],
                                             ],
                                             'elma_name' => 'mank_neuro_treatment_side_effects_2',
+                                            'condition' => [
+                                                'condition_dependency' => 'neuro_steroids',
+                                                'require_value' => 'true',
+                                            ],
                                         ],
                                         [
                                             'kind' => 'radio',
@@ -783,6 +814,7 @@ get_header();
                                                 'Нет',
                                             ],
                                             'elma_name' => 'mank_neuro_gen_therapy',
+                                            'condition_relation' => 'neuro_gen_therapy'
                                         ],
                                         [
                                             'kind' => 'input',
@@ -792,7 +824,11 @@ get_header();
                                             'label' => 'Вид применяемой терапии',
                                             'required' => false,
                                             'name' => 'mank_neuro_gen_therapy_type',
-                                            'elma_name' => 'mank_neuro_gen_therapy_type'
+                                            'elma_name' => 'mank_neuro_gen_therapy_type',
+                                            'condition' => [
+                                                'condition_dependency' => 'neuro_gen_therapy',
+                                                'require_value' => 'true',
+                                            ],
                                         ],
                                         [
                                             'kind' => 'input',
@@ -802,7 +838,11 @@ get_header();
                                             'label' => 'Укажите месяц и год',
                                             'required' => false,
                                             'name' => 'mank_neuro_gen_therapy_start',
-                                            'elma_name' => 'mank_neuro_gen_therapy_start'
+                                            'elma_name' => 'mank_neuro_gen_therapy_start',
+                                            'condition' => [
+                                                'condition_dependency' => 'neuro_gen_therapy',
+                                                'require_value' => 'true',
+                                            ],
                                         ],
                                         [
                                             'kind' => 'radio',
@@ -814,10 +854,12 @@ get_header();
                                                 'Нет',
                                             ],
                                             'elma_name' => 'mank_neuro_muscle_study_2',
+                                            'condition_relation' => 'neuro_muscle_study'
                                         ],
                                         [
                                             'kind' => 'select',
                                             'placeholder' => 'Выбрать',
+                                            'required' => false,
                                             'with_input' => false,
                                             'question' => 'Укажите балл мышечной силы рук при его наличии',
                                             'name' => 'mank_neuro_muscle_study_ball',
@@ -829,6 +871,10 @@ get_header();
                                                 '5',
                                             ],
                                             'elma_name' => 'mank_neuro_muscle_study_ball',
+                                            'condition' => [
+                                                'condition_dependency' => 'neuro_muscle_study',
+                                                'require_value' => 'true',
+                                            ],
                                         ],
                                         [
                                             'kind' => 'checkbox',
@@ -896,7 +942,7 @@ get_header();
                                                 'Более двух раз',
                                                 'Не были',
                                             ],
-                                            'elma_name' => 'mank_endo_last_visit_2',
+                                            'elma_name' => 'mank_orotho_last_visit_2',
                                         ],
                                         [
                                             'kind' => 'radio',
@@ -921,14 +967,20 @@ get_header();
                                                 'Не знаю',
                                             ],
                                             'elma_name' => 'mank_orotho_scoliosis_2',
+                                            'condition_relation' => 'orotho_scoliosis'
                                         ],
                                         [
                                             'kind' => 'textarea',
                                             'question' => 'Укажите степень и угол сколиоза при наличии (обычно указывается в выписке от ортопеда)',
+                                            'required' => false,
                                             'placeholder' => 'Укажите степень и угол сколиоза',
                                             'label' => 'Укажите степень и угол сколиоза',
                                             'name' => 'scoliosis',
                                             'elma_name' => 'mank_orotho_scoliosis_details_2',
+                                            'condition' => [
+                                                'condition_dependency' => 'orotho_scoliosis',
+                                                'require_value' => 'true',
+                                            ],
                                         ],
                                         [
                                             'kind' => 'radio',
@@ -952,10 +1004,12 @@ get_header();
                                                 'Затрудняюсь ответить',
                                             ],
                                             'elma_name' => 'mank_orotho_contracture_2',
+                                            'condition_relation' => 'orotho_contracture'
                                         ],
                                         [
                                             'kind' => 'checkbox',
                                             'name' => 'corset_kind',
+                                            'required' => false,
                                             'question' => 'Перечислите, в каких именно местах контрактуры сформировались/ухудшились за последний год',
                                             'items' => [
                                                 [
@@ -984,6 +1038,10 @@ get_header();
                                                 ],
                                             ],
                                             'elma_name' => 'mank_orotho_contracture_details_2',
+                                            'condition' => [
+                                                'condition_dependency' => 'orotho_contracture',
+                                                'require_value' => 'true',
+                                            ],
                                         ],
                                         [
                                             'kind' => 'select',
@@ -1187,7 +1245,8 @@ get_header();
                                                 'Более двух раз',
                                                 'Не были',
                                             ],
-                                            'elma_name' => 'mank_endo_last_visit'
+                                            'elma_name' => 'mank_endo_last_visit',
+                                            'condition_relation' => 'endo_last_visit'
                                         ],
                                         [
                                             'kind' => 'select',
@@ -1201,12 +1260,14 @@ get_header();
                                                 'Да, один раз',
                                                 'Да, более одного раза',
                                             ],
-                                            'elma_name' => 'mank_endo_densio'
+                                            'elma_name' => 'mank_endo_densio',
+                                            'condition_relation' => 'endo_densio'
                                         ],
                                         [
                                             'kind' => 'select',
                                             'placeholder' => 'Выбрать',
                                             'with_input' => false,
+                                            'required' => false,
                                             'question' => 'Результат денситометрии',
                                             'name' => 'densitometry_result',
                                             'options' => [
@@ -1214,43 +1275,67 @@ get_header();
                                                 'Оостеопороз выявлен, степень не указана',
                                                 'Остеопороз/остеопения выявлен, степень ... (окошечко, чтобы можно вписать степень)',
                                             ],
-                                            'elma_name' => 'mank_endo_densio_result'
+                                            'elma_name' => 'mank_endo_densio_result',
+                                            'condition' => [
+                                                'condition_dependency' => 'endo_densio',
+                                                'require_value' => [
+                                                    'Да, один раз',
+                                                    'Да, более одного раза'
+                                                ],
+                                            ],
                                         ],
                                         [
                                             'kind' => 'radio',
                                             'question' => 'Проводилась ли вашему сыну оценка полового развития за последний год? ',
                                             'name' => 'is_sex_evolve_value',
-                                            'required' => true,
+                                            'required' => false,
                                             'items' => [
                                                 'Да',
                                                 'Нет',
                                                 'Затрудняюсь ответить',
                                             ],
-                                            'elma_name' => 'mank_endo_pubert_test'
+                                            'elma_name' => 'mank_endo_pubert_test',
+                                            'condition_relation' => 'endo_pubert_test',
+                                            'condition' => [
+                                                'condition_dependency' => 'diagnosis_age',
+                                                'require_value' => ['9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'],
+                                            ],
                                         ],
                                         [
                                             'kind' => 'radio',
                                             'question' => 'Соответсвует половое развитие возрастной норме?',
                                             'name' => 'is_sex_evolve_norm',
-                                            'required' => true,
+                                            'required' => false,
                                             'items' => [
                                                 'Да',
                                                 'Нет',
                                                 'Затрудняюсь ответить',
                                             ],
-                                            'elma_name' => 'mank_endo_pubert_test_result'
+                                            'elma_name' => 'mank_endo_pubert_test_result',
+                                            'condition' => [
+                                                'condition_dependency' => 'endo_pubert_test',
+                                                'require_value' => 'true',
+                                            ],
                                         ],
                                         [
                                             'kind' => 'radio',
                                             'question' => 'Проводилось ли измерение роста',
                                             'name' => 'mank_endo_height_measure',
-                                            'required' => true,
+                                            'required' => false,
                                             'items' => [
                                                 'Да',
                                                 'Нет',
                                                 'Затрудняюсь ответить',
                                             ],
-                                            'elma_name' => 'mank_endo_height_measure'
+                                            'elma_name' => 'mank_endo_height_measure',
+                                            'condition' => [
+                                                'condition_dependency' => 'endo_last_visit',
+                                                'require_value' => [
+                                                    'Один раз',
+                                                    'Два раза',
+                                                    'Более двух раз'
+                                                ],
+                                            ],
                                         ],
                                     ],
                                 ];
@@ -1287,10 +1372,10 @@ get_header();
                                             'placeholder' => 'Выбрать',
                                             'with_input' => true,
                                             'question' => 'Сопровождает ли ребенка специалист по респираторной поддержке на регулярной основе?
-<br><br>
+<br>
 Выберите подходящие варианты. Обычно это пульмонолог или врач-реаниматолог, но у вас может оказаться свой вариант ответа',
                                             'name' => 'is_specialist_support',
-                                            'required' => true,
+                                            'required' => false,
                                             'options' => [
                                                 'Нет, т.к. в этом нет необходимости',
                                                 'Нуждаемся, но нет специалиста',
@@ -1298,6 +1383,13 @@ get_header();
                                                 'Ребенка сопровождает врач-реаниматолог',
                                             ],
                                             'elma_name' => 'mank_pulmo_specialist_2',
+                                            'condition' => [
+                                                'condition_dependency' => 'lost_ability',
+                                                'require_value' => [
+                                                    'Пользуется инвалидным креслом (скутером или подобным), способен удерживать тело, не нужен подголовник, активно пользуется руками',
+                                                    'Использует кресло, требуется поддержка тела и головы. использует руки, но функциональность снижена',
+                                                ],
+                                            ],
                                         ],
                                         [
                                             'kind' => 'select',
@@ -1312,26 +1404,41 @@ get_header();
                                                 'Да, более одного раза',
                                             ],
                                             'elma_name' => 'mank_pulmo_breath_res_last_2',
+                                            'condition_relation' => 'pulmo_breath_res_last'
                                         ],
                                         [
                                             'kind' => 'input',
                                             'type' => 'text',
                                             'placeholder' => 'ФЖЕЛ (%)',
-                                            'required' => true,
+                                            'required' => false,
                                             'question' => 'Введите показатели ФЖЕЛ (форсированная жизненная емкость легких)',
                                             'label' => '',
                                             'name' => 'fjel',
                                             'elma_name' => 'mank_pulmo_breath_res_FJEL_2',
+                                            'condition' => [
+                                                'condition_dependency' => 'pulmo_breath_res_last',
+                                                'require_value' => [
+                                                    'Да, один раз',
+                                                    'Да, более одного раза',
+                                                ],
+                                            ],
                                         ],
                                         [
                                             'kind' => 'input',
                                             'type' => 'text',
-                                            'required' => true,
+                                            'required' => false,
                                             'placeholder' => 'ЖЕЛ (%)',
                                             'question' => 'Введите показатели ЖЕЛ (жизненная емкость легких)',
                                             'label' => '',
                                             'name' => 'jel',
                                             'elma_name' => 'mank_pulmo_breath_res_JEL_2',
+                                            'condition' => [
+                                                'condition_dependency' => 'pulmo_breath_res_last',
+                                                'require_value' => [
+                                                    'Да, один раз',
+                                                    'Да, более одного раза',
+                                                ],
+                                            ],
                                         ],
                                         [
                                             'kind' => 'input',
@@ -1339,16 +1446,23 @@ get_header();
                                             'placeholder' => 'ПКС (л/мин)',
                                             'question' => 'Ведители показатели — ПКС (пиковая скорость кашля)',
                                             'label' => '',
-                                            'required' => true,
+                                            'required' => false,
                                             'name' => 'pks',
                                             'elma_name' => 'mank_pulmo_breath_res_PKS_2',
+                                            'condition' => [
+                                                'condition_dependency' => 'pulmo_breath_res_last',
+                                                'require_value' => [
+                                                    'Да, один раз',
+                                                    'Да, более одного раза',
+                                                ],
+                                            ],
                                         ],
                                         [
                                             'kind' => 'select',
                                             'placeholder' => 'Выбрать',
                                             'with_input' => false,
                                             'question' => 'Проводилось ребенку исследование сна (полисомнография, кардиомониторинг, ночная пульсоксометрия и под.)',
-                                            'required' => true,
+                                            'required' => false,
                                             'name' => 'mank_pulmo_breath_dream_research',
                                             'options' => [
                                                 'Нет',
@@ -1356,13 +1470,20 @@ get_header();
                                                 'Да, более одного раза',
                                             ],
                                             'elma_name' => 'mank_pulmo_breath_dream_research',
+                                            'condition' => [
+                                                'condition_dependency' => 'lost_ability',
+                                                'require_value' => [
+                                                    'Пользуется инвалидным креслом (скутером или подобным), способен удерживать тело, не нужен подголовник, активно пользуется руками',
+                                                    'Использует кресло, требуется поддержка тела и головы. использует руки, но функциональность снижена',
+                                                ],
+                                            ],
                                         ],
                                         [
                                             'kind' => 'select',
                                             'placeholder' => 'Выбрать',
                                             'with_input' => false,
                                             'question' => 'Наблюдалось ли падение сатурации ниже 95% , если есть информация за прошедший год?',
-                                            'required' => true,
+                                            'required' => false,
                                             'name' => 'mank_pulmo_saturation',
                                             'options' => [
                                                 'Да',
@@ -1370,6 +1491,13 @@ get_header();
                                                 'Затрудняюсь ответить',
                                             ],
                                             'elma_name' => 'mank_pulmo_saturation',
+                                            'condition' => [
+                                                'condition_dependency' => 'lost_ability',
+                                                'require_value' => [
+                                                    'Пользуется инвалидным креслом (скутером или подобным), способен удерживать тело, не нужен подголовник, активно пользуется руками',
+                                                    'Использует кресло, требуется поддержка тела и головы. использует руки, но функциональность снижена',
+                                                ],
+                                            ],
                                         ],
                                         [
                                             'kind' => 'checkbox',
@@ -1452,13 +1580,14 @@ get_header();
                                                 'Нет',
                                             ],
                                             'elma_name' => 'mank_pulmo_gym',
+                                            'condition_relation' => 'pulmo_gym'
                                         ],
                                         [
                                             'kind' => 'select',
                                             'placeholder' => 'Указать',
                                             'with_input' => true,
                                             'question' => 'Как именно делаете дыхательную гимнастику?',
-                                            'required' => true,
+                                            'required' => false,
                                             'name' => 'mank_pulmo_gym_fact',
                                             'options' => [
                                                 'С мешком Амбу',
@@ -1466,6 +1595,10 @@ get_header();
                                                 'Используем ручные техники',
                                             ],
                                             'elma_name' => 'mank_pulmo_gym_fact',
+                                            'condition' => [
+                                                'condition_dependency' => 'pulmo_gym',
+                                                'require_value' => 'true',
+                                            ],
                                         ],
                                         [
                                             'kind' => 'select',
@@ -1473,13 +1606,21 @@ get_header();
                                             'with_input' => false,
                                             'question' => 'Использует ли ваш сын аппарат вентиляции легких?',
                                             'name' => 'is_ivl',
-                                            'required' => true,
+                                            'required' => false,
                                             'options' => [
                                                 'Не использует',
                                                 'Да, использует НИВЛ',
                                                 'Да, использует ИВЛ',
                                             ],
                                             'elma_name' => 'mank_pulmo_nivl_2',
+                                            'condition_relation' => 'pulmo_nivl_2',
+                                            'condition' => [
+                                                'condition_dependency' => 'lost_ability',
+                                                'require_value' => [
+                                                    'Пользуется инвалидным креслом (скутером или подобным), способен удерживать тело, не нужен подголовник, активно пользуется руками',
+                                                    'Использует кресло, требуется поддержка тела и головы. использует руки, но функциональность снижена',
+                                                ],
+                                            ],
                                         ],
                                         [
                                             'kind' => 'select',
@@ -1487,13 +1628,17 @@ get_header();
                                             'with_input' => true,
                                             'question' => 'Сколько часов вентиляции требуется вашему сыну?',
                                             'name' => 'mank_pulmo_nivl_time',
-                                            'required' => true,
+                                            'required' => false,
                                             'options' => [
                                                 'Дышит всю ночь',
                                                 'Дышит немного ночью',
                                                 'Дышит ночью и немного днем',
                                             ],
                                             'elma_name' => 'mank_pulmo_nivl_time',
+                                            'condition' => [
+                                                'condition_dependency' => 'pulmo_nivl_2',
+                                                'require_value' => 'Да, использует НИВЛ',
+                                            ],
                                         ],
                                         [
                                             'kind' => 'select',
@@ -1501,13 +1646,17 @@ get_header();
                                             'with_input' => false,
                                             'question' => 'Может ли сын быть на спонтанном дыхании (когда аппарат выключен)?',
                                             'name' => 'mank_pulmo_breath_ability',
-                                            'required' => true,
+                                            'required' => false,
                                             'options' => [
                                                 'Не знаем',
                                                 'Не может',
                                                 'Может',
                                             ],
                                             'elma_name' => 'mank_pulmo_breath_ability',
+                                            'condition' => [
+                                                'condition_dependency' => 'pulmo_nivl_2',
+                                                'require_value' => 'Да, использует ИВЛ',
+                                            ],
                                         ],
                                     ],
                                 ];
@@ -1574,6 +1723,10 @@ get_header();
                                                     'label' => 'Боли в животе',
                                                     'name' => ''
                                                 ],
+                                                [
+                                                    'label' => 'Другое (указать)',
+                                                    'name' => ''
+                                                ],
                                             ],
                                             'elma_name' => 'mank_gastro_symptoms_2',
                                         ],
@@ -1582,7 +1735,7 @@ get_header();
                                             'placeholder' => 'Выбрать',
                                             'is_input_exist' => true,
                                             'question' => 'Как питается сын в настоящий момент?',
-                                            'required' => true,
+                                            'required' => false,
                                             'name' => 'eat',
                                             'options' => [
                                                 'Ест обычную пищу',
@@ -1590,13 +1743,20 @@ get_header();
                                                 'Используем лечебное питание',
                                             ],
                                             'elma_name' => 'mank_gastro_current_diet_2',
+                                            'condition' => [
+                                                'condition_dependency' => 'lost_ability',
+                                                'require_value' => [
+                                                    'Пользуется инвалидным креслом (скутером или подобным), способен удерживать тело, не нужен подголовник, активно пользуется руками',
+                                                    'Использует кресло, требуется поддержка тела и головы. использует руки, но функциональность снижена',
+                                                ],
+                                            ],
                                         ],
                                         [
                                             'kind' => 'select',
                                             'placeholder' => 'Выбрать',
                                             'with_input' => false,
                                             'question' => 'Наблюдается потеря веса за последний год?',
-                                            'required' => true,
+                                            'required' => false,
                                             'name' => 'weight_problem',
                                             'options' => [
                                                 'Нет, потери веса не наблюдается',
@@ -1605,11 +1765,18 @@ get_header();
                                                 'Затрудняюсь ответить',
                                             ],
                                             'elma_name' => 'mank_gastro_weight_loss_2',
+                                            'condition' => [
+                                                'condition_dependency' => 'lost_ability',
+                                                'require_value' => [
+                                                    'Пользуется инвалидным креслом (скутером или подобным), способен удерживать тело, не нужен подголовник, активно пользуется руками',
+                                                    'Использует кресло, требуется поддержка тела и головы. использует руки, но функциональность снижена',
+                                                ],
+                                            ],
                                         ],
                                         [
                                             'kind' => 'select',
                                             'placeholder' => 'Выбрать',
-                                            'required' => true,
+                                            'required' => false,
                                             'with_input' => true,
                                             'question' => 'Увеличилось ли время приема пищи?',
                                             'name' => 'gulp_problems',
@@ -1619,6 +1786,13 @@ get_header();
                                                 'Стало гораздо труднее принимать пищу, время значительно увеличилось',
                                             ],
                                             'elma_name' => 'mank_gastro_dinner_time_2',
+                                            'condition' => [
+                                                'condition_dependency' => 'lost_ability',
+                                                'require_value' => [
+                                                    'Пользуется инвалидным креслом (скутером или подобным), способен удерживать тело, не нужен подголовник, активно пользуется руками',
+                                                    'Использует кресло, требуется поддержка тела и головы. использует руки, но функциональность снижена',
+                                                ],
+                                            ],
                                         ],
                                         [
                                             'kind' => 'select',
@@ -1921,106 +2095,106 @@ get_header();
                         </section>
                     </div>
                     <div class="lk-form" data-form="3">
-Документы
+                        Документы
                     </div>
                     <div class="lk-form" data-form="4">
-                        <?php 
-                                $form_settings = [
-                                	'caption' => '',
-                                    'submit_button' => 'Продолжить',
-                                    'tab' => '4',
-                                    'name' => 'program_block',
-                                    'form_fields' => [
-                                        [
-                                            'kind' => 'select',
-                                            'name' => 'help_program',
-                                            'placeholder' => 'Выбрать',
-                                            'question' => 'Выберите программу, в которой вы хотели бы принять участие',
-                                            'options' => [
-                                                'Адресная помощь',
-                                                'Мы вместе'
-                                            ],
-                                    		//'condition_relation' => 'help_program'
-                                            'elma_name' => 'help_program',
-                                        ],
-                                        [
-	                                        'kind' => 'input',
-	                                        'required' => false,
-	                                        'elma_name' => 'address_help_text',
-	                                        'type' => 'text',
-	                                        'placeholder' => 'Какая помощь вам нужна?',
-	                                        'label' => '',
-	                                        'name' => 'address_help_text'
-	                                    ],
-                                        [
-                                            'kind' => 'select',
-                                            'placeholder' => 'Выбрать',
-                                            'question' => 'Выберите тип мероприятия, в котором хотите принять участие?',
-                                            'with_input' => false,
-                                            'name' => 'mv_1',
-                                            'required' => false,
-                                            'options' => [
-                                                'Психолого–реабилитационный лагерь',
-                                                'Интеграционный лагерь'
-                                            ],
-                                            'elma_name' => 'mv_1',
-                                        ],
-                                        [
-                                            'kind' => 'select',
-                                            'placeholder' => 'Выбрать',
-                                            'question' => 'Когда вы узнали о диагнозе сына?',
-                                            'with_input' => false,
-                                            'name' => 'mv_2',
-                                            'required' => false,
-                                            'options' => [
-                                                'Менее полугода назад',
-                                                'Более года назад',
-    											'Давно знаем о диагнозе',
-                                            ],
-                                            'elma_name' => 'mv_2',
-                                        ],
-                                        [
-                                            'kind' => 'select',
-                                            'placeholder' => 'Выбрать',
-                                            'question' => 'Вы были раньше в подобном лагере?',
-                                            'with_input' => false,
-                                            'name' => 'mv_3',
-                                            'required' => false,
-                                            'options' => [
-                                                'Да',
-                                                'Нет',
-                                            ],
-                                            'elma_name' => 'mv_3',
-                                        ],
-	                                    [
-	                                        'kind' => 'input',
-	                                        'required' => false,
-	                                        'elma_name' => 'mv_4',
-	                                        'type' => 'text',
-	                                        'placeholder' => 'В каком году вы принимали участие в психолого–реабилитационном лагере?',
-	                                        'label' => '',
-	                                        'name' => 'mv_4'
-	                                    ],
-                                        [
-                                            'kind' => 'select',
-                                            'placeholder' => 'Выбрать',
-                                            'question' => 'Почему вы хотите принять участие в лагере?',
-                                            'with_input' => false,
-                                            'name' => 'mv_5',
-                                            'required' => false,
-                                            'options' => [
-                                                'Мне важно быть рядом с такими же семьями',
-                                                'Хочу получить информацию по особенностям заболевания',
-    											'Нуждаюсь в психологической поддержке',
-    											'Хочу отдохнуть',
-                                            ],
-                                            'elma_name' => 'mv_5',
-                                        ],
+                        <?php
+                        $form_settings = [
+                            'caption' => '',
+                            'submit_button' => 'Продолжить',
+                            'tab' => '4',
+                            'name' => 'program_block',
+                            'form_fields' => [
+                                [
+                                    'kind' => 'select',
+                                    'name' => 'help_program',
+                                    'placeholder' => 'Выбрать',
+                                    'question' => 'Выберите программу, в которой вы хотели бы принять участие',
+                                    'options' => [
+                                        'Адресная помощь',
+                                        'Мы вместе'
                                     ],
-                                ];
+                                    //'condition_relation' => 'help_program'
+                                    'elma_name' => 'help_program',
+                                ],
+                                [
+                                    'kind' => 'input',
+                                    'required' => false,
+                                    'elma_name' => 'address_help_text',
+                                    'type' => 'text',
+                                    'placeholder' => 'Какая помощь вам нужна?',
+                                    'label' => '',
+                                    'name' => 'address_help_text'
+                                ],
+                                [
+                                    'kind' => 'select',
+                                    'placeholder' => 'Выбрать',
+                                    'question' => 'Выберите тип мероприятия, в котором хотите принять участие?',
+                                    'with_input' => false,
+                                    'name' => 'mv_1',
+                                    'required' => false,
+                                    'options' => [
+                                        'Психолого–реабилитационный лагерь',
+                                        'Интеграционный лагерь'
+                                    ],
+                                    'elma_name' => 'mv_1',
+                                ],
+                                [
+                                    'kind' => 'select',
+                                    'placeholder' => 'Выбрать',
+                                    'question' => 'Когда вы узнали о диагнозе сына?',
+                                    'with_input' => false,
+                                    'name' => 'mv_2',
+                                    'required' => false,
+                                    'options' => [
+                                        'Менее полугода назад',
+                                        'Более года назад',
+                                        'Давно знаем о диагнозе',
+                                    ],
+                                    'elma_name' => 'mv_2',
+                                ],
+                                [
+                                    'kind' => 'select',
+                                    'placeholder' => 'Выбрать',
+                                    'question' => 'Вы были раньше в подобном лагере?',
+                                    'with_input' => false,
+                                    'name' => 'mv_3',
+                                    'required' => false,
+                                    'options' => [
+                                        'Да',
+                                        'Нет',
+                                    ],
+                                    'elma_name' => 'mv_3',
+                                ],
+                                [
+                                    'kind' => 'input',
+                                    'required' => false,
+                                    'elma_name' => 'mv_4',
+                                    'type' => 'text',
+                                    'placeholder' => 'В каком году вы принимали участие в психолого–реабилитационном лагере?',
+                                    'label' => '',
+                                    'name' => 'mv_4'
+                                ],
+                                [
+                                    'kind' => 'select',
+                                    'placeholder' => 'Выбрать',
+                                    'question' => 'Почему вы хотите принять участие в лагере?',
+                                    'with_input' => false,
+                                    'name' => 'mv_5',
+                                    'required' => false,
+                                    'options' => [
+                                        'Мне важно быть рядом с такими же семьями',
+                                        'Хочу получить информацию по особенностям заболевания',
+                                        'Нуждаюсь в психологической поддержке',
+                                        'Хочу отдохнуть',
+                                    ],
+                                    'elma_name' => 'mv_5',
+                                ],
+                            ],
+                        ];
 
-                                get_template_part('/template-parts/form-template', null, $form_settings); ?>
-                                	
+                        get_template_part('/template-parts/form-template', null, $form_settings); ?>
+
                     </div>
                     <div class="lk-form" data-form="5">
                         <p>Форма 5</p>
