@@ -420,6 +420,8 @@ get_header();
                     <div class="lk-form" data-form="2">
                         <section class="lk-form-container">
 
+                            <p class="lk-progress">Заполнение мед. анкеты <span class="lk-progress-inner"></span> блоков</p>
+
                             <div class="lk-form__tabs">
                                 <span class="lk-form__tab" data-tab="1">Общая информация о пациенте и заболевании</span>
                                 <span class="lk-form__tab" data-tab="2">Неврология</span>

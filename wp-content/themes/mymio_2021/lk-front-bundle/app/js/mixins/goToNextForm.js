@@ -1,3 +1,5 @@
+import {questionaireProgress} from "../helprers/questionaireProgress";
+
 export const goToNextForm = (dataFormCurrent) => {
     const tabClass = 'lk-form__tab';
     const formClass = 'lk-form__tab_content';
@@ -54,6 +56,8 @@ export const goToNextForm = (dataFormCurrent) => {
             }
         }
     }
+
+    questionaireProgress();
 
     setTimeout(() => {
         $(nextTab).trigger('click');

@@ -1,4 +1,5 @@
 import {localStorageGet, localStorageSet} from "../helprers/localStorage";
+import {questionaireProgress} from "../helprers/questionaireProgress";
 
 export const tabs = (tabClass, tabContentClass) => {
     const tabs = $(tabClass);
@@ -76,5 +77,8 @@ export const checkLockedTabs = () => {
                 tab.addClass('locked');
                 form.addClass('locked');
             })
+        })
+        .then(() => {
+            questionaireProgress();
         });
 }

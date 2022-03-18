@@ -633,6 +633,20 @@ textarea.contact-form__input {
     width: 100%;
 }
 
+.lk-progress {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    color: #000;
+    font-weight: 600;
+}
+
+.lk-progress-inner {
+    color: #009D9A;
+} 
+
 .lk-form-container .lk-form__tab_content,
 .lk-form-container .lk-form__tab_content.hide {
     display: none;
