@@ -29,6 +29,6 @@ selectMkb('mank_accompanying_diagnosis_2');
 
 //TODO: fix if error
 
-// import './formFunctions/yaMaps';
+import './formFunctions/yaMaps';
 
 //Новый тест пароль - of_0xKtBV7
