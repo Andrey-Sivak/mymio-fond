@@ -190,13 +190,18 @@ get_header();
                                         'name' => 'main_info_place_of_birth'
                                     ],
                                     [
-                                        'kind' => 'input',
+                                        'kind' => 'select',
                                         'required' => true,
-                                        'type' => 'text',
+                                        'with_input' => false,
                                         'elma_name' => 'main_ank_document_type',
                                         'placeholder' => 'Вид документа',
+                                        'question' => 'Вид документа',
                                         'label' => '',
-                                        'name' => 'pass_kind'
+                                        'name' => 'pass_kind',
+                                        'options' => [
+                                            'Паспорт',
+                                            'Свидетельство о рождении',
+                                        ],
                                     ],
                                     [
                                         'kind' => 'input',
@@ -399,10 +404,11 @@ get_header();
                                             ],
                                         ],
                                     ],
-                                    /*[
+                                    [
                                         'kind' => 'checkbox',
                                         'question' => '',
                                         'elma_name' => '',
+                                        'name' => 'privacy_confirm',
                                         'required'	=> true,
                                         'items' => [
                                             [
@@ -410,7 +416,7 @@ get_header();
                                                 'name' => ''
                                             ],
                                         ],
-                                    ],*/
+                                    ],
                                 ],
                             ];
 
@@ -483,7 +489,7 @@ get_header();
                                             'with_input' => true,
                                             'placeholder' => 'Выбрать',
                                             'name' => 'find_in',
-                                            'question' => 'Где впервые заподозрили(предположили) диагноз миодистрофия Дюшенна/Беккера?<br>Вам необходимо выбрать учреждение из списка. Если перечисленные варианты Вам не подходят - указжите только свой ответ',
+                                            'question' => 'Где впервые заподозрили(предположили) диагноз миодистрофия Дюшенна/Беккера?<br><span class="contact-form__form-field_note-small">Вам необходимо выбрать учреждение из списка. Если перечисленные варианты Вам не подходят - указжите только свой ответ',
                                             'options' => [
                                                 'Поликлиника',
                                                 'Региональное медицинское учреждение (больница, КДЦ и др)',
@@ -592,7 +598,7 @@ get_header();
                                 $form_settings = [
                                     'caption' => 'Неврология',
                                     'submit_button' => 'Продолжить',
-                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку «Название блока» вы заполняете за текущий календарный год.',
+                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Неврология вы заполняете за текущий календарный год.',
                                     'tab' => '2',
                                     'name' => 'neurology',
                                     'form_fields' => [
@@ -736,7 +742,7 @@ get_header();
                                             'kind' => 'checkbox',
                                             'question' => 'Наблюдаются ли побочные эффекты от стероидной терапии?',
                                             'name' => 'steroid_therapy_side_effects',
-                                            'is_input_exist' => false,
+                                            'is_input_exist' => true,
                                             'required' => false,
                                             'items' => [
                                                 [
@@ -927,7 +933,7 @@ get_header();
                                 $form_settings = [
                                     'caption' => 'Ортопедия',
                                     'submit_button' => 'Продолжить',
-                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку «Название блока» вы заполняете за текущий календарный год.',
+                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Ортопедия вы заполняете за текущий календарный год.',
                                     'tab' => '3',
                                     'name' => 'orthopedics',
                                     'form_fields' => [
@@ -1071,7 +1077,7 @@ get_header();
                                 $form_settings = [
                                     'caption' => 'Реабилитация',
                                     'submit_button' => 'Продолжить',
-                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку «Название блока» вы заполняете за текущий календарный год.',
+                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Реабилитация вы заполняете за текущий календарный год.',
                                     'tab' => '4',
                                     'name' => 'reabilitation',
                                     'form_fields' => [
@@ -1230,7 +1236,7 @@ get_header();
                                 $form_settings = [
                                     'caption' => 'Эндокринология',
                                     'submit_button' => 'Продолжить',
-                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку «Название блока» вы заполняете за текущий календарный год.',
+                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Эндокринология вы заполняете за текущий календарный год.',
                                     'tab' => '5',
                                     'name' => 'endocrinology',
                                     'form_fields' => [
@@ -1247,7 +1253,7 @@ get_header();
                                                 'Более двух раз',
                                                 'Не были',
                                             ],
-                                            'elma_name' => 'mank_endo_last_visit',
+                                            'elma_name' => 'mank_endo_last_visit_2',
                                             'condition_relation' => 'endo_last_visit'
                                         ],
                                         [
@@ -1262,22 +1268,22 @@ get_header();
                                                 'Да, один раз',
                                                 'Да, более одного раза',
                                             ],
-                                            'elma_name' => 'mank_endo_densio',
+                                            'elma_name' => 'mank_endo_densio_2',
                                             'condition_relation' => 'endo_densio'
                                         ],
                                         [
                                             'kind' => 'select',
                                             'placeholder' => 'Выбрать',
-                                            'with_input' => false,
+                                            'with_input' => true,
                                             'required' => false,
                                             'question' => 'Результат денситометрии',
                                             'name' => 'densitometry_result',
                                             'options' => [
                                                 'Остеопороз не выявлен',
                                                 'Оостеопороз выявлен, степень не указана',
-                                                'Остеопороз/остеопения выявлен, степень ... (окошечко, чтобы можно вписать степень)',
+                                                'Остеопороз/остеопения выявлен, (указать степень)',
                                             ],
-                                            'elma_name' => 'mank_endo_densio_result',
+                                            'elma_name' => 'mank_endo_densio_result_2',
                                             'condition' => [
                                                 'condition_dependency' => 'endo_densio',
                                                 'require_value' => [
@@ -1296,7 +1302,7 @@ get_header();
                                                 'Нет',
                                                 'Затрудняюсь ответить',
                                             ],
-                                            'elma_name' => 'mank_endo_pubert_test',
+                                            'elma_name' => 'mank_endo_pubert_test_2',
                                             'condition_relation' => 'endo_pubert_test',
                                             'condition' => [
                                                 'condition_dependency' => 'diagnosis_age',
@@ -1313,7 +1319,7 @@ get_header();
                                                 'Нет',
                                                 'Затрудняюсь ответить',
                                             ],
-                                            'elma_name' => 'mank_endo_pubert_test_result',
+                                            'elma_name' => 'mank_endo_pubert_test_result_2',
                                             'condition' => [
                                                 'condition_dependency' => 'endo_pubert_test',
                                                 'require_value' => 'true',
@@ -1350,7 +1356,7 @@ get_header();
                                 $form_settings = [
                                     'caption' => 'Пульмонология',
                                     'submit_button' => 'Продолжить',
-                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку «Название блока» вы заполняете за текущий календарный год.',
+                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Пульмонология вы заполняете за текущий календарный год.',
                                     'tab' => '6',
                                     'name' => 'pulmonology',
                                     'form_fields' => [
@@ -1671,7 +1677,7 @@ get_header();
                                 $form_settings = [
                                     'caption' => 'Гастроэнтерология',
                                     'submit_button' => 'Продолжить',
-                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку «Название блока» вы заполняете за текущий календарный год.',
+                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Гастроэнтерология вы заполняете за текущий календарный год.',
                                     'tab' => '7',
                                     'name' => 'gastroenterology',
                                     'form_fields' => [
@@ -1699,34 +1705,37 @@ get_header();
                                             'items' => [
                                                 [
                                                     'label' => 'Запоры',
-                                                    'name' => ''
-                                                ],
-                                                [
-                                                    'label' => 'Запоры',
+                                                    'condition_relation' => 'gastro_symptoms',
                                                     'name' => ''
                                                 ],
                                                 [
                                                     'label' => 'Гастрит',
+                                                    'condition_relation' => 'gastro_symptoms',
                                                     'name' => ''
                                                 ],
                                                 [
                                                     'label' => 'Язва желудка',
+                                                'condition_relation' => 'gastro_symptoms',
                                                     'name' => ''
                                                 ],
                                                 [
                                                     'label' => 'Отрыжка',
+'condition_relation' => 'gastro_symptoms',
                                                     'name' => ''
                                                 ],
                                                 [
                                                     'label' => 'Запах изо рта',
+                                                'condition_relation' => 'gastro_symptoms',
                                                     'name' => ''
                                                 ],
                                                 [
                                                     'label' => 'Боли в животе',
+                                                    'condition_relation' => 'gastro_symptoms',
                                                     'name' => ''
                                                 ],
                                                 [
                                                     'label' => 'Другое (указать)',
+                                                    'condition_relation' => 'gastro_symptoms',
                                                     'name' => ''
                                                 ],
                                             ],
@@ -1756,7 +1765,8 @@ get_header();
                                         [
                                             'kind' => 'select',
                                             'placeholder' => 'Выбрать',
-                                            'with_input' => false,
+                                            'with_input' => true,
+                                            'label_for_input'  => 'Насколько похудел(кг)',
                                             'question' => 'Наблюдается потеря веса за последний год?',
                                             'required' => false,
                                             'name' => 'weight_problem',
@@ -1809,6 +1819,10 @@ get_header();
                                                 'Да, более одного раза',
                                             ],
                                             'elma_name' => 'mank_gastro_uzi',
+                                            'condition' => [
+                                                'condition_dependency' => 'gastro_symptoms',
+                                                'require_value' => 'true',
+                                            ],
                                         ],
                                     ],
                                 ];
@@ -1821,7 +1835,7 @@ get_header();
                                 $form_settings = [
                                     'caption' => 'Кардиология',
                                     'submit_button' => 'Продолжить',
-                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку «Название блока» вы заполняете за текущий календарный год.',
+                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Кардиология вы заполняете за текущий календарный год.',
                                     'tab' => '8',
                                     'name' => 'cardiology',
                                     'form_fields' => [
@@ -1842,7 +1856,7 @@ get_header();
                                         ],
                                         [
                                             'kind' => 'radio',
-                                            'question' => 'Получает ли ребенок кардиологическую терапию?',
+                                            'question' => 'Получает ли ребенок кардиологическую терапию сейчас?',
                                             'required' => true,
                                             'name' => 'is_cardio_therapy',
                                             'items' => [
@@ -1850,6 +1864,7 @@ get_header();
                                                 'Нет',
                                             ],
                                             'elma_name' => 'mank_cardio_therapy_2',
+                                            'condition_relation' => 'cardio_therapy',
                                         ],
                                         [
                                             'kind' => 'input',
@@ -1859,7 +1874,11 @@ get_header();
                                             'label' => 'Причина',
                                             'required' => false,
                                             'name' => 'mank_cardio_therapy_cancel',
-                                            'elma_name' => 'mank_cardio_therapy_cancel'
+                                            'elma_name' => 'mank_cardio_therapy_cancel',
+                                            'condition' => [
+                                                'condition_dependency' => 'cardio_therapy',
+                                                'require_value' => 'false',
+                                            ],
                                         ],
                                         [
                                             'kind' => 'select',
@@ -1914,7 +1933,7 @@ get_header();
                                 $form_settings = [
                                     'caption' => 'Хирургические вмешательства',
                                     'submit_button' => 'Продолжить',
-                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку «Название блока» вы заполняете за текущий календарный год.',
+                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Хирургические вмешательства вы заполняете за текущий календарный год.',
                                     'tab' => '9',
                                     'name' => 'surgery',
                                     'form_fields' => [
@@ -1928,6 +1947,7 @@ get_header();
                                                 'Нет',
                                             ],
                                             'elma_name' => 'mank_surgery_state_2',
+                                            'condition_relation' => 'surgery_state',
                                         ],
                                         [
                                             'kind' => 'input',
@@ -1937,6 +1957,10 @@ get_header();
                                             'label' => '',
                                             'name' => 'surgery_reason',
                                             'elma_name' => 'mank_surgery_state_fact_2',
+                                            'condition' => [
+                                                'condition_dependency' => 'surgery_state',
+                                                'require_value' => 'true',
+                                            ],
                                         ],
                                     ],
                                 ];
@@ -1949,7 +1973,7 @@ get_header();
                                 $form_settings = [
                                     'caption' => 'Социальный/Возможности среды',
                                     'submit_button' => 'Продолжить',
-                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку «Название блока» вы заполняете за текущий календарный год.',
+                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Социальный/Возможности среды вы заполняете за текущий календарный год.',
                                     'tab' => '10',
                                     'name' => 'social_env',
                                     'form_fields' => [
@@ -2013,12 +2037,13 @@ get_header();
                                             'kind' => 'select',
                                             'placeholder' => 'Выбрать',
                                             'question' => 'Приспособлено ли место, где вы живете (квартира, дом)  для людей с инвалидностью ?',
-                                            'with_input' => false,
+                                            'with_input' => true,
+                                            'label_for_input' => 'Напишите пожалуйста, что конкретно не приспособлено',
                                             'name' => 'adapted_adapt',
                                             'required' => true,
                                             'options' => [
                                                 'Да',
-                                                'Нет (напишите, пожалуйста, что конкретно не приспособлено)',
+                                                'Нет (указать, что конкретно не приспособлено)',
                                                 'Затрудняюсь ответить',
                                             ],
                                             'elma_name' => 'mank_social_adapt_2',
@@ -2034,7 +2059,7 @@ get_header();
                                 $form_settings = [
                                     'caption' => 'Социально–психологический блок',
                                     'submit_button' => 'Продолжить',
-                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку «Название блока» вы заполняете за текущий календарный год.',
+                                    'subcaption' => 'Обратите, пожалуйста, внимание: информацию по Социально–психологическому блоку вы заполняете за текущий календарный год.',
                                     'tab' => '11',
                                     'name' => 'social_block',
                                     'form_fields' => [
@@ -2100,103 +2125,110 @@ get_header();
                         Документы
                     </div>
                     <div class="lk-form" data-form="4">
-                        <?php
-                        $form_settings = [
-                            'caption' => '',
-                            'submit_button' => 'Продолжить',
-                            'tab' => '4',
-                            'name' => 'program_block',
-                            'form_fields' => [
-                                [
-                                    'kind' => 'select',
-                                    'name' => 'help_program',
-                                    'placeholder' => 'Выбрать',
-                                    'question' => 'Выберите программу, в которой вы хотели бы принять участие',
-                                    'options' => [
-                                        'Адресная помощь',
-                                        'Мы вместе'
+                        <section class="lk-form-container">
+                            <?php
+                            $form_settings = [
+                                'caption' => '',
+                                'submit_button' => 'Продолжить',
+                                'tab' => '4',
+                                'name' => 'program_block',
+                                'form_fields' => [
+                                    [
+                                        'kind' => 'select',
+                                        'name' => 'help_program',
+                                        'placeholder' => 'Выбрать',
+                                        'question' => 'Выберите программу, в которой вы хотели бы принять участие',
+                                        'options' => [
+                                            'Адресная помощь',
+                                            'Мы вместе'
+                                        ],
+                                        'condition_relation' => 'help_program',
+                                        'elma_name' => 'help_program',
                                     ],
-                                    //'condition_relation' => 'help_program'
-                                    'elma_name' => 'help_program',
-                                ],
-                                [
-                                    'kind' => 'input',
-                                    'required' => false,
-                                    'elma_name' => 'address_help_text',
-                                    'type' => 'text',
-                                    'placeholder' => 'Какая помощь вам нужна?',
-                                    'label' => '',
-                                    'name' => 'address_help_text'
-                                ],
-                                [
-                                    'kind' => 'select',
-                                    'placeholder' => 'Выбрать',
-                                    'question' => 'Выберите тип мероприятия, в котором хотите принять участие?',
-                                    'with_input' => false,
-                                    'name' => 'mv_1',
-                                    'required' => false,
-                                    'options' => [
-                                        'Психолого–реабилитационный лагерь',
-                                        'Интеграционный лагерь'
+                                    [
+                                        'kind' => 'input',
+                                        'required' => false,
+                                        'elma_name' => 'address_help_text',
+                                        'type' => 'text',
+                                        'question' => 'Какая помощь вам нужна?',
+                                        'placeholder' => 'Какая помощь вам нужна?',
+                                        'label' => '',
+                                        'name' => 'address_help_text',
+                                        'condition' => [
+                                            'condition_dependency' => 'help_program',
+                                            'require_value' => 'Адресная помощь'
+                                        ],
                                     ],
-                                    'elma_name' => 'mv_1',
-                                ],
-                                [
-                                    'kind' => 'select',
-                                    'placeholder' => 'Выбрать',
-                                    'question' => 'Когда вы узнали о диагнозе сына?',
-                                    'with_input' => false,
-                                    'name' => 'mv_2',
-                                    'required' => false,
-                                    'options' => [
-                                        'Менее полугода назад',
-                                        'Более года назад',
-                                        'Давно знаем о диагнозе',
+                                    [
+                                        'kind' => 'select',
+                                        'placeholder' => 'Выбрать',
+                                        'question' => 'Выберите тип мероприятия, в котором хотите принять участие?',
+                                        'with_input' => false,
+                                        'name' => 'mv_1',
+                                        'required' => false,
+                                        'options' => [
+                                            'Психолого–реабилитационный лагерь',
+                                            'Интеграционный лагерь'
+                                        ],
+                                        'elma_name' => 'mv_1',
                                     ],
-                                    'elma_name' => 'mv_2',
-                                ],
-                                [
-                                    'kind' => 'select',
-                                    'placeholder' => 'Выбрать',
-                                    'question' => 'Вы были раньше в подобном лагере?',
-                                    'with_input' => false,
-                                    'name' => 'mv_3',
-                                    'required' => false,
-                                    'options' => [
-                                        'Да',
-                                        'Нет',
+                                    [
+                                        'kind' => 'select',
+                                        'placeholder' => 'Выбрать',
+                                        'question' => 'Когда вы узнали о диагнозе сына?',
+                                        'with_input' => false,
+                                        'name' => 'mv_2',
+                                        'required' => false,
+                                        'options' => [
+                                            'Менее полугода назад',
+                                            'Более года назад',
+                                            'Давно знаем о диагнозе',
+                                        ],
+                                        'elma_name' => 'mv_2',
                                     ],
-                                    'elma_name' => 'mv_3',
-                                ],
-                                [
-                                    'kind' => 'input',
-                                    'required' => false,
-                                    'elma_name' => 'mv_4',
-                                    'type' => 'text',
-                                    'placeholder' => 'В каком году вы принимали участие в психолого–реабилитационном лагере?',
-                                    'label' => '',
-                                    'name' => 'mv_4'
-                                ],
-                                [
-                                    'kind' => 'select',
-                                    'placeholder' => 'Выбрать',
-                                    'question' => 'Почему вы хотите принять участие в лагере?',
-                                    'with_input' => false,
-                                    'name' => 'mv_5',
-                                    'required' => false,
-                                    'options' => [
-                                        'Мне важно быть рядом с такими же семьями',
-                                        'Хочу получить информацию по особенностям заболевания',
-                                        'Нуждаюсь в психологической поддержке',
-                                        'Хочу отдохнуть',
+                                    [
+                                        'kind' => 'select',
+                                        'placeholder' => 'Выбрать',
+                                        'question' => 'Вы были раньше в подобном лагере?',
+                                        'with_input' => false,
+                                        'name' => 'mv_3',
+                                        'required' => false,
+                                        'options' => [
+                                            'Да',
+                                            'Нет',
+                                        ],
+                                        'elma_name' => 'mv_3',
                                     ],
-                                    'elma_name' => 'mv_5',
+                                    [
+                                        'kind' => 'input',
+                                        'required' => false,
+                                        'elma_name' => 'mv_4',
+                                        'type' => 'text',
+                                        'placeholder' => 'Указать год',
+                                        'question' => 'В каком году вы принимали участие в психолого–реабилитационном лагере?',
+                                        'label' => '',
+                                        'name' => 'mv_4'
+                                    ],
+                                    [
+                                        'kind' => 'select',
+                                        'placeholder' => 'Выбрать',
+                                        'question' => 'Почему вы хотите принять участие в лагере?',
+                                        'with_input' => false,
+                                        'name' => 'mv_5',
+                                        'required' => false,
+                                        'options' => [
+                                            'Мне важно быть рядом с такими же семьями',
+                                            'Хочу получить информацию по особенностям заболевания',
+                                            'Нуждаюсь в психологической поддержке',
+                                            'Хочу отдохнуть',
+                                        ],
+                                        'elma_name' => 'mv_5',
+                                    ],
                                 ],
-                            ],
-                        ];
+                            ];
 
-                        get_template_part('/template-parts/form-template', null, $form_settings); ?>
-
+                            get_template_part('/template-parts/form-template', null, $form_settings); ?>
+                        </section>
                     </div>
                     <div class="lk-form" data-form="5">
                         <p>Форма 5</p>
