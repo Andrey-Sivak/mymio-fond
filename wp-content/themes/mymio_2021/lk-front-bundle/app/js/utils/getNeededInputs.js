@@ -13,7 +13,7 @@ export const getNeededInputs = (form) => {
 
             const selectValue = $(this).val();
 
-            if (selectValue.includes('Другое')) {
+            if (selectValue.includes('(указать')) {
                 const selectParent = $(this).parent().parent();
                 const selectInput = $(selectParent).find('.select-input .select-input__input');
                 const elmaName = $(this).data('elma');

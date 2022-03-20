@@ -55,6 +55,9 @@ if (is_array($require_value)) {
     <?php if ($is_input_exist) : ?>
         <div class="select-input">
             <input type="text"
+                <?php if ($input_label) : ?>
+                    placeholder="<?= $input_label; ?>"
+                <?php endif; ?>
                    class="select-input__input">
             <label class="contact-form__label"><?= $input_label; ?></label>
         </div>

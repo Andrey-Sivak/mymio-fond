@@ -33,9 +33,9 @@ $('.select').parent().on('click', function () {
     inner.on('DOMSubtreeModified', function () {
         const content = $(this).html();
 
-        if (content.includes('Другое')) {
+        if (content.includes('(указать')) {
             selectInput.addClass('active');
-        } else if (!content.includes('Другое') && selectInput.hasClass('active')) {
+        } else if (!content.includes('(указать') && selectInput.hasClass('active')) {
             selectInput.removeClass('active');
         }
     });
