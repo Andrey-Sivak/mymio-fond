@@ -184,7 +184,7 @@
 .contact-form__label {
     position: absolute;
     left: 30px;
-    top: 2px;
+    bottom: 28px;
     font-size: 10px;
     font-weight: normal;
     opacity: 0;
@@ -196,6 +196,7 @@
     font-size: 12px;
     padding-left: 30px;
     left: unset;
+    bottom: unset;
     top: unset;
     margin-top: 10px;
     cursor: pointer;
@@ -712,4 +713,14 @@ textarea.contact-form__input {
     .request-form-container #datepicker {
         width: 105%;
     }
+}
+
+.contact-form__form-field_note .contact-form__form-field_note-small {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.privacy-link {
+    color: #009D9A;
+    text-decoration: underline;
 }
