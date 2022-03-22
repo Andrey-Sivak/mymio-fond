@@ -72,8 +72,8 @@ export const checkLockedTabs = () => {
             const lockedTabsArr = data.split(',');
             lockedTabsArr.forEach(t => {
                 const number = parseInt(t);
-                const tab = $(`.lk-form__tab[data-tab="${number}"]`);
-                const form = $(`.lk-form__tab_content[data-form="${number}"]`);
+                const tab = $(`.lk-form[data-form="2"] .lk-form__tab[data-tab="${number}"]`);
+                const form = $(`.lk-form[data-form="2"] .lk-form__tab_content[data-form="${number}"]`);
                 tab.addClass('locked');
                 form.addClass('locked');
             })
