@@ -8,4 +8,9 @@ export const maskInit = () => {
         mask: "99.99.9999",
         "clearIncomplete": true
     });
+
+    jQuery(".year-mask").inputmask({
+        mask: "9999",
+        "clearIncomplete": true
+    });
 }

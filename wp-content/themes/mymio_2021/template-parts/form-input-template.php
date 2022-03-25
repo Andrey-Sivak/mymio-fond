@@ -28,6 +28,9 @@ switch ($field_type) {
     case 'phone':
         $additional_css_class = 'phone-mask';
         break;
+    case 'year':
+        $additional_css_class = 'year-mask';
+        break;
     case 'city':
         $additional_css_class = 'city';
         break;
