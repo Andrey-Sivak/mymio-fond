@@ -163,7 +163,7 @@ get_header();
                             <?php
                             $form_settings = [
                                 'caption' => 'Персональные данные Подопечного',
-                                'submit_button' => 'Подписать и отправить',
+                                'submit_button' => 'Подать заявку',
                                 'name' => 'main_info',
                                 'form_fields' => [
                                     [
@@ -877,6 +877,7 @@ get_header();
                                                 '3',
                                                 '4',
                                                 '5',
+                                                'Нет информации',
                                             ],
                                             'elma_name' => 'mank_neuro_muscle_study_ball',
                                             'condition' => [
@@ -1021,27 +1022,51 @@ get_header();
                                             'question' => 'Перечислите, в каких именно местах контрактуры сформировались/ухудшились за последний год',
                                             'items' => [
                                                 [
-                                                    'label' => 'правая кисть/левая кисть',
+                                                    'label' => 'Правая кисть',
                                                     'name' => ''
                                                 ],
                                                 [
-                                                    'label' => 'правый локоть/левый локоть',
+                                                    'label' => 'Левая кисть',
                                                     'name' => ''
                                                 ],
                                                 [
-                                                    'label' => 'правое плечо/левое плечо',
+                                                    'label' => 'Правый локоть',
                                                     'name' => ''
                                                 ],
                                                 [
-                                                    'label' => 'правая стопа/левая стопа',
+                                                    'label' => 'Левый локоть',
                                                     'name' => ''
                                                 ],
                                                 [
-                                                    'label' => 'правое колено/левое колено',
+                                                    'label' => 'Правое плечо',
                                                     'name' => ''
                                                 ],
                                                 [
-                                                    'label' => 'правое бедро/левое бедро',
+                                                    'label' => 'Левое плечо',
+                                                    'name' => ''
+                                                ],
+                                                [
+                                                    'label' => 'Правая стопа',
+                                                    'name' => ''
+                                                ],
+                                                [
+                                                    'label' => 'Левая стопа',
+                                                    'name' => ''
+                                                ],
+                                                [
+                                                    'label' => 'Правое колено',
+                                                    'name' => ''
+                                                ],
+                                                [
+                                                    'label' => 'Левое колено',
+                                                    'name' => ''
+                                                ],
+                                                [
+                                                    'label' => 'Правое бедро',
+                                                    'name' => ''
+                                                ],
+                                                [
+                                                    'label' => 'Левое бедро',
                                                     'name' => ''
                                                 ],
                                             ],
@@ -1172,7 +1197,7 @@ get_header();
                                             'kind' => 'checkbox',
                                             'required' => true,
                                             'name' => 'tcp_use',
-                                            'question' => 'Какими средствами технической реабилитации (ТСР) ПОЛЬЗУЕТСЯ ваш сын?',
+                                            'question' => 'Какими средствами технической реабилитации (ТСР) <span style="font-weight:800;">пользуется</span> ваш сын?',
                                             'items' => [
                                                 [
                                                     'label' => 'Опора для стояния/вертикализатор',
@@ -2136,7 +2161,7 @@ get_header();
                                 <?php
                                 $form_settings = [
                                     'caption' => 'Адресная помощь',
-                                    'submit_button' => 'Продолжить',
+                                    'submit_button' => 'Подать заявку',
                                     'tab' => '1',
                                     'name' => 'program_block',
                                     'form_fields' => [
@@ -2159,7 +2184,7 @@ get_header();
                                 <?php
                                 $form_settings = [
                                     'caption' => 'Мы вместе',
-                                    'submit_button' => 'Продолжить',
+                                    'submit_button' => 'Подать заявку',
                                     'tab' => '2',
                                     'name' => 'program_block',
                                     'form_fields' => [
@@ -2175,6 +2200,7 @@ get_header();
                                                 'Интеграционный лагерь'
                                             ],
                                             'elma_name' => 'program_camp_select',
+                                            'condition_relation' => 'program_camp_select',
                                         ],
                                         [
                                             'kind' => 'select',
@@ -2182,13 +2208,17 @@ get_header();
                                             'question' => 'Когда вы узнали о диагнозе сына?',
                                             'with_input' => false,
                                             'name' => 'program_camp_first_time',
-                                            'required' => true,
+                                            'required' => false,
                                             'options' => [
                                                 'Менее полугода назад',
                                                 'Более года назад',
                                                 'Давно знаем о диагнозе',
                                             ],
                                             'elma_name' => 'program_camp_first_time',
+                                            'condition' => [
+                                                'condition_dependency' => 'program_camp_select',
+                                                'require_value' => 'Психолого–реабилитационный лагерь',
+                                            ],
                                         ],
                                         [
                                             'kind' => 'select',
@@ -2219,7 +2249,7 @@ get_header();
                                             'question' => 'Почему вы хотите принять участие в лагере?',
                                             'with_input' => false,
                                             'name' => 'program_camp_reason',
-                                            'required' => true,
+                                            'required' => false,
                                             'options' => [
                                                 'Мне важно быть рядом с такими же семьями',
                                                 'Хочу получить информацию по особенностям заболевания',
@@ -2227,6 +2257,10 @@ get_header();
                                                 'Хочу отдохнуть',
                                             ],
                                             'elma_name' => 'program_camp_reason',
+                                            'condition' => [
+                                                'condition_dependency' => 'program_camp_select',
+                                                'require_value' => 'Интеграционный лагерь',
+                                            ],
                                         ],
                                     ],
                                 ];
