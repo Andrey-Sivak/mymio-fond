@@ -30,7 +30,7 @@ get_header();
     <main id="primary" class="site-main">
 
         <!--<div class="maxwidth-theme">
-            <script src="<?/*= get_template_directory_uri() */?>/assets/flexslider/jquery.flexslider-min.js"></script>
+            <script src="<? /*= get_template_directory_uri() */ ?>/assets/flexslider/jquery.flexslider-min.js"></script>
 
             <script type="text/javascript">
 
@@ -87,7 +87,9 @@ get_header();
         <div class="maxwidth-theme overfl">
             <div class="heading-article">
                 <h1 class="without-p">Личный кабинет</h1>
-
+                <p class="user-info__note">Дорогие участники Регистра! Если вы хотите оставить комментарий или
+                    пожелание, как мы можем улучшить анкету, пожалуйста, напишите нам на почту <a
+                            href="mailto:coordinator@mymiofond.ru">coordinator@mymiofond.ru</a></p>
                 <div class="user-info">
                     <p class="user-info__caption">Личные данные</p>
                     <div class="user-info__row">
@@ -409,7 +411,7 @@ get_header();
                                         'question' => '',
                                         'elma_name' => '',
                                         'name' => 'privacy_confirm',
-                                        'required'	=> true,
+                                        'required' => true,
                                         'items' => [
                                             [
                                                 'label' => 'Согласен на обработку персональных данных',
@@ -426,7 +428,8 @@ get_header();
                     <div class="lk-form" data-form="2">
                         <section class="lk-form-container">
 
-                            <p class="lk-progress">Заполнение мед. анкеты <span class="lk-progress-inner"></span> блоков</p>
+                            <p class="lk-progress">Заполнение мед. анкеты <span class="lk-progress-inner"></span> блоков
+                            </p>
 
                             <div class="lk-form__tabs">
                                 <span class="lk-form__tab" data-tab="1">Общая информация о пациенте и заболевании</span>
@@ -1728,17 +1731,17 @@ get_header();
                                                 ],
                                                 [
                                                     'label' => 'Язва желудка',
-                                                'condition_relation' => 'gastro_symptoms',
+                                                    'condition_relation' => 'gastro_symptoms',
                                                     'name' => ''
                                                 ],
                                                 [
                                                     'label' => 'Отрыжка',
-'condition_relation' => 'gastro_symptoms',
+                                                    'condition_relation' => 'gastro_symptoms',
                                                     'name' => ''
                                                 ],
                                                 [
                                                     'label' => 'Запах изо рта',
-                                                'condition_relation' => 'gastro_symptoms',
+                                                    'condition_relation' => 'gastro_symptoms',
                                                     'name' => ''
                                                 ],
                                                 [
@@ -1779,7 +1782,7 @@ get_header();
                                             'kind' => 'select',
                                             'placeholder' => 'Выбрать',
                                             'with_input' => true,
-                                            'label_for_input'  => 'Насколько похудел(кг)',
+                                            'label_for_input' => 'Насколько похудел(кг)',
                                             'question' => 'Наблюдается потеря веса за последний год?',
                                             'required' => false,
                                             'name' => 'weight_problem',
