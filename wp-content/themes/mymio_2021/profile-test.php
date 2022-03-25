@@ -29,8 +29,8 @@ get_header();
 
     <main id="primary" class="site-main">
 
-        <div class="maxwidth-theme">
-            <script src="<?= get_template_directory_uri() ?>/assets/flexslider/jquery.flexslider-min.js"></script>
+        <!--<div class="maxwidth-theme">
+            <script src="<?/*= get_template_directory_uri() */?>/assets/flexslider/jquery.flexslider-min.js"></script>
 
             <script type="text/javascript">
 
