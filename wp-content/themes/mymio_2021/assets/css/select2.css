@@ -85,6 +85,10 @@
   background-color: transparent;
   -webkit-user-select: none; }
 
+.select2-results__option:not(:last-of-type) {
+  border-bottom: 1px solid #009D9A;
+}
+
 .select2-results__option:hover {
   background-color: #009D9A;
 }

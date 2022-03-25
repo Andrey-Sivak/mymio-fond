@@ -326,9 +326,8 @@ textarea.contact-form__input {
 }
 
 .contact-form__subcaption {
-    font-weight: 600;
+    font-weight: 800;
     font-size: 14px;
-    text-decoration: underline;
     margin-bottom: 20px;
 }
 
