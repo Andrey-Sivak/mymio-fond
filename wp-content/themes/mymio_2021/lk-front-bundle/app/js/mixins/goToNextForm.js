@@ -1,6 +1,10 @@
 import {questionaireProgress} from "../helprers/questionaireProgress";
 
 export const goToNextForm = (dataFormCurrent) => {
+
+    const currentTopTab = $('.lk-form.active').data('form');
+    if (parseInt(currentTopTab) !== 2) return;
+
     const tabClass = 'lk-form__tab';
     const formClass = 'lk-form__tab_content';
     const tabs = $(`.${tabClass}`);

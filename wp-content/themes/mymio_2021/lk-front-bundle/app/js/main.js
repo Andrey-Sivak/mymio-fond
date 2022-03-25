@@ -10,9 +10,10 @@ import './formFunctions/datepicker';
 import './formFunctions/train';
 import {maskInit} from "./formFunctions/inputMask";
 import {selectMkb} from "./formFunctions/selectMkb";
-import {tabs, checkLastActiveTabs, checkLockedTabs} from "./utils/tabs";
+import {checkLastActiveTabs, checkLockedTabs, tabs} from "./utils/tabs";
 import './forms';
 import './mixins/conditionFields';
+import './formFunctions/yaMaps';
 
 './helprers/questionaireProgress';
 
@@ -28,7 +29,5 @@ maskInit();
 selectMkb('mank_accompanying_diagnosis_2');
 
 //TODO: fix if error
-
-import './formFunctions/yaMaps';
 
 //Новый тест пароль - of_0xKtBV7

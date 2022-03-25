@@ -4,7 +4,15 @@ export const formResultHandler = (response, currentForm) => {
     const result = currentForm.find('.result');
     if (response === 'success') {
         currentForm.trigger('reset');
-        result.html('Ответы сохранены, переход к следующему блоку');
+
+        const  isMedicalQuestionnaire = parseInt($('.lk-tab.active').data('tab')) === 2;
+
+        if (!isMedicalQuestionnaire) {
+            result.html('Заявка успешно отправлена!');
+        } else {
+            result.html('Ответы сохранены, переход к следующему блоку');
+        }
+
         if (result.hasClass('success')) {
             result.removeClass('success');
         }

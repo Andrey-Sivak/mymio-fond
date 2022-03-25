@@ -55,7 +55,6 @@ const setActiveTabs = (tabClass, tabContentClass, tabNumber) => {
         }
 
         $(currentTab).addClass('active');
-        console.log($(currentTabContent))
         $(currentTabContent).addClass('active');
     }
 }

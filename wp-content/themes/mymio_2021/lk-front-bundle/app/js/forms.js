@@ -30,10 +30,22 @@ forms.each(function () {
             loader.addClass('active');
 
             const formId = parseInt(ctxForm.parent().parent().parent().data('form'));
+            const activeTabNumber = parseInt($('.lk-tab.active').data('tab'));
 
-
-            const urlParam = formId ? 'medical' : 'main';
-            const url = `https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/${urlParam}/update`;
+            // let urlParam = formId ? 'medical' : 'main';
+            let urlParam;
+            switch (activeTabNumber) {
+                case 1:
+                    urlParam = 'ward/main/update';
+                    break;
+                case 2:
+                    urlParam = 'ward/medical/update';
+                    break;
+                case 4:
+                    urlParam = 'create/apppr';
+                    break;
+            }
+            const url = `https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/${urlParam}`;
 
             const contextObject = getNeededInputs(ctxForm);
             const userId = $('#elma-id').html();
