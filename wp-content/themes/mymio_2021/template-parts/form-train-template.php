@@ -4,10 +4,23 @@ $question = $object['question'];
 $field_name = $object['name'];
 $required = $object['required'];
 $elmaName = $object['elma_name'];
-?>
+$condition = $object['condition'];
+$require_value = $condition['require_value'];
 
-<p class="contact-form__form-field_note">Укажите конкретный участок гена</p>
-<div class="contact-form__form-field">
+if (is_array($require_value)) {
+    $require_value = implode('|,|', $require_value);
+}
+?>
+<div class="contact-form__form-field"
+    <?php if ($require_value) : ?>
+        data-cond-dep-value="<?= $require_value; ?>"
+    <?php endif;
+    if ($condition['condition_dependency']) : ?>
+        data-cond-dep-name="<?= $condition['condition_dependency']; ?>"
+    <?php endif; ?>
+>
+    <p class="contact-form__form-field_note">Укажите конкретный участок гена</p>
+
     <div class="train">
         <div class="train__row">
       <span class="train__item one-out-rt">
@@ -262,7 +275,9 @@ $elmaName = $object['elma_name'];
 
     <input type="hidden"
            class="train__hide-input"
-           data-elma="<?= $elmaName; ?>"
+        <?php if ($elmaName) : ?>
+            data-elma="<?= $elmaName; ?>"
+        <?php endif; ?>
         <?php if ($required) : ?>
             data-req="true"
         <?php endif; ?>

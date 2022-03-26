@@ -31,3 +31,32 @@ selectMkb('mank_accompanying_diagnosis_2');
 //TODO: fix if error
 
 //Новый тест пароль - of_0xKtBV7
+
+/*
+const requestBody = JSON.stringify({
+    "filter": {
+        "email": {
+            "type": "home",
+            "email": "asdfd1231312312a@as.asa",
+        }
+    },
+    "from": 0,
+    "size": 1,
+    "sortExpressions": [
+        {
+            "ascending": true,
+            "field": "id"
+        }
+    ]
+})
+const url = `https://aeqlmvgvlxcee.elma365.ru/pub/v1/user/list`;
+
+fetch(url, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer 8657d620-f5eb-4552-997d-d3ec43688c29',
+    },
+    body: requestBody,
+}).then(data => console.log(data))*/

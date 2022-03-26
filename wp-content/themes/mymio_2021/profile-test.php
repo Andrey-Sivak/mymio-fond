@@ -305,15 +305,6 @@ get_header();
                                         'label' => '',
                                         'name' => 'rel_address_act_pred'
                                     ],
-                                    /*[
-                                        'kind' => 'input',
-                                        'required' => true,
-                                        'elma_name' => 'main_ank_fio_pred',
-                                        'type' => 'text',
-                                        'placeholder' => 'ФИО',
-                                        'label' => '',
-                                        'name' => 'fio_pred'
-                                    ],*/
                                     [
                                         'kind' => 'input',
 //                                        'required' => true,
@@ -547,6 +538,26 @@ get_header();
                                             'required' => true,
                                             'name' => 'train',
                                             'elma_name' => 'mank_gen_select',
+                                        ],
+                                        [
+                                            'kind' => 'radio',
+                                            'question' => 'Дополнительная поломка',
+                                            'name' => 'additional_break',
+                                            'items' => [
+                                                'Да',
+                                                'Нет',
+                                            ],
+                                            'condition_relation' => 'additional_break'
+                                        ],
+                                        [
+                                            'kind' => 'train',
+                                            'question' => 'Укажите дополнительную поломку',
+                                            'required' => true,
+                                            'name' => 'train1',
+                                            'condition' => [
+                                                'condition_dependency' => 'additional_break',
+                                                'require_value' => 'true',
+                                            ],
                                         ],
                                         [
                                             'kind' => 'radio',
