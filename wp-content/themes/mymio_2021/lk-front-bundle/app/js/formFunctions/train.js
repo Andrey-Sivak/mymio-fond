@@ -2,7 +2,7 @@
     const trains = $('.train');
 
     trains.each(function () {
-        const train = new Train($(this));
+        const train = new Train($(this).parent());
         train.init();
     });
 })();

@@ -552,7 +552,6 @@ get_header();
                                         [
                                             'kind' => 'train',
                                             'question' => 'Укажите дополнительную поломку',
-                                            'required' => true,
                                             'name' => 'train1',
                                             'condition' => [
                                                 'condition_dependency' => 'additional_break',
