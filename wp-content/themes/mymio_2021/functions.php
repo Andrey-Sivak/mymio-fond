@@ -167,7 +167,7 @@ function mymio_2021_scripts() {
         wp_enqueue_script('forms-select', get_template_directory_uri() . '/assets/js/select2.min.js', array(), _S_VERSION, true );
         wp_enqueue_script('forms-mask', get_template_directory_uri() . '/assets/js/jquery.inputmask.min.js', array('forms-select'), _S_VERSION, true );
         wp_enqueue_script('forms-validate', get_template_directory_uri() . '/assets/js/jquery.validate.min.js', array(), _S_VERSION, true );
-        wp_enqueue_script('lk-forms-script', get_template_directory_uri() . '/assets/js/lk-forms.js', array('forms-mask', 'forms-validate', 'jquery-ui-datepicker'), _S_VERSION, true );
+        wp_enqueue_script('lk-forms-script', get_template_directory_uri() . '/lk-front-bundle/dist/js/lk-forms.js', array('forms-mask', 'forms-validate', 'jquery-ui-datepicker'), _S_VERSION, true );
     }
 }
 add_action( 'wp_enqueue_scripts', 'mymio_2021_scripts' );
