@@ -282,7 +282,7 @@ get_header();
                                         'kind' => 'input',
                                         'required' => true,
                                         'elma_name' => 'main_ank_rel_pass_issuance',
-                                        'type' => 'text',
+                                        'type' => 'date',
                                         'placeholder' => 'Дата выдачи',
                                         'label' => '',
                                         'name' => 'rel_pass_issuance'

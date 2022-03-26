@@ -68,7 +68,7 @@ switch ($field_type) {
         <span class="error">Адрес не найден</span>
     <?php elseif ($field_type == 'date') : ?>
         <span class="calendar"></span>
-        <div id="datepicker"></div>
+        <div class="datepicker"></div>
     <?php elseif ($field_type == 'city') : ?>
         <div class="tips"></div>
     <?php endif; ?>
