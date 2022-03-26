@@ -334,24 +334,29 @@ get_header();
                                     [
                                         'kind' => 'text_block',
                                         'caption' => 'Адрес:',
-                                        'text' => 'В этом окне просим вас ввести адрес регистрации по шаблону. Пожалуйста, очень внимательно заполняйте поле. Если будут допущены ошибки, мы не сможем доставить вам адресную помощь.
+                                        'text' => 'Пожалуйста, очень внимательно заполняйте поле. Если будут допущены ошибки, мы не сможем доставить вам адресную помощь. Просим вас вводить адреса по шаблону. 
+<br><br> 
+<span style="display:inline-block;width: 120px;font-weight: 800;">Как заполнять:</span>Область, город, улица, дом, корпус, квартира
 <br>
-Как заполнять: область, город, улица, дом, корпус, квартира
-<br>
-Шаблон: Московская область, город Химки, ул. Мира, д.16, корп.1, кв.33'
+<span style="display:inline-block;width: 120px;font-weight: 800;">Например:</span>Московская область, город Химки, ул. Мира, д.16, корп.1, кв.33
+<br><br>
+Укажите адрес фактического проживания <span style="font-weight: 800;">Подопечного</span>'
                                     ],
                                     [
                                         'kind' => 'input',
-                                        'required' => true,
+                                        'elma_name' => 'main_ank_address_act_pod',
                                         'type' => 'address',
-                                        'elma_name' => 'main_ank_address_reg_pod',
-                                        'placeholder' => 'Адрес регистрации',
+                                        'placeholder' => 'Адрес фактического проживания',
                                         'label' => '',
-                                        'name' => 'address_reg_pod'
+                                        'required' => true,
+                                        'name' => 'address_act_pod',
+                                    ],
+                                    [
+                                        'kind' => 'text_block',
+                                        'text' => 'Адрес фактического проживания <span style="font-weight: 800;">законного представителя</span> совпадает с адресом фактического проживания подопечного?'
                                     ],
                                     [
                                         'kind' => 'radio',
-                                        'question' => 'Указанный адрес регистрации совпадает с адресом проживания?',
                                         'name' => 'reg_same_live',
                                         'items' => [
                                             'Да',
@@ -361,19 +366,22 @@ get_header();
                                     ],
                                     [
                                         'kind' => 'input',
-                                        'elma_name' => 'main_ank_address_act_pod',
                                         'type' => 'address',
-                                        'placeholder' => 'Адрес фактического проживания',
-                                        'label' => '',
-                                        'name' => 'address_act_pod',
+                                        'elma_name' => 'main_ank_address_reg_pod',
+                                        'placeholder' => 'Адрес регистрации законного представителя',
+                                        'label' => 'Адрес регистрации',
+                                        'name' => 'address_reg_pod',
                                         'condition' => [
                                             'condition_dependency' => 'diff_act_address',
                                             'require_value' => 'false',
                                         ],
                                     ],
                                     [
+                                        'kind' => 'text_block',
+                                        'text' => 'Почтовый адрес <span style="font-weight: 800;">законного представителя</span> (для писем и посылок) совпадает с адресом фактического проживания подопечного?'
+                                    ],
+                                    [
                                         'kind' => 'radio',
-                                        'question' => 'Указанный адрес регистрации совпадает с почтовым адресом?',
                                         'name' => 'reg_same_post',
                                         'items' => [
                                             'Да',
@@ -385,7 +393,7 @@ get_header();
                                         'kind' => 'input',
                                         'elma_name' => 'main_ank_address_mail_pod',
                                         'type' => 'address',
-                                        'placeholder' => 'Почтовый адрес',
+                                        'placeholder' => 'Адрес фактического места жительства представителя',
                                         'label' => '',
                                         'name' => 'address_mail_pod',
 
