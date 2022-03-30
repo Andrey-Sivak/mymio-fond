@@ -299,16 +299,16 @@ get_header();
                                     [
                                         'kind' => 'input',
                                         'required' => true,
-                                        'elma_name' => 'main_ank_rel_address_act_pred',
+                                        'elma_name' => 'main_ank_rel_address_reg_pred',
                                         'type' => 'text',
-                                        'placeholder' => 'Адрес фактического места жительства представителя',
+                                        'placeholder' => 'Адрес регистрации представителя',
                                         'label' => '',
                                         'name' => 'rel_address_act_pred'
                                     ],
                                     [
                                         'kind' => 'input',
 //                                        'required' => true,
-                                        'elma_name' => 'main_ank_phone1',
+                                        'elma_name' => 'main_ank_phone11',
                                         'type' => 'phone',
                                         'placeholder' => 'Телефон',
                                         'label' => '',
@@ -337,7 +337,7 @@ get_header();
                                         'kind' => 'input',
                                         'elma_name' => 'main_ank_address_act_pod',
                                         'type' => 'address',
-                                        'placeholder' => 'Адрес фактического проживания',
+                                        'placeholder' => 'Адрес фактического проживания подопечного',
                                         'label' => '',
                                         'required' => true,
                                         'name' => 'address_act_pod',
@@ -358,8 +358,8 @@ get_header();
                                     [
                                         'kind' => 'input',
                                         'type' => 'address',
-                                        'elma_name' => 'main_ank_address_reg_pod',
-                                        'placeholder' => 'Адрес регистрации законного представителя',
+                                        'elma_name' => 'main_ank_rel_address_act_pred',
+                                        'placeholder' => 'Адрес фактического проживания законного представителя',
                                         'label' => 'Адрес регистрации',
                                         'name' => 'address_reg_pod',
                                         'condition' => [
@@ -384,10 +384,9 @@ get_header();
                                         'kind' => 'input',
                                         'elma_name' => 'main_ank_address_mail_pod',
                                         'type' => 'address',
-                                        'placeholder' => 'Адрес фактического места жительства представителя',
+                                        'placeholder' => 'Почтовый адрес законного представителя',
                                         'label' => '',
                                         'name' => 'address_mail_pod',
-
                                         'condition' => [
                                             'condition_dependency' => 'diff_post_address',
                                             'require_value' => 'false',
