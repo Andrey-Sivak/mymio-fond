@@ -32,7 +32,8 @@ forms.each(function () {
             const formId = parseInt(ctxForm.parent().parent().parent().data('form'));
             const activeTabNumber = parseInt($('.lk-tab.active').data('tab'));
 
-            // let urlParam = formId ? 'medical' : 'main';
+            fillSameValues('main_info_address_act_pod', ['main_info_address_reg_pod', 'main_info_address_mail_pod']);
+
             let urlParam;
             switch (activeTabNumber) {
                 case 1:
@@ -63,9 +64,6 @@ forms.each(function () {
                     context: contextObject.context
                 })
             }
-
-            fillSameValues('main_info_address_reg_pod', ['main_info_address_act_pod', 'main_info_address_mail_pod']);
-
 
             fetch(url, {
                 method: 'POST',
