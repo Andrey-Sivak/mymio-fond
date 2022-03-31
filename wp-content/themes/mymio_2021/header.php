@@ -8,6 +8,10 @@
  *
  * @package mymio_2021
  */
+
+$register_email = $_GET['eml'] ?: null;
+require get_template_directory() . '/includes/register-user-by-elma-info.php';
+register_user_from_elma_info($register_email);
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -29,10 +33,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    
-    
-    <?/*<script type="Text/Javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-	<script type="Text/Javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>*/?>
 
 	<?php wp_head(); ?>
 </head>
