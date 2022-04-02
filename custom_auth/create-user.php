@@ -18,7 +18,7 @@ if (!$user_email) {
 }
 
 if (!$user_name) {
-    exit();
+    $user_name = '';
 }
 
 require_once('../Scripts/connect.php');
