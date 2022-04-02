@@ -307,12 +307,15 @@ get_header();
                                     ],
                                     [
                                         'kind' => 'input',
-//                                        'required' => true,
+                                        'required' => true,
                                         'elma_name' => 'main_ank_phone11',
                                         'type' => 'phone',
                                         'placeholder' => 'Телефон',
                                         'label' => '',
                                         'name' => 'phone1'
+                                    ],
+                                    [
+                                        'kind' => 'phone-confirm',
                                     ],
                                     [
                                         'kind' => 'input',

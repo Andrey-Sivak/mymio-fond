@@ -5936,3 +5936,42 @@ section#quote .wrap + .wrap {
         margin: 0 auto;
     }
 }
+
+.phone-confirm {
+    margin-top: -20px;
+}
+
+.phone-confirm__wrap {
+    display: flex;
+    align-items: center;
+}
+
+.phone-confirm__wrap input {
+    flex: 0 0 100px;
+}
+
+.phone-confirm__btn {
+    margin-left: 10px;
+    cursor: pointer;
+    height: 50px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    background: #009D9A;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 10px;
+    transition: ease all .3s;
+    user-select: none;
+}
+
+.phone-confirm__btn.active {
+    display: flex;
+}
+
+.phone-confirm__btn.block {
+    background-color: #aaa;
+    cursor: no-drop;
+}
