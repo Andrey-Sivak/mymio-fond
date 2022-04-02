@@ -3,5 +3,7 @@
 function register_user_from_elma_info($email) {
     if (!$email) return;
 
-    var_dump($email);
+    $_SESSION['register-email'] = trim($email);
+
+    header('Location: /?register-success');
 }
