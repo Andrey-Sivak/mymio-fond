@@ -833,6 +833,18 @@ get_header();
                                             ],
                                         ],
                                         [
+                                            'kind' => 'radio',
+                                            'question' => 'Есть ли у вас опыт иной (генной или клеточной) терапии?',
+                                            'name' => 'mank_neuro_gen_therapy',
+                                            'required' => true,
+                                            'items' => [
+                                                'Да',
+                                                'Нет',
+                                            ],
+                                            'elma_name' => 'mank_neuro_gen_therapy',
+                                            'condition_relation' => 'neuro_gen_therapy',
+                                        ],
+                                        [
                                             'kind' => 'input',
                                             'type' => 'text',
                                             'question' => 'Укажите, пожалуйста, вид применяемой терапии',
@@ -2120,18 +2132,6 @@ get_header();
                                                 'Нет',
                                             ],
                                             'elma_name' => 'mank_psy_support_2',
-                                        ],
-                                        [
-                                            'kind' => 'radio',
-                                            'question' => 'Есть ли у вас опыт иной (генной или клеточной) терапии?',
-                                            'name' => 'est_li_u_vas_opyt_inoi_gennoi_ili_kletochnoi_terapii',
-                                            'required' => true,
-                                            'items' => [
-                                                'Да',
-                                                'Нет',
-                                                'Затрудняюсь отвеить',
-                                            ],
-                                            'elma_name' => 'est_li_u_vas_opyt_inoi_gennoi_ili_kletochnoi_terapii',
                                         ],
                                         [
                                             'kind' => 'select',
