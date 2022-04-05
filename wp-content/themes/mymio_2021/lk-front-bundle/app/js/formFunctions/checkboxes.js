@@ -16,7 +16,6 @@ checkboxesList.each(function () {
                 if (!hiddenInputValue.includes($(this).val())) {
 
                     hiddenInput.val(`${hiddenInputValue} | ${$(this).val()}`);
-                    console.log(hiddenInput.val());
                     return;
                 }
                 return;
@@ -25,7 +24,6 @@ checkboxesList.each(function () {
             if (hiddenInputValue.includes($(this).val())) {
                 const newValue = hiddenInputValue.replace(` | ${$(this).val()}`, '');
                 hiddenInput.val(newValue);
-                console.log(hiddenInput.val());
             }
         })
     });
@@ -37,7 +35,6 @@ checkboxesList.each(function () {
         if (hiddenInputValue.includes($(this).val())) {
             const newValue = hiddenInputValue.replace(` | ${$(this).val()}`, '');
             hiddenInput.val(newValue);
-            console.log(hiddenInput.val());
         }
     });
 
@@ -46,6 +43,5 @@ checkboxesList.each(function () {
 
         const hiddenInputValue = hiddenInput.val();
         hiddenInput.val(`${hiddenInputValue} | ${$(this).val()}`);
-        console.log(hiddenInput.val());
     })
 });
