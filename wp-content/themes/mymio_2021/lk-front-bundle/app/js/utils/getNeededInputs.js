@@ -30,18 +30,6 @@ export const getNeededInputs = (form) => {
             }
         }
 
-        if ($(this).hasClass('train__hide-input')) {
-            const inputs = $('.train__hide-input');
-
-            if (inputs.length === 2) {
-
-                if ($(inputs[1]).val() !== '') {
-
-                    $(this).val(`${$(inputs[0]).val()} | ${$(inputs[1]).val()}`);
-                }
-            }
-        }
-
         setObjectProperty(object.context, $(this));
     });
 

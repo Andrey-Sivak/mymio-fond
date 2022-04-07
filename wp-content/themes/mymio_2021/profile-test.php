@@ -555,6 +555,7 @@ get_header();
                                             'kind' => 'train',
                                             'question' => 'Укажите дополнительную поломку',
                                             'name' => 'train1',
+                                            'elma_name' => 'mank_gen_select_dop',
                                             'condition' => [
                                                 'condition_dependency' => 'additional_break',
                                                 'require_value' => 'true',
