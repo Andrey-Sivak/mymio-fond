@@ -5,6 +5,7 @@ import {formResultHandler} from "./utils/formResultHandler";
 import {getNeededInputs} from "./utils/getNeededInputs";
 import {fillSameValues} from "./mixins/fillSameValues";
 import {goToNextForm} from "./mixins/goToNextForm";
+import {getStage} from "./mixins/getStage";
 
 const forms = jQuery('form.contact-form__form');
 
@@ -53,11 +54,26 @@ forms.each(function () {
             let requestBody;
 
             if (formId) {
-                requestBody = JSON.stringify({
-                    id: userId,
-                    form_id: formId,
-                    context: contextObject.context
-                })
+
+                if (formId === 2) {
+                    const moveAbilities = $('select[data-elma="mank_motor_abilities_2"]').val();
+                    const lostAge = $('select[data-elma="mank_neuro_lost_ability"]').val();
+
+                    const stage = getStage(2, moveAbilities, lostAge);
+
+                    requestBody = JSON.stringify({
+                        id: userId,
+                        form_id: formId,
+                        mank_ill_stage: stage,
+                        context: contextObject.context
+                    })
+                } else {
+                    requestBody = JSON.stringify({
+                        id: userId,
+                        form_id: formId,
+                        context: contextObject.context
+                    })
+                }
             } else {
                 requestBody = JSON.stringify({
                     id: userId,

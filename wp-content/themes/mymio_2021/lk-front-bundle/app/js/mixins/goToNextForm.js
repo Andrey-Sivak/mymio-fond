@@ -1,7 +1,6 @@
 import {questionaireProgress} from "../helprers/questionaireProgress";
-import {getStage} from "./getStage";
 
-export const goToNextForm = (dataFormCurrent) => {
+export const goToNextForm = (dataFormCurrent, stage) => {
 
     const currentTopTab = $('.lk-form.active').data('form');
     const isNeurology = parseInt(currentTopTab) === 2;
@@ -17,13 +16,8 @@ export const goToNextForm = (dataFormCurrent) => {
     currentForm.addClass('locked');
 
     if (isNeurology) {
-        const stageDependForms = $('form[data-stage]');
-
-        const moveAbilities = $('select[data-elma="mank_motor_abilities_2"]').val();
-        const lostAge = $('select[data-elma="mank_neuro_lost_ability"]').val();
-        const stage = getStage(2, moveAbilities, lostAge);
-
         if (stage) {
+            const stageDependForms = $('form[data-stage]');
             stageDependForms.each(function () {
                 const stages = $(this).data('stage');
                 const currentStage = stage.toString();
