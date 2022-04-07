@@ -5975,3 +5975,24 @@ section#quote .wrap + .wrap {
     background-color: #aaa;
     cursor: no-drop;
 }
+
+.phone-confirm-message {
+    font-weight: 800;
+    margin-bottom: 0;
+}
+
+.phone-confirm-message.error {
+    color: red;
+}
+
+.phone-confirm-message.success {
+    color: green;
+}
+
+.phone-confirm-resend {
+    display: none;
+}
+
+.phone-confirm-resend.active {
+    display: block;
+}
