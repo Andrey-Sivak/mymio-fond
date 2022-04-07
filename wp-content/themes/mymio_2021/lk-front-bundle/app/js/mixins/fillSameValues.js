@@ -5,8 +5,6 @@ export const fillSameValues = (commonInputName, filledInputsNames) => {
 
     filledInputsNames.forEach(f => {
         const elem = $(`[name="${f}"]`);
-        console.log('');
-        console.log(elem);
 
         if (!elem.val()) {
             elem.val(commonValue);
