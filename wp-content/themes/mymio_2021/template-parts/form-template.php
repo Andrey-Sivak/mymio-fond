@@ -5,11 +5,16 @@ $form_subcaption = $args['subcaption'] ?: '';
 $submit_button = $args['submit_button'];
 $data_tab = $args['tab'] ?: '';
 $form_name = $args['name'];
+$stage = $args['stage'];
 ?>
 
 <div class="request-form-container">
     <div class="contact-form">
-        <form method="POST" class="contact-form__form">
+        <form method="POST" class="contact-form__form"
+        <?php if ($stage) : ?>
+        data-stage="<?php echo $stage; ?>"
+        <?php endif; ?>
+        >
             <div class="contact-form__form-text">
                 <?php if ($form_caption) : ?>
                 <p class="contact-form__caption"><?= $form_caption; ?></p>
