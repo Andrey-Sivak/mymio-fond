@@ -8,22 +8,146 @@
  *
  * @package mymio_2021
  */
-
-$register_email = $_GET['eml'] ?: null;
-require get_template_directory() . '/includes/register-user-by-elma-info.php';
-register_user_from_elma_info($register_email);
 ?>
-<!doctype html>
+    <!doctype html>
 <html <?php language_attributes(); ?>>
-<head>
-  <script>
-      let homeUrl = '<?= get_home_url(); ?>';
-  </script>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#009d9a" >
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+    <head>
+        <script>
+            let homeUrl = '<?= get_home_url(); ?>';
+        </script>
+        <?php
+        session_start();
+        $register_email = $_GET['eml'] ?: null;
+
+        if (isset($register_email)) {
+            require get_template_directory() . '/includes/register-user-by-elma-info.php';
+            register_user_from_elma_info($register_email);
+        } else {
+            if (isset($_SESSION['register-email'])) { ?>
+
+                <script>
+                    (function () {
+                        let registerEmail = '<?php echo $_SESSION['register-email']; ?>';
+
+                        /*window.addEventListener('load', () => {
+                            const registerModal = document.querySelector('.modal--register.active');
+                            const registerModalLoader = registerModal.querySelector('.loader');
+                            const registerModalText = registerModal.querySelector('.modal--content');
+
+                            checkUserExist(registerEmail, '')
+                                .then(res => res.text())
+                                .then(pass => {
+
+                                    getElmaIdByEmail(registerEmail)
+                                        .then(res => res.json())
+                                        .then(data => {
+                                            createUser(registerEmail, data.id)
+                                                .then(() => {
+                                                    registerModalLoader.parentElement.removeChild(registerModalLoader);
+                                                    registerModalText.innerHTML = 'Ваш личный кабинет успешно создан. <br>Ожидайте письма с данными для доступа'
+                                                })
+                                        });
+                                });
+                        });*/
+
+                        async function checkUserExist(email, name) {
+                            const userData = Object.create({});
+
+                            Object.defineProperty(userData, 'user_data', {
+                                value: {},
+                                enumerable: true,
+                                writable: true,
+                            });
+
+                            Object.defineProperties(userData.user_data, {
+                                'user_email': {
+                                    value: email,
+                                    enumerable: true,
+                                    writable: true,
+                                },
+                                'user_name': {
+                                    value: name,
+                                    enumerable: true,
+                                    writable: true,
+                                }
+                            });
+
+                            const url = `${homeUrl}/custom_auth/create-user.php`;
+                            const formData = new FormData();
+                            formData.set('user_data', JSON.stringify(userData));
+
+                            return await postData(url, formData);
+                        }
+
+                        async function getElmaIdByEmail(email) {
+                            const url = 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/search_guardianship_by_email';
+
+                            const requestBody = JSON.stringify({
+                                context: {
+                                    email: email,
+                                }
+                            })
+
+                            return await fetch(url, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authorization': 'Bearer 8657d620-f5eb-4552-997d-d3ec43688c29',
+                                },
+                                body: requestBody,
+                            })
+                        }
+
+                        async function createUser(email, elamId) {
+                            const userData = Object.create({});
+
+                            Object.defineProperty(userData, 'user_data', {
+                                value: {},
+                                enumerable: true,
+                                writable: true,
+                            });
+
+                            Object.defineProperties(userData.user_data, {
+                                'user_email': {
+                                    value: email,
+                                    enumerable: true,
+                                    writable: true,
+                                },
+                                'elma_id': {
+                                    value: elamId,
+                                    enumerable: true,
+                                    writable: true,
+                                }
+                            });
+
+                            const url = `${homeUrl}/custom_auth/create-user-elma-id.php`;
+                            const formData = new FormData();
+                            formData.set('user_data', JSON.stringify(userData));
+
+                            return await postData(url, formData);
+                        }
+
+                        async function postData(url = '', data = {}) {
+                            return await fetch(url, {
+                                method: 'POST',
+                                mode: 'no-cors',
+                                body: data,
+                            });
+                        }
+                    })();
+                </script>
+
+                <?php /*unset($_SESSION['register-email']);*/
+            }
+        }
+        ?>
+        <meta charset="<?php bloginfo('charset'); ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#009d9a">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
+              rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext"
+              rel="stylesheet">
 
         <script src="https://api-maps.yandex.ru/2.1/?apikey=38dd7e92-7031-44d8-8dbf-0b7bb9549406&amp;lang=ru_RU"
                 type="text/javascript"></script>
