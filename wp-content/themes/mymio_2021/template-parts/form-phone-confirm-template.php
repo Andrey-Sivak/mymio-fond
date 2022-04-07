@@ -124,7 +124,7 @@
 
         function changeSendBtnText() {
             if (isFirstTime) {
-                sendConfirmationBtn.innerHTML = 'Отправить повторно';
+                sendConfirmationBtn.innerHTML = 'Получить повторно';
             }
 
             isFirstTime = false;
@@ -135,7 +135,6 @@
             setConfirmMessage(isCorrect);
             if (isCorrect) {
                 hideResendMessage();
-                console.log(phoneConfirmInput);
                 phoneConfirmInput.value = '1';
             }
         }
