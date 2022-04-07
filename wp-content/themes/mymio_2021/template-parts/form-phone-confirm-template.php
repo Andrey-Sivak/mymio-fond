@@ -11,30 +11,37 @@
                placeholder="****"
                class="contact-form__input">
         <span class="phone-confirm__btn check">Проверить</span>
-        <span class="phone-confirm__btn send active">Отправить код</span>
-        <input type="hidden" name="is-phone-confirm" data-req="true">
+        <span class="phone-confirm__btn send active">Получить код</span>
+        <input type="hidden" name="is-phone-confirm" value="" data-req="true">
     </div>
+    <p class="phone-confirm-resend">Код придет в течение 5 минут. Если код не пришел, нажмите "Отправить повторно"</p>
     <p class="phone-confirm-message"></p>
 </div>
 
 <script>
     (function () {
         const phoneInput = document.querySelector('input[name="main_info_phone1"]');
-        const PoneConfirmInput = document.querySelector('.input[name="is-phone-confirm"]');
+        const phoneConfirmInput = document.querySelector('input[name="is-phone-confirm"]');
         const codeInput = document.querySelector('input[name="phone-confirm"]');
         const sendConfirmationBtn = document.querySelector('.phone-confirm__btn.send');
         const checkConfirmationBtn = document.querySelector('.phone-confirm__btn.check');
         const errorWrap = document.querySelector('.phone-confirm-error');
         const successMessage = document.querySelector('.phone-confirm-message');
+        const resendText = document.querySelector('.phone-confirm-resend');
 
         let message;
+        const resendDelay = 5 * 60 * 1000;
         const project = 'mymiofond.ru';
         const apiKey = '82dc53f1bd307d163827a6b216690f34';
         let isBtnActive = true;
         let isFirstTime = true;
 
         sendConfirmationBtn.addEventListener('click', sendConfirmation);
-        phoneInput.addEventListener('click', clearError);
+        phoneInput.addEventListener('keydown', () => {
+            clearError();
+            hideResendMessage();
+            unblockBtn(sendConfirmationBtn, 0);
+        });
         checkConfirmationBtn.addEventListener('click', confirmation);
 
         function sendConfirmation(e) {
@@ -63,8 +70,9 @@
                 mode: 'no-cors',
             })
                 .then(() => {
-                    unblockBtn(this, 5000);
+                    unblockBtn(this, resendDelay);
                     changeSendBtnText();
+                    showResendMessage();
                     activeConfirmationBtn();
                 });
         }
@@ -125,6 +133,11 @@
         function confirmation() {
             const isCorrect = checkCode();
             setConfirmMessage(isCorrect);
+            if (isCorrect) {
+                hideResendMessage();
+                console.log(phoneConfirmInput);
+                phoneConfirmInput.value = '1';
+            }
         }
 
         function checkCode() {
@@ -155,6 +168,18 @@
 
             successMessage.classList.add('error');
             successMessage.innerHTML = 'Ошибка!'
+        }
+        
+        function showResendMessage() {
+            if (!resendText.classList.contains('active')) {
+                resendText.classList.add('active');
+            }
+        }
+
+        function hideResendMessage() {
+            if (resendText.classList.contains('active')) {
+                resendText.classList.remove('active');
+            }
         }
     })();
 </script>
