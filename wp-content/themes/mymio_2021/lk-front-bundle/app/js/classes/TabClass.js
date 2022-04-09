@@ -6,7 +6,7 @@ export const TabClass = function (wrapperSelector, contentClass, tabClass, curre
     self.wrapper = $(wrapperSelector);
     self.contentList = $(`${wrapperSelector} ${contentClass}`);
     self.tabList = $(`${wrapperSelector} ${tabClass}`)
-    this.currentTab = currentTabNum;
+    this.currentTab = null;
 
     self.Tab = new Proxy(self, {
         set(target, prop, value) {
@@ -44,8 +44,13 @@ export const TabClass = function (wrapperSelector, contentClass, tabClass, curre
         self.Tab.currentTab = parseInt(index);
     }
     this.init = () => {
-        this.tabList.each(function () {
+
+        self.tabList.each(function () {
             $(this).on('click', self.tabHandler);
         })
+
+        if (!$(`${tabClass}.${self.activeClass}`).length) {
+            self.Tab.currentTab = currentTabNum;
+        }
     }
 }

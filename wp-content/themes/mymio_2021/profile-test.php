@@ -101,14 +101,14 @@ get_header(); ?>
             </div>
             <div class="lk-container">
                 <div class="lk-tabs">
-                    <span class="lk-tab active" data-tab="1">Основная информация</span>
+                    <span class="lk-tab" data-tab="1">Основная информация</span>
                     <span class="lk-tab" data-tab="2">Медицинская анкета</span>
                     <span class="lk-tab" data-tab="3">Документы</span>
                     <span class="lk-tab" data-tab="4">Участие в программах</span>
                     <span class="lk-tab" data-tab="5">Архив мед.анкет</span>
                 </div>
                 <div class="lk-body">
-                    <div class="lk-form active" data-form="1">
+                    <div class="lk-form" data-form="1">
                         <section class="lk-form-container">
                             <?php
                             $form_settings = [
