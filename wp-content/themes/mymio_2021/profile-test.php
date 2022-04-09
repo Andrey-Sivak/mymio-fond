@@ -2236,9 +2236,6 @@ get_header(); ?>
                     <div class="lk-form" data-form="5">
                         <p>Форма 5</p>
                     </div>
-                    <div class="lk-form" data-form="6">
-                        <p>Форма 6</p>
-                    </div>
                 </div>
             </div>
         </div>
