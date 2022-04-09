@@ -7,7 +7,7 @@ import {TabClass} from "./TabClass";
 export const AccountClass = function () {
     this.userData = null;
     this.elmaId = $('#elma-id').html();
-    this.tabs = new TabClass('lk-container', 'lk-form', 'lk-tab');
+    this.tabs = new TabClass($('.lk-container'), 'lk-form', 'lk-tab');
 
     this.getUserData = async (elmaId) => {
         try {

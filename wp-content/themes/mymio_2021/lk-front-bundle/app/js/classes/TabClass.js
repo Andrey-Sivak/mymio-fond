@@ -2,12 +2,11 @@
 
 import {localStorageGet, localStorageSet} from "../api/localStorage";
 
-export const TabClass = function (wrapperSelector, contentClass, tabClass) {
+export const TabClass = function (wrapper, contentClass, tabClass) {
     const self = this;
     self.activeClass = 'active'
-    self.wrapper = $(`.${wrapperSelector}`);
-    self.contentList = $(`.${wrapperSelector} .${contentClass}`);
-    self.tabList = $(`.${wrapperSelector} .${tabClass}`)
+    self.contentList = wrapper.find(`.${contentClass}`);
+    self.tabList = wrapper.find(`.${tabClass}`)
     this.currentTab = null;
 
     self.Tab = new Proxy(self, {
@@ -22,7 +21,7 @@ export const TabClass = function (wrapperSelector, contentClass, tabClass) {
         }
     })
 
-    self.switchTabs = function (tabNumber) {
+    this.switchTabs = function (tabNumber) {
         self.tabList.each(function (i) {
            if (i === tabNumber) {
                $(this).addClass(self.activeClass);
@@ -40,14 +39,14 @@ export const TabClass = function (wrapperSelector, contentClass, tabClass) {
        })
     }
 
-    self.tabHandler = function (e) {
+    this.tabHandler = function (e) {
         e.preventDefault();
         const index = self.tabList.index(this);
         self.Tab.currentTab = parseInt(index);
         localStorageSet(tabClass, index);
     }
 
-    self.getLastActiveTab = (tabClass) => {
+    this.getLastActiveTab = (tabClass) => {
         return parseInt(localStorageGet(tabClass) || 0);
     }
 
