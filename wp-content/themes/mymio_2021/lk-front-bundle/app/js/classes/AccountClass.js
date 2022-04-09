@@ -1,6 +1,6 @@
 'use strict';
 
-import {getUserDataFromElma} from '../api/getDataFromElma';
+import {getUserDataFromElma} from '../api/elmaApi';
 import {loader} from "../mixins/loader";
 import {TabClass} from "./TabClass";
 
@@ -17,9 +17,9 @@ export const AccountClass = function () {
 
             if (await rawData) {
                 const data = await rawData.json();
-                this.userData = await Object.entries(data);
+                this.userData = await data;
 
-                this.setUserData(await this.userData);
+                this.setUserData(await Object.entries(data));
                 return true;
             }
 
