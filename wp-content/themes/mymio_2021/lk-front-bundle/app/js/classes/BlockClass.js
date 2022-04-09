@@ -1,3 +1,5 @@
+'use strict';
+
 import {TabClass} from "./TabClass";
 
 export const BlockClass = function (blockElement) {

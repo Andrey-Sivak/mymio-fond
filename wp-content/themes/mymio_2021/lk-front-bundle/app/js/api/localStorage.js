@@ -1,3 +1,5 @@
+'use strict';
+
 export const localStorageSet = (name, value) => {
     window.localStorage.setItem(name, value);
 }

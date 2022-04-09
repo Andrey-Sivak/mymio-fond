@@ -1,3 +1,5 @@
+'use strict';
+
 export const loader = (loaderContainer = 'body', mode, activeClass = 'active') => {
     const currentLoader = $(loaderContainer).find('.loader');
 

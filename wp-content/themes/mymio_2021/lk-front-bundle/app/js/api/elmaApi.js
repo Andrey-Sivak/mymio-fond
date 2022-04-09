@@ -1,3 +1,5 @@
+'use strict';
+
 const TOKEN = '8657d620-f5eb-4552-997d-d3ec43688c29';
 
 export const getUserDataFromElma = async (url, method) => {
