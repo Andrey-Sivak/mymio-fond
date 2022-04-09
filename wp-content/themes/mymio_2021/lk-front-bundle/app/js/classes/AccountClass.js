@@ -3,11 +3,13 @@
 import {getUserDataFromElma} from '../api/elmaApi';
 import {loader} from "../mixins/loader";
 import {TabClass} from "./TabClass";
+import {BlockClass} from "./BlockClass";
 
 export const AccountClass = function () {
     this.userData = null;
     this.elmaId = $('#elma-id').html();
     this.tabs = new TabClass($('.lk-container'), 'lk-form', 'lk-tab');
+    this.blocks = $('.lk-form');
 
     this.getUserData = async (elmaId) => {
         try {
@@ -29,6 +31,13 @@ export const AccountClass = function () {
         }
     }
 
+    this.contentBlocks = () => {
+        this.blocks.each(function () {
+            const block = new BlockClass($(this));
+            block.init();
+        })
+    }
+
     this.setUserData = (data) => {
         for (const [key, value] of data) {
             const el = $(`[data-info=${key}]`);
@@ -40,6 +49,7 @@ export const AccountClass = function () {
         this.getUserData(this.elmaId)
             .then(() => {
                 this.tabs.init();
+                this.contentBlocks();
                 loader('body', 'hide');
             })
             .catch(() => false);
