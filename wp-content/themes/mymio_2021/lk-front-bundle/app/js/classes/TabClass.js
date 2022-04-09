@@ -1,11 +1,13 @@
 'use strict';
 
-export const TabClass = function (wrapperSelector, contentClass, tabClass, currentTabNum = 0) {
+import {localStorageGet, localStorageSet} from "../api/localStorage";
+
+export const TabClass = function (wrapperSelector, contentClass, tabClass) {
     const self = this;
     self.activeClass = 'active'
-    self.wrapper = $(wrapperSelector);
-    self.contentList = $(`${wrapperSelector} ${contentClass}`);
-    self.tabList = $(`${wrapperSelector} ${tabClass}`)
+    self.wrapper = $(`.${wrapperSelector}`);
+    self.contentList = $(`.${wrapperSelector} .${contentClass}`);
+    self.tabList = $(`.${wrapperSelector} .${tabClass}`)
     this.currentTab = null;
 
     self.Tab = new Proxy(self, {
@@ -42,15 +44,21 @@ export const TabClass = function (wrapperSelector, contentClass, tabClass, curre
         e.preventDefault();
         const index = self.tabList.index(this);
         self.Tab.currentTab = parseInt(index);
+        localStorageSet(tabClass, index);
     }
+
+    self.getLastActiveTab = (tabClass) => {
+        return parseInt(localStorageGet(tabClass) || 0);
+    }
+
     this.init = () => {
 
         self.tabList.each(function () {
             $(this).on('click', self.tabHandler);
         })
 
-        if (!$(`${tabClass}.${self.activeClass}`).length) {
-            self.Tab.currentTab = currentTabNum;
+        if (!$(`.${tabClass}.${self.activeClass}`).length) {
+            self.Tab.currentTab = self.getLastActiveTab(tabClass);
         }
     }
 }
