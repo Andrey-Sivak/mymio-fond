@@ -7,7 +7,7 @@ import {TabClass} from "./TabClass";
 export const AccountClass = function () {
     this.userData = null;
     this.elmaId = $('#elma-id').html();
-    this.tabs = $('.lk-tab');
+    this.tabs = new TabClass('lk-container', 'lk-form', 'lk-tab');
 
     this.getUserData = async (elmaId) => {
         try {
@@ -36,15 +36,10 @@ export const AccountClass = function () {
         }
     }
 
-    this.setTabs = () => {
-        const tabs = new TabClass('lk-container', 'lk-form', 'lk-tab');
-        tabs.init();
-    }
-
     this.init = () => {
         this.getUserData(this.elmaId)
             .then(() => {
-                this.setTabs();
+                this.tabs.init();
                 loader('body', 'hide');
             })
             .catch(() => false);
