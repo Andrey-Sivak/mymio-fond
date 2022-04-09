@@ -37,11 +37,8 @@ export const AccountClass = function () {
     }
 
     this.setTabs = () => {
-        this.tabs.each(function (i) {
-            const tab = new TabClass('.lk-container', `.lk-form[data-form="${i + 1}"]`, `.lk-tab[data-tab="${i + 1}"]`);
-            tab.init();
-            console.log(tab);
-        })
+        const tabs = new TabClass('.lk-container', `.lk-form`, `.lk-tab`);
+        tabs.init();
     }
 
     this.init = () => {
