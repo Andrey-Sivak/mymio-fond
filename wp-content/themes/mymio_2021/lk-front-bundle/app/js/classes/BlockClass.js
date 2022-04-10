@@ -32,5 +32,6 @@ export const BlockClass = function (blockElement) {
 
     this.init = () => {
         this.setTabs();
+        this.setForms();
     }
 }
