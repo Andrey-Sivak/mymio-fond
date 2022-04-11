@@ -52,6 +52,8 @@ export const AccountClass = function () {
                 this.contentBlocks();
                 loader('body', 'hide');
             })
-            .catch(() => false);
+            .catch((e) => {
+                console.log(e);
+            });
     }
 }
