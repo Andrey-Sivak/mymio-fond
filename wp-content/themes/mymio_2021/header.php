@@ -41,6 +41,19 @@
                                     getElmaIdByEmail(registerEmail)
                                         .then(res => res.json())
                                         .then(data => {
+                                            const obj = {
+                                                context: {
+                                                    user_password: pass
+                                                }
+                                            }
+                                            const url = 'https://mymiofond.ru/Scripts/handler.php';
+                                            const formData = new FormData();
+                                            formData.set('context', JSON.stringify(obj));
+                                            postData(url, formData)
+                                                .then(res => res.json())
+                                                .then(data => console.log(data));
+
+
                                             createUser(registerEmail, data.id)
                                                 .then(() => {
                                                     registerModalLoader.parentElement.removeChild(registerModalLoader);
@@ -171,15 +184,15 @@
 
 <body <?php body_class(); ?>>
 <?php get_template_part('/template-parts/auth-modal'); ?>
-<?php /*if (isset($_SESSION['register-email'])) : */?><!--
+<?php if (isset($_SESSION['register-email'])) : ?>
 <div class="modal--register active">
     <div class="modal--window">
         <span class="close" data-close="true">&times;</span>
         <p class="modal--content">Проверка данных..</p>
-        <?php /*get_template_part('/template-parts/loade    r', null, ['active' => true]); */?>
+        <?php get_template_part('/template-parts/loader', null, ['active' => true]); ?>
     </div>
 </div>
---><?php /*endif; */?>
+<?php endif; ?>
     <div id="page-loading">
         <img id="page-loading-image" src="<? echo get_template_directory_uri() ?>/assets/images/mymio_loader.gif"
              alt="Loading..."/>
