@@ -1,10 +1,12 @@
 'use strict';
 
+const apiUrl = `${homeUrl}/custom_auth/`;
+
 export const getDataFromDb = async (url) => {
 
     try {
         return await fetch(url, {
-            method: method,
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -12,4 +14,69 @@ export const getDataFromDb = async (url) => {
     } catch (e) {
         return false;
     }
+}
+
+const postData = async (url = '', data = {}) => {
+
+    try {
+        return await fetch(url, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: data,
+        });
+    } catch (e) {
+        return false;
+    }
+}
+
+const postDataToDb = async (method, ...args) => {
+    const userData = Object.create({});
+
+    Object.defineProperty(userData, 'user_data', {
+        value: {},
+        enumerable: true,
+        writable: true,
+    });
+
+    args.forEach(a => {
+        Object.defineProperty(userData.user_data, a.name, {
+            value: a.value,
+        });
+    });
+
+    const url = `${apiUrl}${method}.php`;
+    const formData = new FormData();
+    formData.set('user_data', JSON.stringify(userData));
+
+    return await postData(url, formData);
+}
+
+export const checkUserExist = async (email, name) => {
+
+    const emailObj = {
+        name: 'user_email',
+        value: email,
+    };
+
+    const nameObj = {
+        name: 'user_name',
+        value: name,
+    }
+
+    return await postDataToDb('create-user', emailObj, nameObj);
+}
+
+export const createUser = async (email, elamId) => {
+
+    const emailObj = {
+        name: 'user_email',
+        value: email,
+    };
+
+    const elmaIdObj = {
+        name: 'elma_id',
+        value: elamId,
+    }
+
+    return await postDataToDb('create-user-elma-id', emailObj, elmaIdObj);
 }
