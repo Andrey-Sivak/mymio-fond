@@ -12,7 +12,12 @@ let isProd = !isDev;
 
 let webpackConfig = {
     output: {
-        filename: 'lk-forms.js'
+        filename: '[name].js',
+        path: __dirname + '/dist',
+    },
+    entry: {
+        lk_forms: './app/js/main.js',
+        register: './app/js/register.js',
     },
     module: {
         rules: [
