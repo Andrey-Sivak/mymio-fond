@@ -1,4 +1,4 @@
-import {localStorageGet, localStorageSet} from "../helprers/localStorage";
+import {localStorageGet, localStorageSet} from "../api/localStorage";
 import {questionaireProgress} from "../helprers/questionaireProgress";
 
 export const tabs = (tabClass, tabContentClass) => {

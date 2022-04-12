@@ -3,9 +3,9 @@
 import {getInputNames} from "./utils/getInputNames";
 import {formResultHandler} from "./utils/formResultHandler";
 import {getNeededInputs} from "./utils/getNeededInputs";
-import {fillSameValues} from "./mixins/fillSameValues";
-import {goToNextForm} from "./mixins/goToNextForm";
-import {getStage} from "./mixins/getStage";
+import {fillSameValues} from "./_mixins/fillSameValues";
+import {goToNextForm} from "./_mixins/goToNextForm";
+import {getStage} from "./_mixins/getStage";
 
 const forms = jQuery('form.contact-form__form');
 
