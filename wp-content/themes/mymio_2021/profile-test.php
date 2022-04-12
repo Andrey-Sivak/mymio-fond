@@ -23,66 +23,14 @@ $result = $db->query($query);
 $result = mysqli_fetch_all($result, MYSQLI_ASSOC);
 $db->close();
 
-get_header();
-?>
+get_header(); ?>
+
+    <?php get_template_part('/template-parts/loader', null, ['active' => true]); ?>
+
+
     <span style="display: none;" id="elma-id"><?= $result[0]['elma_id']; ?></span>
 
     <main id="primary" class="site-main">
-
-        <!--<div class="maxwidth-theme">
-            <script src="<? /*= get_template_directory_uri() */ ?>/assets/flexslider/jquery.flexslider-min.js"></script>
-
-            <script type="text/javascript">
-
-                jQuery(document).ready(function ($) {
-                    $('#progs').flexslider({
-                        animation: "slide",
-                        animationLoop: false,
-                        slideshow: false,
-                        controlsContainer: $("#controls-progs"),
-                        customDirectionNav: $("#nav-progs a"),
-                        touch: true,
-                        itemWidth: 320,
-                        itemMargin: 25,
-                        minItems: 1,
-                        maxItems: 3
-                    });
-                });
-            </script>
-
-
-            <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.min.js"
-                    integrity="sha512-TToQDr91fBeG4RE5RjMl/tqNAo35hSRR4cbIFasiV2AAMQ6yKXXYhdSdEpUcRE6bqsTiB+FPLPls4ZAFMoK5WA=="
-                    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-            <link rel="stylesheet"
-                  href="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.css"
-                  integrity="sha512-uq8QcHBpT8VQcWfwrVcH/n/B6ELDwKAdX4S/I3rYSwYldLVTs7iII2p6ieGCM13QTPEKZvItaNKBin9/3cjPAg=="
-                  crossorigin="anonymous" referrerpolicy="no-referrer"/>
-            <link rel="stylesheet" href="https://releases.jquery.com/git/ui/jquery-ui-git.css"/>
-            <style>
-                .ui-state-active:hover {
-                    border: 1px solid #009d9a;
-                    background: #009d9a;
-                    font-weight: normal;
-                    color: #ffffff;
-                }
-
-                .ui-menu {
-                    background: #EDFFFE;
-                    max-width: 530px;
-                    max-height: 300px;
-                    overflow-y: auto;
-                    overflow-x: hidden;
-                }
-
-                .ui-menu .ui-menu-item {
-                    line-height: 22px;
-                    font-size: 16px;
-                    color: grey;
-                }
-            </style>
-        </div>-->
 
         <div class="maxwidth-theme overfl">
             <div class="heading-article">
@@ -153,14 +101,14 @@ get_header();
             </div>
             <div class="lk-container">
                 <div class="lk-tabs">
-                    <span class="lk-tab active" data-tab="1">Основная информация</span>
+                    <span class="lk-tab" data-tab="1">Основная информация</span>
                     <span class="lk-tab" data-tab="2">Медицинская анкета</span>
                     <span class="lk-tab" data-tab="3">Документы</span>
                     <span class="lk-tab" data-tab="4">Участие в программах</span>
                     <span class="lk-tab" data-tab="5">Архив мед.анкет</span>
                 </div>
                 <div class="lk-body">
-                    <div class="lk-form active" data-form="1">
+                    <div class="lk-form" data-form="1">
                         <section class="lk-form-container">
                             <?php
                             $form_settings = [
@@ -2287,9 +2235,6 @@ get_header();
                     </div>
                     <div class="lk-form" data-form="5">
                         <p>Форма 5</p>
-                    </div>
-                    <div class="lk-form" data-form="6">
-                        <p>Форма 6</p>
                     </div>
                 </div>
             </div>

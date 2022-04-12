@@ -1,13 +1,6 @@
-(function train() {
-    const trains = $('.train');
+'use strict';
 
-    trains.each(function () {
-        const train = new Train($(this).parent());
-        train.init();
-    });
-})();
-
-function Train(element) {
+export const TrainClass = function(element) {
     this.contextElement = $(element);
     this.input = this.contextElement.find('.train__hide-input');
     this.trainItems = this.contextElement.find('.train__item_inner');

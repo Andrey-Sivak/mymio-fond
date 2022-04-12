@@ -1,4 +1,4 @@
-if (jQuery('.select').length > 1) {
+/*if (jQuery('.select').length > 1) {
     jQuery('select').each(function () {
         let $this = jQuery(this).not('.select-search');
         let parent = jQuery(this).not('.select-search').parents('.select');
@@ -39,7 +39,7 @@ $('.select').parent().on('click', function () {
             selectInput.removeClass('active');
         }
     });
-});
+});*/
 
 function conditionFields(elem) {
     const value = elem.val();
