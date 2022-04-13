@@ -14,8 +14,12 @@ export const AccountClass = function () {
     this.getUserData = async (elmaId) => {
         try {
             const url = `https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/get/appgs?id=${elmaId}`;
+            const requestOptions = {
+                method: 'GET',
+                mode: 'no-cors',
+            };
 
-            const rawData = await getUserDataFromElma(url, 'GET');
+            const rawData = await getUserDataFromElma(url, requestOptions);
 
             if (await rawData) {
                 const data = await rawData.json();

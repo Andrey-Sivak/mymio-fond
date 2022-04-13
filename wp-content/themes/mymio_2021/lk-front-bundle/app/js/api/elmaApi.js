@@ -2,32 +2,20 @@
 
 const TOKEN = '8657d620-f5eb-4552-997d-d3ec43688c29';
 
-export const getUserDataFromElma = async (url, method, body) => {
+export const getUserDataFromElma = async (url, options) => {
 
-    this.options;
+    const headers = {
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Token': TOKEN,
+        },
+    };
 
-    if (body) {
-        this.options = {
-            method: method,
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Token': TOKEN,
-            },
-            body: body,
-        }
-    } else {
-        this.options = {
-            method: method,
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Token': TOKEN,
-            }
-        }
-    }
+    const requestOptions = {...headers, ...options}
 
     try {
-        return await fetch(url, this.options)
+        return await fetch(url, requestOptions);
     } catch (e) {
-        return false;
+        return e;
     }
 }
