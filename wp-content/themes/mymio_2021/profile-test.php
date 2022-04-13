@@ -25,7 +25,7 @@ $db->close();
 
 get_header(); ?>
 
-    <?php get_template_part('/template-parts/loader', null, ['active' => true]); ?>
+<!--    --><?php //get_template_part('/template-parts/loader', null, ['active' => true]); ?>
 
 
     <span style="display: none;" id="elma-id"><?= $result[0]['elma_id']; ?></span>
