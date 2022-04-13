@@ -39,8 +39,12 @@ const postDataToDb = async (method, ...args) => {
     });
 
     args.forEach(a => {
-        Object.defineProperty(userData.user_data, a.name, {
-            value: a.value,
+        const propName = a.name;
+        const propVal = a.value || '';
+        Object.defineProperty(userData.user_data, propName, {
+            value: propVal,
+            enumerable: true,
+            writable: true,
         });
     });
 

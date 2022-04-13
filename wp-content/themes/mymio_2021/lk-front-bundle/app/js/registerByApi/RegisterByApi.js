@@ -1,7 +1,7 @@
 'use strict';
 
 import {getUserDataFromElma} from "../api/elmaApi";
-import {checkUserExist, createUser, postData} from "../api/customApi";
+import {checkUserExist, createUser} from "../api/customApi";
 
 export const RegisterByApi = function (email) {
     this.email = email;
