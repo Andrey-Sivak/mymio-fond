@@ -26,131 +26,10 @@
             if (isset($_SESSION['register-email'])) { ?>
 
                 <script>
-                    (function () {
-                        let registerEmail = '<?php echo $_SESSION['register-email']; ?>';
-
-                        /*window.addEventListener('load', () => {
-                            const registerModal = document.querySelector('.modal--register.active');
-                            const registerModalLoader = registerModal.querySelector('.loader');
-                            const registerModalText = registerModal.querySelector('.modal--content');
-
-                            checkUserExist(registerEmail, '')
-                                .then(res => res.text())
-                                .then(pass => {
-
-                                    getElmaIdByEmail(registerEmail)
-                                        .then(res => res.json())
-                                        .then(data => {
-                                            const obj = {
-                                                context: {
-                                                    user_password: pass
-                                                }
-                                            }
-                                            const url = 'https://mymiofond.ru/Scripts/handler.php';
-                                            const formData = new FormData();
-                                            formData.set('context', JSON.stringify(obj));
-                                            postData(url, formData)
-                                                .then(res => res.json())
-                                                .then(data => console.log(data));
-
-
-                                            createUser(registerEmail, data.id)
-                                                .then(() => {
-                                                    registerModalLoader.parentElement.removeChild(registerModalLoader);
-                                                    registerModalText.innerHTML = 'Ваш личный кабинет успешно создан. <br>Ожидайте письма с данными для доступа'
-                                                })
-                                        });
-                                });
-                        });*/
-
-                        async function checkUserExist(email, name) {
-                            const userData = Object.create({});
-
-                            Object.defineProperty(userData, 'user_data', {
-                                value: {},
-                                enumerable: true,
-                                writable: true,
-                            });
-
-                            Object.defineProperties(userData.user_data, {
-                                'user_email': {
-                                    value: email,
-                                    enumerable: true,
-                                    writable: true,
-                                },
-                                'user_name': {
-                                    value: name,
-                                    enumerable: true,
-                                    writable: true,
-                                }
-                            });
-
-                            const url = `${homeUrl}/custom_auth/create-user.php`;
-                            const formData = new FormData();
-                            formData.set('user_data', JSON.stringify(userData));
-
-                            return await postData(url, formData);
-                        }
-
-                        async function getElmaIdByEmail(email) {
-                            const url = 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/search_guardianship_by_email';
-
-                            const requestBody = JSON.stringify({
-                                context: {
-                                    email: email,
-                                }
-                            })
-
-                            return await fetch(url, {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'Authorization': 'Bearer 8657d620-f5eb-4552-997d-d3ec43688c29',
-                                },
-                                body: requestBody,
-                            })
-                        }
-
-                        async function createUser(email, elamId) {
-                            const userData = Object.create({});
-
-                            Object.defineProperty(userData, 'user_data', {
-                                value: {},
-                                enumerable: true,
-                                writable: true,
-                            });
-
-                            Object.defineProperties(userData.user_data, {
-                                'user_email': {
-                                    value: email,
-                                    enumerable: true,
-                                    writable: true,
-                                },
-                                'elma_id': {
-                                    value: elamId,
-                                    enumerable: true,
-                                    writable: true,
-                                }
-                            });
-
-                            const url = `${homeUrl}/custom_auth/create-user-elma-id.php`;
-                            const formData = new FormData();
-                            formData.set('user_data', JSON.stringify(userData));
-
-                            return await postData(url, formData);
-                        }
-
-                        async function postData(url = '', data = {}) {
-                            return await fetch(url, {
-                                method: 'POST',
-                                mode: 'no-cors',
-                                body: data,
-                            });
-                        }
-                    })();
+                    let registerEmail = '<?php echo $_SESSION['register-email']; ?>';
                 </script>
 
-                <?php /*unset($_SESSION['register-email']);*/
+                <?php unset($_SESSION['register-email']);
             }
         }
         ?>
@@ -187,7 +66,7 @@
 <?php if (isset($_SESSION['register-email'])) : ?>
 <div class="modal--register active">
     <div class="modal--window">
-        <span class="close" data-close="true">&times;</span>
+<!--        <span class="close" data-close="true">&times;</span>-->
         <p class="modal--content">Проверка данных..</p>
         <?php get_template_part('/template-parts/loader', null, ['active' => true]); ?>
     </div>
