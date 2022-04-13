@@ -7,12 +7,12 @@ import './getUserDataFromElma';
 import './formFunctions/select';
 import './formFunctions/checkboxes';
 import './formFunctions/datepicker';
-// import './formFunctions/train';
+import './formFunctions/train';
 import {maskInit} from "./formFunctions/inputMask";
 import {selectMkb} from "./formFunctions/selectMkb";
 import {checkLastActiveTabs, checkLockedTabs, tabs} from "./utils/tabs";
 import './forms';
-// import './mixins/conditionFields';
+import './_mixins/conditionFields';
 import './formFunctions/yaMaps';
 
 './helprers/questionaireProgress';
