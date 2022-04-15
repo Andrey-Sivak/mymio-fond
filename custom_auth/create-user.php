@@ -28,7 +28,12 @@ $result = $db->query($query);
 
 if ($result->num_rows) {
     $db->close();
-    echo false;
+
+    $result_object = [
+        'status' => false,
+    ];
+
+    print_r( json_encode($result_object) );
     exit();
 }
 
@@ -37,7 +42,10 @@ $db->query($query);
 
 $db->close();
 
-echo $user_pass;
+$result_object = [
+    'status' => true,
+    'user_name' => $user_name,
+    'user_pass' => $user_pass,
+];
 
-
-//asdaa1a@as.as
+print_r( json_encode($result_object) );
