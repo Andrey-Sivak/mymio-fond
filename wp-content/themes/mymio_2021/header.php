@@ -19,20 +19,21 @@
         session_start();
         $register_email = $_GET['eml'] ?: null;
 
-        if (isset($register_email)) {
-            require get_template_directory() . '/includes/register-user-by-elma-info.php';
-            register_user_from_elma_info($register_email);
-        } else {
-            if (isset($_SESSION['register-email'])) { ?>
+        if (isset($register_email)) :
+            $_SESSION['register-email'] = trim($register_email);
+            header('Location: /?register');
 
-                <script>
-                    let registerEmail = '<?php echo $_SESSION['register-email']; ?>';
-                </script>
-
-                <?php unset($_SESSION['register-email']);
+            if(isset($_SESSION['user_name'])) {
+                unset($_SESSION['user_name']);
             }
-        }
-        ?>
+            return;
+        endif; ?>
+
+<!--        asdfd1231312312a@as.asa  -->
+
+        <script>
+            let registerEmail = '<?php echo $_SESSION['register-email'] ?: ''; ?>';
+        </script>
         <meta charset="<?php bloginfo('charset'); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#009d9a">
@@ -64,14 +65,17 @@
 <body <?php body_class(); ?>>
 <?php get_template_part('/template-parts/auth-modal'); ?>
 <?php if (isset($_SESSION['register-email'])) : ?>
-<div class="modal--register active">
-    <div class="modal--window">
-<!--        <span class="close" data-close="true">&times;</span>-->
-        <p class="modal--content">Проверка данных..</p>
-        <?php get_template_part('/template-parts/loader', null, ['active' => true]); ?>
+    <div class="modal--register active" data-close>
+        <div class="modal--window">
+            <p class="modal--content">Проверка email..</p>
+            <?php get_template_part('/template-parts/loader', null, ['active' => true]); ?>
+            <a href="#" class="modal--btn btn hide" data-close="true">Закрыть</a>
+        </div>
     </div>
-</div>
-<?php endif; ?>
+<?php
+endif;
+
+unset($_SESSION['register-email']); ?>
     <div id="page-loading">
         <img id="page-loading-image" src="<? echo get_template_directory_uri() ?>/assets/images/mymio_loader.gif"
              alt="Loading..."/>

@@ -6035,3 +6035,22 @@ section#quote .wrap + .wrap {
 .phone-confirm-resend.active {
     display: block;
 }
+
+.loader {
+    overflow: hidden;
+    opacity: 0;
+    max-width: 0;
+    max-height: 0;
+    transition: all ease .3s;
+}
+
+.loader.active {
+    overflow: auto;
+    opacity: 1;
+    max-width: unset;
+    max-height: unset;
+}
+
+.btn.hide {
+    display: none;
+}

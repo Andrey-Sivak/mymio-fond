@@ -1,17 +1,20 @@
 'use strict';
 
 import {getUserDataFromElma} from "../api/elmaApi";
-import {checkUserExist, createUser} from "../api/customApi";
+import {checkUserExist, createUser, deleteUserData} from "../api/customApi";
+import {loader} from "../mixins/loader";
 
 export const RegisterByApi = function (email) {
+    const self = this;
     this.email = email;
+    this.modalWindow = document.querySelector('.modal--register');
 
     this.checkUser = async () => {
         try {
             const result = await checkUserExist(this.email);
-            return await result.text();
+            return await result.json();
         } catch (e) {
-            return `User with email ${this.email} already exist`;
+            return false;
         }
     }
 
@@ -32,7 +35,7 @@ export const RegisterByApi = function (email) {
 
             return await result.json();
         } catch (e) {
-            return e;
+            return false;
         }
     }
 
@@ -54,7 +57,7 @@ export const RegisterByApi = function (email) {
             const result = await getUserDataFromElma(url, requestOptions);
             return await result.json();
         } catch (e) {
-            return 'Failed to create password';
+            return false;
         }
     }
 
@@ -62,12 +65,79 @@ export const RegisterByApi = function (email) {
         try {
             return await createUser(this.email, elmaId);
         } catch (e) {
-            return 'Error';
+            return false;
         }
     }
 
-    this.hideModal = () => {
-        const modal = document.querySelector('.modal--register');
-        modal.parentElement.removeChild(modal);
+    this.check = async () => {
+
+        const checkUserRes = await this.checkUser();
+        let success = true;
+        //TODO: fix me
+        const modal = new this.modal();
+
+        if (await checkUserRes.status) {
+            modal.changeContent('Создание id пользователя...');
+            const elmaId = await this.getElmaIdByEmail();
+
+            if (await elmaId.id) {
+                modal.changeContent('Создание учетной записи...');
+                const created = await this.createNewUser(elmaId.id);
+                const register = await this.sendUserPasswordToElma(elmaId.id, checkUserRes);
+
+                if (!await created || !await register) {
+                    success = false;
+                    modal.finish('Ошибка сервера. Попробуйте позже.');
+                } else {
+                    modal.finish('Готово!');
+                }
+            } else {
+                success = false;
+                modal.finish('Ошибка сервера. Попробуйте позже.');
+            }
+        } else {
+            modal.finish(`Пользователь с email "${this.email}" уже зарегистрирован.`);
+        }
+
+        if (success) {
+            return;
+        }
+
+        await deleteUserData(this.email);
+    }
+
+    this.modal = function () {
+        const modal = self.modalWindow;
+        const modalContent = modal.querySelector('.modal--content');
+        const modalBtn = modal.querySelector('.modal--btn');
+
+        this.changeContent = (text) => {
+            modalContent.innerHTML = text;
+        }
+
+        this.finish = (text) => {
+            this.changeContent(text);
+            loader('.modal--register');
+            if (modalBtn.classList.contains('hide')) {
+                modalBtn.classList.remove('hide');
+            }
+            modal.dataset.close = 'true';
+            modal.addEventListener('click', this.hideModal);
+            window.history.pushState(null, document.title, window.location.pathname);
+        }
+
+        this.hideModal = function (e) {
+            e.preventDefault();
+            const target = e.target;
+            if (target.dataset.close) {
+                self.modalWindow.classList.remove('active');
+            }
+        }
+    }
+
+    this.init = () => {
+        window.addEventListener('load', () => {
+            this.check();
+        });
     }
 }
