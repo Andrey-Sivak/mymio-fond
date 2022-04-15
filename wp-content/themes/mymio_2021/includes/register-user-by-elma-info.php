@@ -5,5 +5,5 @@ function register_user_from_elma_info($email) {
 
     $_SESSION['register-email'] = trim($email);
 
-    header('Location: /?register-success');
+    header('Location: /?register');
 }
