@@ -84,3 +84,12 @@ export const createUser = async (email, elamId) => {
 
     return await postDataToDb('create-user-elma-id', emailObj, elmaIdObj);
 }
+
+export const deleteUserData = async (email) => {
+    const emailObj = {
+        name: 'user_email',
+        value: email,
+    };
+
+    return await postDataToDb('delete-user', emailObj);
+}
