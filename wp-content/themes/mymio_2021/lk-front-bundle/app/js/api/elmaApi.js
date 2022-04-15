@@ -16,6 +16,6 @@ export const getUserDataFromElma = async (url, options) => {
     try {
         return await fetch(url, requestOptions);
     } catch (e) {
-        return e;
+        return false;
     }
 }
