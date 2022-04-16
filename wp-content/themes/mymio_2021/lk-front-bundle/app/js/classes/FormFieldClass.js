@@ -3,6 +3,7 @@
 import {InputClass} from "./FormFields/InputClass";
 import {SelectClass} from "./FormFields/SelectClass";
 import {CheckboxClass} from "./FormFields/CheckboxClass";
+import {RadioClass} from "./FormFields/RadioClass";
 
 export const FormFieldClass = function (formField) {
     this.formFieldClass = null;
@@ -25,6 +26,9 @@ export const FormFieldClass = function (formField) {
                 break;
             case 'select':
                 this.formFieldClass = new SelectClass(formField);
+                break;
+            case 'radio':
+                this.formFieldClass = new RadioClass(formField);
                 break;
             case 'input':
                 this.formFieldClass = new InputClass(formField);
