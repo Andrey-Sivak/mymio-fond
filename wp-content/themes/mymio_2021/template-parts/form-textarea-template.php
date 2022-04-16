@@ -21,6 +21,9 @@ if (is_array($require_value)) {
     <?php endif;
     if ($condition['condition_dependency']) : ?>
         data-cond-dep-name="<?= $condition['condition_dependency']; ?>"
+    <?php endif;
+    if ($condition_relation) : ?>
+        data-cond-relation="<?= $condition_relation; ?>"
     <?php endif; ?>
 >
 
@@ -29,9 +32,6 @@ if (is_array($require_value)) {
     <?php endif; ?>
 
     <textarea name="<?= $field_name; ?>"
-              <?php if ($condition_relation) : ?>
-                  data-cond-relation="<?= $condition_relation; ?>"
-              <?php endif; ?>
               data-elma="<?= $elmaName; ?>"
               id="<?= $field_name; ?>"
               <?php if ($required) : ?>

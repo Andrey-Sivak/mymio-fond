@@ -24,6 +24,9 @@ if (is_array($require_value)) {
     <?php endif;
     if ($condition['condition_dependency']) : ?>
         data-cond-dep-name="<?= $condition['condition_dependency']; ?>"
+    <?php endif;
+    if ($condition_relation) : ?>
+        data-cond-relation="<?= $condition_relation; ?>"
     <?php endif; ?>
 >
 
@@ -39,9 +42,6 @@ if (is_array($require_value)) {
 
         <input type="checkbox"
                id="<?= $field_name ?: $form_index . '_' . $field_idx . '_' . $key; ?>"
-            <?php if ($condition_relation) : ?>
-                data-cond-relation="<?= $condition_relation; ?>"
-            <?php endif; ?>
                value="<?= $label; ?>"
                class="contact-form__input checkbox">
         <label for="<?= $field_name ?: $form_index . '_' . $field_idx . '_' . $key; ?>"
