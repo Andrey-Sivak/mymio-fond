@@ -9,7 +9,7 @@ export const TabClass = function (wrapper, contentClass, tabClass) {
     self.tabList = wrapper.find(`.${tabClass}`)
     this.currentTab = null;
 
-    self.Tab = new Proxy(self, {
+    this.Tab = new Proxy(self, {
         set(target, prop, value) {
             if (prop === 'currentTab' && target[prop] !== value) {
                 target[prop] = value;
@@ -57,7 +57,7 @@ export const TabClass = function (wrapper, contentClass, tabClass) {
         })
 
         if (!$(`.${tabClass}.${self.activeClass}`).length) {
-            self.Tab.currentTab = self.getLastActiveTab(tabClass);
+            this.Tab.currentTab = self.getLastActiveTab(tabClass);
         }
     }
 }
