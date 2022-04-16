@@ -6,11 +6,12 @@ $submit_button = $args['submit_button'];
 $data_tab = $args['tab'] ?: '';
 $form_name = $args['name'];
 $stage = $args['stage'];
+$action = $args['action_url'] ?: '#';
 ?>
 
 <div class="request-form-container">
     <div class="contact-form">
-        <form method="POST" class="contact-form__form"
+        <form method="POST" class="contact-form__form" data-action="<?php echo $action; ?>"
         <?php if ($stage) : ?>
         data-stage="<?php echo $stage; ?>"
         <?php endif; ?>

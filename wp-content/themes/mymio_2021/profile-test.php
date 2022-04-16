@@ -25,7 +25,7 @@ $db->close();
 
 get_header(); ?>
 
-<!--    --><?php //get_template_part('/template-parts/loader', null, ['active' => true]); ?>
+    <!--    --><?php //get_template_part('/template-parts/loader', null, ['active' => true]); ?>
 
 
     <span style="display: none;" id="elma-id"><?= $result[0]['elma_id']; ?></span>
@@ -112,6 +112,7 @@ get_header(); ?>
                         <section class="lk-form-container">
                             <?php
                             $form_settings = [
+                                'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/main/update',
                                 'caption' => 'Персональные данные Подопечного',
                                 'submit_button' => 'Подать заявку',
                                 'name' => 'main_info',
@@ -381,22 +382,23 @@ get_header(); ?>
                             </p>
 
                             <div class="lk-form__tabs">
-                                <span class="lk-form__tab" data-tab="1">Общая информация о пациенте и заболевании</span>
-                                <span class="lk-form__tab" data-tab="2">Неврология</span>
-                                <span class="lk-form__tab" data-tab="3">Ортопедия</span>
-                                <span class="lk-form__tab" data-tab="4">Реабилитация</span>
-                                <span class="lk-form__tab" data-tab="5">Эндокринология</span>
-                                <span class="lk-form__tab" data-tab="6">Пульмонология</span>
-                                <span class="lk-form__tab" data-tab="7">Гастроэнтерология</span>
-                                <span class="lk-form__tab" data-tab="8">Кардиология</span>
-                                <span class="lk-form__tab" data-tab="9">Хирургические вмешательства</span>
-                                <span class="lk-form__tab" data-tab="10">Социальный/Возможности среды</span>
-                                <span class="lk-form__tab" data-tab="11">Социально–психологический блок</span>
+                                <span class="lk-form__tab">Общая информация о пациенте и заболевании</span>
+                                <span class="lk-form__tab">Неврология</span>
+                                <span class="lk-form__tab">Ортопедия</span>
+                                <span class="lk-form__tab">Реабилитация</span>
+                                <span class="lk-form__tab">Эндокринология</span>
+                                <span class="lk-form__tab">Пульмонология</span>
+                                <span class="lk-form__tab">Гастроэнтерология</span>
+                                <span class="lk-form__tab">Кардиология</span>
+                                <span class="lk-form__tab">Хирургические вмешательства</span>
+                                <span class="lk-form__tab">Социальный/Возможности среды</span>
+                                <span class="lk-form__tab">Социально–психологический блок</span>
                             </div>
 
-                            <div class="lk-form__tab_content" data-form="1">
+                            <div class="lk-form__tab_content">
                                 <?php // Общая информация о пациенте и заболевании
                                 $form_settings = [
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
                                     'caption' => 'Общая информация о пациенте и заболевании',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Анкета заполняется законным представителем подопечного. Даже, если Вы наш совершеннолетний подопечный, просим заполнять анкету вместе с представителем. От полноты и правильности данных зависит работа Регистра. Спасибо вам!',
@@ -565,9 +567,10 @@ get_header(); ?>
                                 get_template_part('/template-parts/form-template', null, $form_settings); ?>
                             </div>
 
-                            <div class="lk-form__tab_content" data-form="2">
+                            <div class="lk-form__tab_content">
                                 <?php // Неврология
                                 $form_settings = [
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
                                     'caption' => 'Неврология',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Неврология вы заполняете за прошедший год.',
@@ -901,9 +904,10 @@ get_header(); ?>
                                 get_template_part('/template-parts/form-template', null, $form_settings); ?>
                             </div>
 
-                            <div class="lk-form__tab_content" data-form="3">
+                            <div class="lk-form__tab_content">
                                 <?php // Ортопедия
                                 $form_settings = [
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
                                     'caption' => 'Ортопедия',
                                     'stage' => '2,3,4,5',
                                     'submit_button' => 'Продолжить',
@@ -1070,9 +1074,10 @@ get_header(); ?>
                                 get_template_part('/template-parts/form-template', null, $form_settings); ?>
                             </div>
 
-                            <div class="lk-form__tab_content" data-form="4">
+                            <div class="lk-form__tab_content">
                                 <?php //Реабилитация
                                 $form_settings = [
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
                                     'caption' => 'Реабилитация',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Реабилитация вы заполняете за прошедший год.',
@@ -1229,9 +1234,10 @@ get_header(); ?>
                                 get_template_part('/template-parts/form-template', null, $form_settings); ?>
                             </div>
 
-                            <div class="lk-form__tab_content" data-form="5">
+                            <div class="lk-form__tab_content">
                                 <?php // Эндокринология
                                 $form_settings = [
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
                                     'caption' => 'Эндокринология',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Эндокринология вы заполняете за прошедший год.',
@@ -1349,9 +1355,10 @@ get_header(); ?>
                                 get_template_part('/template-parts/form-template', null, $form_settings); ?>
                             </div>
 
-                            <div class="lk-form__tab_content" data-form="6">
+                            <div class="lk-form__tab_content">
                                 <?php // Пульмонология
                                 $form_settings = [
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
                                     'caption' => 'Пульмонология',
                                     'stage' => '3,4,5',
                                     'submit_button' => 'Продолжить',
@@ -1671,9 +1678,10 @@ get_header(); ?>
                                 get_template_part('/template-parts/form-template', null, $form_settings); ?>
                             </div>
 
-                            <div class="lk-form__tab_content" data-form="7">
+                            <div class="lk-form__tab_content">
                                 <?php // Гастроэнтерология
                                 $form_settings = [
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
                                     'caption' => 'Гастроэнтерология',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Гастроэнтерология вы заполняете за прошедший год.',
@@ -1829,9 +1837,10 @@ get_header(); ?>
                                 get_template_part('/template-parts/form-template', null, $form_settings); ?>
                             </div>
 
-                            <div class="lk-form__tab_content" data-form="8">
+                            <div class="lk-form__tab_content">
                                 <?php // Кардиология
                                 $form_settings = [
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
                                     'caption' => 'Кардиология',
                                     'stage' => '1,2,4,5',
                                     'submit_button' => 'Продолжить',
@@ -1928,9 +1937,10 @@ get_header(); ?>
                                 get_template_part('/template-parts/form-template', null, $form_settings); ?>
                             </div>
 
-                            <div class="lk-form__tab_content" data-form="9">
+                            <div class="lk-form__tab_content">
                                 <?php // Хирургические вмешательства
                                 $form_settings = [
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
                                     'caption' => 'Хирургические вмешательства',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Хирургические вмешательства вы заполняете за прошедший год.',
@@ -1968,9 +1978,10 @@ get_header(); ?>
                                 get_template_part('/template-parts/form-template', null, $form_settings); ?>
                             </div>
 
-                            <div class="lk-form__tab_content" data-form="10">
+                            <div class="lk-form__tab_content">
                                 <?php // Социальный/Возможности среды
                                 $form_settings = [
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
                                     'caption' => 'Социальный/Возможности среды',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Социальный/Возможности среды вы заполняете за прошедший год.',
@@ -2054,9 +2065,10 @@ get_header(); ?>
                                 get_template_part('/template-parts/form-template', null, $form_settings); ?>
                             </div>
 
-                            <div class="lk-form__tab_content" data-form="11">
+                            <div class="lk-form__tab_content">
                                 <?php // Социально–психологический блок
                                 $form_settings = [
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
                                     'caption' => 'Социально–психологический блок',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по Социально–психологическому блоку вы заполняете за прошедший год.',
@@ -2110,20 +2122,21 @@ get_header(); ?>
 
                         </section>
                     </div>
-                    <div class="lk-form" data-form="3">
+                    <div class="lk-form">
                         Документы
                     </div>
-                    <div class="lk-form" data-form="4">
+                    <div class="lk-form">
                         <section class="lk-form-container">
 
                             <div class="lk-form__tabs">
-                                <span class="lk-form__tab" data-tab="1">Адресная помощь</span>
-                                <span class="lk-form__tab" data-tab="2">Мы вместе</span>
+                                <span class="lk-form__tab">Адресная помощь</span>
+                                <span class="lk-form__tab">Мы вместе</span>
                             </div>
 
-                            <div class="lk-form__tab_content" data-form="1">
+                            <div class="lk-form__tab_content">
                                 <?php
                                 $form_settings = [
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/create/apppr',
                                     'caption' => 'Адресная помощь',
                                     'submit_button' => 'Подать заявку',
                                     'tab' => '1',
@@ -2144,9 +2157,10 @@ get_header(); ?>
                                 get_template_part('/template-parts/form-template', null, $form_settings); ?>
                             </div>
 
-                            <div class="lk-form__tab_content" data-form="2">
+                            <div class="lk-form__tab_content">
                                 <?php
                                 $form_settings = [
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/create/apppr',
                                     'caption' => 'Мы вместе',
                                     'submit_button' => 'Подать заявку',
                                     'tab' => '2',
@@ -2233,7 +2247,7 @@ get_header(); ?>
                             </div>
                         </section>
                     </div>
-                    <div class="lk-form" data-form="5">
+                    <div class="lk-form">
                         <p>Форма 5</p>
                     </div>
                 </div>
