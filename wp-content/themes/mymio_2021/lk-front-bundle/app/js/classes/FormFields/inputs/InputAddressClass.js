@@ -55,6 +55,8 @@ export const InputAddressClass = function (element) {
     this.init = () => {
         const suggestView = new ymaps.SuggestView(self.inputId);
 
+        if (!suggestView) return;
+
         self.input.on('blur', function () {
             self.geocode(self.input);
         })
