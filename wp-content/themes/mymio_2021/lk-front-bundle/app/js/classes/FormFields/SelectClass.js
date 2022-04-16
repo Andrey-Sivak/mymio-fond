@@ -1,3 +1,5 @@
+'use strict';
+
 export const SelectClass = function (element) {
     const self = this;
     this.selectField = element.find('select');
@@ -9,7 +11,7 @@ export const SelectClass = function (element) {
             minimumResultsForSearch: Infinity,
             dropdownParent: $(element),
         }).on('select2:select', function () {
-            // conditionFields(this.selectField);
+            element.trigger('changeValue', [$(this).val()]);
             self.displayInput(self.selectField);
         });
     }
@@ -29,5 +31,11 @@ export const SelectClass = function (element) {
 
     this.init = () => {
         this.select2init(jQuery);
+
+        if (this.inputWrap.length) {
+            self.input.on('input', function () {
+                element.trigger('changeValue', [$(this).val()]);
+            });
+        }
     }
 }

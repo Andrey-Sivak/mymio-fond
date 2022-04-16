@@ -6,7 +6,12 @@ import {CheckboxClass} from "./FormFields/CheckboxClass";
 import {RadioClass} from "./FormFields/RadioClass";
 
 export const FormFieldClass = function (formField) {
+    const self = this;
     this.formFieldClass = null;
+    this.currentValue = null;
+    this.conditionRelation = formField.data('condRelation');
+    this.conditionalFields = null;
+
     this.type = () => {
         if (formField.hasClass('check')) {
             return 'checkbox';
@@ -36,11 +41,69 @@ export const FormFieldClass = function (formField) {
         }
     }
 
+    this.setConditionalFields = () => {
+        if (this.conditionRelation) {
+            this.conditionalFields = $(`[data-cond-dep-name="${this.conditionRelation}"]`);
+        }
+    }
+
+    this.multipleConditionValues = (element, needValue, currentValue) => {
+        const needValuesArr = needValue.split('|,|');
+        const isElementShow = element.hasClass('show');
+        const isArrayIncludeValue = needValuesArr.includes(currentValue);
+
+        if (isArrayIncludeValue && isElementShow) {
+            return;
+        }
+
+        if (isArrayIncludeValue && !isElementShow) {
+            element.addClass('show');
+            return;
+        }
+
+        element.removeClass('show');
+    }
+
+    this.displayConditionFields = function () {
+        const needValue = $(this).data('condDepValue');
+
+        if (typeof needValue === 'string') {
+
+            if (needValue.includes('|,|')) {
+                self.multipleConditionValues($(this), needValue, self.currentValue);
+                return;
+            }
+        }
+
+        if (needValue === self.currentValue && $(this).hasClass('show')) {
+            return;
+        }
+
+        if (needValue === self.currentValue && !$(this).hasClass('show')) {
+            $(this).addClass('show');
+            return;
+        }
+
+        $(this).removeClass('show');
+    }
+
+    this.handleConditionFields = function (e, value) {
+        self.currentValue = value;
+
+        if (self.conditionalFields === null
+            || self.currentValue === undefined) return;
+
+        self.conditionalFields.each(self.displayConditionFields);
+    }
+
     this.init = () => {
         this.setType();
+        this.setConditionalFields();
 
         if (this.formFieldClass) {
             this.formFieldClass.init();
+
+            formField.on( 'changeValue', this.handleConditionFields);
         }
     }
 }
