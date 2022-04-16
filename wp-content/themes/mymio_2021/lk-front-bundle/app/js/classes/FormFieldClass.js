@@ -11,6 +11,9 @@ export const FormFieldClass = function (formField) {
     this.currentValue = null;
     this.conditionRelation = formField.data('condRelation');
     this.conditionalFields = null;
+    this.elmaField = formField.find('[data-elma]');
+    this.elmaName = this.elmaField.data('elma');
+    this.requiredField = formField.find('[data-req="true"]');
 
     this.type = () => {
         if (formField.hasClass('check')) {

@@ -3,7 +3,7 @@
 import {TabClass} from "./TabClass";
 import {FormClass} from "./FormClass";
 
-export const BlockClass = function (blockElement) {
+export const BlockClass = function (blockElement, elmaId) {
     const  self = this;
     this.tabs = $(blockElement).find('.lk-form__tabs');
     this.forms = $(blockElement).find('.contact-form__form');
@@ -19,8 +19,8 @@ export const BlockClass = function (blockElement) {
     this.setForms = () => {
         if (this.forms.length) {
             this.forms.each(function (i) {
-                const form = new FormClass($(this), i);
-                form.init();
+                const form = new FormClass($(this), i, elmaId);
+                form.init(jQuery);
             })
         }
     }

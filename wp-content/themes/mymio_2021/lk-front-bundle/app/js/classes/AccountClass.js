@@ -6,6 +6,7 @@ import {TabClass} from "./TabClass";
 import {BlockClass} from "./BlockClass";
 
 export const AccountClass = function () {
+    const self = this;
     this.userData = null;
     this.elmaId = $('#elma-id').html();
     this.tabs = new TabClass($('.lk-container'), 'lk-form', 'lk-tab');
@@ -36,7 +37,7 @@ export const AccountClass = function () {
 
     this.contentBlocks = () => {
         this.blocks.each(function () {
-            const block = new BlockClass($(this));
+            const block = new BlockClass($(this), self.elmaId);
             block.init();
         })
     }
