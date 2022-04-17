@@ -1,7 +1,13 @@
 'use strict';
 
 export const loader = (loaderContainer = 'body', mode, activeClass = 'active') => {
-    const currentLoader = $(loaderContainer).find('.loader');
+    let currentLoader;
+
+    if (typeof loaderContainer === 'string') {
+        currentLoader = $(loaderContainer).find('.loader');
+    } else {
+        currentLoader = loaderContainer.find('.loader');
+    }
 
     if (!currentLoader) return;
 

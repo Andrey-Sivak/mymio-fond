@@ -2,7 +2,7 @@
 $is_active = $args['active'];
 ?>
 
-<div class="loader<?= $is_active ? ' active' : ''; ?>">
+<div class="loader<?php echo $is_active ? ' active' : ''; ?>">
     <div class="loadingio-spinner-spinner-rl7w6qbl47d">
         <div class="ldio-4khtpk1mo8v">
             <div></div>

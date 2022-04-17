@@ -11,8 +11,8 @@ export const FormFieldClass = function (formField) {
     this.currentValue = null;
     this.conditionRelation = formField.data('condRelation');
     this.conditionalFields = null;
-    this.elmaField = formField.find('[data-elma]');
-    this.elmaName = this.elmaField.data('elma');
+    this.elmaField = null;
+    this.elmaName = null;
     this.requiredField = formField.find('[data-req="true"]');
 
     this.type = () => {
@@ -25,6 +25,23 @@ export const FormFieldClass = function (formField) {
         } else {
             return 'input';
         }
+    }
+
+    this.setElmaField = () => {
+        const elem = formField.find('[data-elma]');
+
+        if (!elem || !elem.length) {
+            return;
+        }
+
+        const elmaName = elem.data('elma');
+
+        if (!elmaName) {
+            return;
+        }
+
+        this.elmaField = elem;
+        this.elmaName = elmaName;
     }
 
     this.setType = () => {
@@ -101,6 +118,7 @@ export const FormFieldClass = function (formField) {
 
     this.init = () => {
         this.setType();
+        this.setElmaField();
         this.setConditionalFields();
 
         if (this.formFieldClass) {

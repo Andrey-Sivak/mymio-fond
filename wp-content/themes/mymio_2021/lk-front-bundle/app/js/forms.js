@@ -27,15 +27,15 @@ forms.each(function () {
             }
         },
         submitHandler: function () {
-            const loader = ctxForm.find('.loader');
+            /*const loader = ctxForm.find('.loader');
             loader.addClass('active');
 
             const formId = parseInt(ctxForm.parent().parent().parent().data('form'));
-            const activeTabNumber = parseInt($('.lk-tab.active').data('tab'));
+            const activeTabNumber = parseInt($('.lk-tab.active').data('tab'));*/
 
             fillSameValues('main_info_address_act_pod', ['main_info_address_reg_pod', 'main_info_address_mail_pod']);
 
-            let urlParam;
+            /*let urlParam;
             switch (activeTabNumber) {
                 case 1:
                     urlParam = 'ward/main/update';
@@ -51,9 +51,9 @@ forms.each(function () {
 
             const contextObject = getNeededInputs(ctxForm);
             const userId = $('#elma-id').html();
-            let requestBody;
+            let requestBody;*/
 
-            if (formId) {
+            /*if (formId) {
 
                 if (formId === 2) {
                     const moveAbilities = $('select[data-elma="mank_motor_abilities_2"]').val();
@@ -79,7 +79,7 @@ forms.each(function () {
                     id: userId,
                     context: contextObject.context
                 })
-            }
+            }*/
 
             fetch(url, {
                 method: 'POST',

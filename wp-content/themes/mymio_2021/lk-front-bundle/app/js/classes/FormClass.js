@@ -4,7 +4,6 @@ import {loader} from "../mixins/loader";
 import {FormFieldClass} from "./FormFieldClass";
 import {getUserDataFromElma} from "../api/elmaApi";
 
-// get formId
 // set loader
 
 export const FormClass = function (form, idx, elmaId) {
@@ -13,6 +12,8 @@ export const FormClass = function (form, idx, elmaId) {
     this.formFieldsList = [];
     this.rules = Object.create({});
     this.actionUrl = form.data('action');
+    this.resultMessage = form.find('.result');
+    this.successMessage = form.data('success');
 
     (this.setFormFields = () => {
         const fields = form.find('.contact-form__form-field')
@@ -68,7 +69,7 @@ export const FormClass = function (form, idx, elmaId) {
         const object = Object.create({});
 
         self.formFieldsList.forEach(f => {
-            if (f.elmaField.length) {
+            if (f.elmaField) {
                 Object.defineProperty(object, f.elmaName, {
                     value: f.currentValue ? f.currentValue : '',
                     enumerable: true
@@ -88,12 +89,19 @@ export const FormClass = function (form, idx, elmaId) {
         }
     }
 
-    this.setSubmitHandler = function (form) {
+    this.submitResult = (msg, cssClass) => {
+        self.resultMessage.html(msg);
+        self.resultMessage.addClass(cssClass);
+    }
+
+    this.setSubmitHandler = function () {
         loader(form, 'show');
+
         const contextObject = self.createContextObject();
-        const requestBody =  JSON.stringify({
+        const requestBody = JSON.stringify({
             id: elmaId,
             form_id: self.formIndex,
+            // mank_ill_stage: stage,
             context: contextObject
         });
         const requestOptions = {
@@ -103,26 +111,30 @@ export const FormClass = function (form, idx, elmaId) {
 
         getUserDataFromElma(self.actionUrl, requestOptions)
             .then(res => res.json())
-            .then(data => console.log(data));
+            .then(() => {
+                form.trigger('reset');
+                self.submitResult(self.successMessage, 'success');
+                loader(form);
+            })
+            .then(() => {
 
-        loader(form);
+            })
+            .catch(() => {
+                self.submitResult('Ошибка отправки. Проверьте данные или попробуйте позже.', 'err');
+                loader(form);
+            })
     }
 
     this.init = ($) => {
 
-        jQuery(form).validate({
+        const valid = $(form).validate({
             ignore: [],
             errorClass: 'error',
             validClass: 'success',
             rules: self.rules,
             errorElement: 'span',
             errorPlacement: self.setErrors,
-            submitHandler: self.setSubmitHandler,
-        })
-
-        /*form.on('submit', function (e) {
-            e.preventDefault();
-            console.log(test);
-        })*/
+            submitHandler: this.setSubmitHandler,
+        });
     }
 }
