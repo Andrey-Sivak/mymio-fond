@@ -30,6 +30,7 @@
 //
 // account
 import {AccountClass} from "./classes/AccountClass";
-const account = new AccountClass();
-account.init();
-//
+(async function () {
+    const account = new AccountClass();
+    await account.init();
+})();

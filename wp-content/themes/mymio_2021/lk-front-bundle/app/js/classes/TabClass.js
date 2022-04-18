@@ -2,12 +2,14 @@
 
 import {localStorageGet, localStorageSet} from "../api/localStorage";
 
-export const TabClass = function (wrapper, contentClass, tabClass) {
+export const TabClass = function (wrapper, contentClass, tabClass, email = '') {
     const self = this;
-    self.activeClass = 'active'
-    self.contentList = wrapper.find(`.${contentClass}`);
-    self.tabList = wrapper.find(`.${tabClass}`)
+    this.activeClass = 'active'
+    this.lockedClass = 'locked';
+    this.contentList = wrapper.find(`.${contentClass}`);
+    this.tabList = wrapper.find(`.${tabClass}`)
     this.currentTab = null;
+    this.lockedTabs = null;
 
     this.Tab = new Proxy(self, {
         set(target, prop, value) {
@@ -50,7 +52,68 @@ export const TabClass = function (wrapper, contentClass, tabClass) {
         return parseInt(localStorageGet(tabClass) || 0);
     }
 
-    this.init = () => {
+    this.saveLockedTabs = () => {
+        let tabsString = '';
+
+        this.tabList.each(function (i) {
+            if ($(this).hasClass('locked')) {
+                tabsString += `${i},`;
+            }
+        });
+
+        return tabsString;
+    }
+
+    this.lockNewTab = (idx) => {
+        const index = parseInt(idx);
+        if (!index) {
+            return
+        }
+
+        self.lockTab(idx);
+        const tabsToSave = self.saveLockedTabs();
+
+        const formData = new FormData();
+        formData.set('tabs_string', tabsToSave);
+        formData.set('user_email', email);
+
+        fetch(`${homeUrl}/api/medical-questionnare-tabs.php`, {
+            method: 'POST',
+            body: formData,
+        })
+    }
+
+    this.lockTab = (idx) => {
+        const index = parseInt(idx);
+        if (!index) {
+            return
+        }
+
+        $(self.tabList[index]).addClass(self.lockedClass);
+        $(self.contentList[index]).addClass(self.lockedClass);
+    }
+
+    this.getLockedTabs = async () => {
+        try {
+            const res = await fetch(`${homeUrl}/api/medical-questionnare-tabs.php?user_email=${email}`, {
+                method: 'GET',
+            });
+            const data = await res.text();
+            return await data.split(',');
+        } catch (e) {
+            return false;
+        }
+    }
+
+    this.init = async () => {
+        if (email !== '') {
+            try {
+                const lockedTabsArr = await this.getLockedTabs();
+                await lockedTabsArr.forEach(self.lockTab);
+            } catch (e) {
+                return false;
+            }
+        }
 
         self.tabList.each(function () {
             $(this).on('click', self.tabHandler);

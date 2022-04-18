@@ -114,6 +114,7 @@ export const FormClass = function (form, idx, elmaId) {
             .then(() => {
                 form.trigger('reset');
                 self.submitResult(self.successMessage, 'success');
+                form.trigger('submitSuccess', idx);
                 loader(form);
             })
             .then(() => {

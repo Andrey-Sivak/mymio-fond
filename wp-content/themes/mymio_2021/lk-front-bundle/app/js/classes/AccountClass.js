@@ -35,8 +35,13 @@ export const AccountClass = function () {
         }
     }
 
-    this.contentBlocks = () => {
-        this.blocks.each(function () {
+    this.contentBlocks = async () => {
+        this.blocks.each(function (idx) {
+            if (idx === 1) {
+                const block = new BlockClass($(this), self.elmaId, self.userData.email);
+                block.init();
+                return;
+            }
             const block = new BlockClass($(this), self.elmaId);
             block.init();
         })
@@ -49,7 +54,7 @@ export const AccountClass = function () {
         }
     }
 
-    this.init = () => {
+    this.init = async () => {
         this.getUserData(this.elmaId)
             .then(() => {
                 this.tabs.init();
