@@ -262,10 +262,14 @@ get_header(); ?>
                                         'type' => 'phone',
                                         'placeholder' => 'Телефон',
                                         'label' => '',
-                                        'name' => 'phone1'
+                                        'name' => 'phone1',
                                     ],
                                     [
                                         'kind' => 'phone-confirm',
+                                        'question' => 'Подтвердите номер телефона',
+                                        'required' => true,
+                                        'name' => 'phone-confirm-main',
+                                        'elma_name' => '',
                                     ],
                                     [
                                         'kind' => 'input',
@@ -395,12 +399,13 @@ get_header(); ?>
                                 <span class="lk-form__tab">Хирургические вмешательства</span>
                                 <span class="lk-form__tab">Социальный/Возможности среды</span>
                                 <span class="lk-form__tab">Социально–психологический блок</span>
+                                <span class="lk-form__tab">Подтверждение данных</span>
                             </div>
 
                             <div class="lk-form__tab_content">
                                 <?php // Общая информация о пациенте и заболевании
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/create',
                                     'caption' => 'Общая информация о пациенте и заболевании',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Анкета заполняется законным представителем подопечного. Даже, если Вы наш совершеннолетний подопечный, просим заполнять анкету вместе с представителем. От полноты и правильности данных зависит работа Регистра. Спасибо вам!',
@@ -464,7 +469,7 @@ get_header(); ?>
                                             'question' => 'Где проводилось генетическое исследование и подтвердился диагноз?',
                                             'options' => [
                                                 'МГНЦ имени Н.П. Бочкова',
-                                                'Иностранная лаборатария',
+                                                'Иностранная лаборатория',
                                                 'Другая государственная лаборатория (указать)',
                                                 'Другая коммерческая лаборатория (указать)',
                                             ],
@@ -573,7 +578,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Неврология
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
                                     'caption' => 'Неврология',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Неврология вы заполняете за прошедший год.',
@@ -911,7 +916,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Ортопедия
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
                                     'caption' => 'Ортопедия',
                                     'stage' => '2,3,4,5',
                                     'submit_button' => 'Продолжить',
@@ -1082,7 +1087,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php //Реабилитация
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
                                     'caption' => 'Реабилитация',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Реабилитация вы заполняете за прошедший год.',
@@ -1243,7 +1248,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Эндокринология
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
                                     'caption' => 'Эндокринология',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Эндокринология вы заполняете за прошедший год.',
@@ -1365,7 +1370,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Пульмонология
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
                                     'caption' => 'Пульмонология',
                                     'stage' => '3,4,5',
                                     'submit_button' => 'Продолжить',
@@ -1689,7 +1694,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Гастроэнтерология
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
                                     'caption' => 'Гастроэнтерология',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Гастроэнтерология вы заполняете за прошедший год.',
@@ -1849,7 +1854,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Кардиология
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
                                     'caption' => 'Кардиология',
                                     'stage' => '1,2,4,5',
                                     'submit_button' => 'Продолжить',
@@ -1950,7 +1955,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Хирургические вмешательства
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
                                     'caption' => 'Хирургические вмешательства',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Хирургические вмешательства вы заполняете за прошедший год.',
@@ -1992,7 +1997,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Социальный/Возможности среды
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
                                     'caption' => 'Социальный/Возможности среды',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Социальный/Возможности среды вы заполняете за прошедший год.',
@@ -2080,7 +2085,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Социально–психологический блок
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/medical/update',
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
                                     'caption' => 'Социально–психологический блок',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по Социально–психологическому блоку вы заполняете за прошедший год.',
@@ -2128,6 +2133,27 @@ get_header(); ?>
                                             'elma_name' => 'mank_psy_personal_support_2',
                                         ],
                                     ],
+                                ];
+
+                                get_template_part('/template-parts/form-template', null, $form_settings); ?>
+                            </div>
+
+                            <div class="lk-form__tab_content">
+                                <?php $form_settings = [
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
+                                    'caption' => 'Подтверждение данных',
+                                    'submit_button' => 'Подтвердить',
+                                    'tab' => '12',
+                                    'name' => 'confirmation',
+                                    'success_msg' => 'Ответы сохранены, переход к следующему блоку.',
+                                    'form_fields' => [
+                                        [
+                                            'kind' => 'phone-confirm',
+                                            'required' => true,
+                                            'name' => 'phone-confirm-medical',
+                                            'elma_name' => 'mank_sign',
+                                        ],
+                                    ]
                                 ];
 
                                 get_template_part('/template-parts/form-template', null, $form_settings); ?>

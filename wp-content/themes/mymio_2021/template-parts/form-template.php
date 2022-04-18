@@ -73,7 +73,10 @@ $success_msg = $args['success_msg'] ?: 'Заявка успешно отправ
                             'form_name' => $form_name,
                         ]);
                     } elseif ($input_kind == 'phone-confirm') {
-                        get_template_part('/template-parts/form-phone-confirm-template');
+                        get_template_part('/template-parts/form-phone-confirm-template', null, [
+                            'object' => $form_field,
+                            'form_name' => $form_name,
+                        ]);
                     }
                 }
             }
