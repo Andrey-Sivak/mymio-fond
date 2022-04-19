@@ -93,3 +93,17 @@ export const deleteUserData = async (email) => {
 
     return await postDataToDb('delete-user', emailObj);
 }
+
+export const getData = async (url) => {
+    try {
+        return await fetch(url, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            mode: 'no-cors',
+        })
+    } catch (e) {
+        return false;
+    }
+}
