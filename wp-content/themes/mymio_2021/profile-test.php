@@ -5,7 +5,7 @@
 
 session_start();
 
-$is_user = $_SESSION['user_name'];
+$is_user = $_SESSION['user_email'];
 
 if (!$is_user) {
     $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
