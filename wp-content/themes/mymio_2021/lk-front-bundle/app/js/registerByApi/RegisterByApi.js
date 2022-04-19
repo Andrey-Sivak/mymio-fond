@@ -44,7 +44,7 @@ export const RegisterByApi = function (email) {
             const requestBody = JSON.stringify({
                 context: {
                     id: elmaId,
-                    password: pass,
+                    password: pass.user_pass,
                 }
             });
             const url = 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/old_base/appupdate';
@@ -136,8 +136,8 @@ export const RegisterByApi = function (email) {
     }
 
     this.init = () => {
-        window.addEventListener('load', () => {
-            this.check();
+        window.addEventListener('load', async () => {
+            await this.check();
         });
     }
 }
