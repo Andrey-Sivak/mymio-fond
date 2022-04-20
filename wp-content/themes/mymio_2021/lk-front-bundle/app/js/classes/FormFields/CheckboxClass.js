@@ -16,7 +16,7 @@ export const CheckboxClass = function (element) {
 
             if (!hiddenInputValue.includes($(this).val())) {
 
-                self.hiddenInput.val(`${hiddenInputValue} | ${$(this).val()}`);
+                self.hiddenInput.val(`${hiddenInputValue} | ${$(this).val()}`).trigger('change');
                 return;
             }
             return;
@@ -29,7 +29,7 @@ export const CheckboxClass = function (element) {
 
         if (hiddenInputValue.includes($(this).val())) {
             const newValue = hiddenInputValue.replace(` | ${$(this).val()}`, '');
-            self.hiddenInput.val(newValue);
+            self.hiddenInput.val(newValue).trigger('change');
         }
     }
 
@@ -39,7 +39,7 @@ export const CheckboxClass = function (element) {
         const hiddenInputValue = self.hiddenInput.val();
         if (hiddenInputValue.includes($(this).val())) {
             const newValue = hiddenInputValue.replace(` | ${$(this).val()}`, '');
-            self.hiddenInput.val(newValue);
+            self.hiddenInput.val(newValue).trigger('change');
         }
     }
 
@@ -47,7 +47,7 @@ export const CheckboxClass = function (element) {
         if ($(this).val() === '') return;
 
         const hiddenInputValue = self.hiddenInput.val();
-        self.hiddenInput.val(`${hiddenInputValue} | ${$(this).val()}`);
+        self.hiddenInput.val(`${hiddenInputValue} | ${$(this).val()}`).trigger('change');
     }
 
     this.init = () => {
