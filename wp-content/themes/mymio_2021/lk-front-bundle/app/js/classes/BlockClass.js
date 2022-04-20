@@ -3,7 +3,7 @@
 import {TabClass} from "./TabClass";
 import {FormClass} from "./FormClass";
 
-export const BlockClass = function (blockElement, elmaId, email = '') {
+export const BlockClass = function (blockElement, blockIndex, elmaId, userData) {
     const  self = this;
     this.tabs = null;
     this.forms = $(blockElement).find('.contact-form__form');
@@ -12,7 +12,7 @@ export const BlockClass = function (blockElement, elmaId, email = '') {
         const tabs = $(blockElement).find('.lk-form__tabs');
 
         if (tabs && tabs.length) {
-            this.tabs = new TabClass(blockElement, 'lk-form__tab_content', 'lk-form__tab', email);
+            this.tabs = new TabClass(blockElement, 'lk-form__tab_content', 'lk-form__tab', userData.email);
             await this.tabs.init();
         }
     }
@@ -25,7 +25,7 @@ export const BlockClass = function (blockElement, elmaId, email = '') {
     this.setForms = () => {
         if (this.forms.length) {
             this.forms.each(function (i) {
-                const form = new FormClass($(this), i, elmaId);
+                const form = new FormClass($(this), i, elmaId, userData, blockIndex);
                 form.init(jQuery);
                 $(this).on( 'submitSuccess', self.lockTab);
             })
