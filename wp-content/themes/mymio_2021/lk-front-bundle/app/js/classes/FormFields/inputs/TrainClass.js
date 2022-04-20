@@ -68,16 +68,16 @@ export const TrainClass = function(element) {
         const endStr = end ? end + '' : 0;
 
         if (!startStr) {
-            this.input.val('');
+            this.input.val('').trigger('change');
             return;
         }
 
         if (!endStr) {
-            this.input.val(startStr);
+            this.input.val(startStr).trigger('change');
             return;
         }
 
-        this.input.val(`${startStr}-${endStr}`);
+        this.input.val(`${startStr}-${endStr}`).trigger('change');
     }
 
     this.init = () => {
