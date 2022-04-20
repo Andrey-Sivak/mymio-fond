@@ -6,8 +6,7 @@ export const RadioClass = function (element) {
 
     this.setEventListeners = function () {
         $(this).on('change', function () {
-            const value = $(this).val() === 'Да';
-            element.trigger('changeValue', [value]);
+            element.trigger('changeValue', [$(this).val()]);
         });
     }
 

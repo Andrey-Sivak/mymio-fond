@@ -321,7 +321,7 @@ get_header(); ?>
                                         'name' => 'address_reg_pod',
                                         'condition' => [
                                             'condition_dependency' => 'diff_act_address',
-                                            'require_value' => 'false',
+                                            'require_value' => 'Нет',
                                         ],
                                     ],
                                     [
@@ -346,7 +346,7 @@ get_header(); ?>
                                         'name' => 'address_mail_pod',
                                         'condition' => [
                                             'condition_dependency' => 'diff_post_address',
-                                            'require_value' => 'false',
+                                            'require_value' => 'Нет',
                                         ]
                                     ],
                                     [
@@ -516,7 +516,7 @@ get_header(); ?>
                                             'elma_name' => 'mank_gen_select_dop',
                                             'condition' => [
                                                 'condition_dependency' => 'additional_break',
-                                                'require_value' => 'true',
+                                                'require_value' => 'Да',
                                             ],
                                         ],
                                         [
@@ -690,7 +690,7 @@ get_header(); ?>
                                             'elma_name' => 'mank_neuro_steroids_treatment_2',
                                             'condition' => [
                                                 'condition_dependency' => 'neuro_steroids',
-                                                'require_value' => 'true',
+                                                'require_value' => 'Да',
                                             ],
                                         ],
                                         [
@@ -719,7 +719,7 @@ get_header(); ?>
                                             'elma_name' => 'mank_neuro_treatment_start_age_2',
                                             'condition' => [
                                                 'condition_dependency' => 'neuro_steroids',
-                                                'require_value' => 'true',
+                                                'require_value' => 'Да',
                                             ],
                                         ],
                                         [
@@ -793,7 +793,7 @@ get_header(); ?>
                                             'elma_name' => 'mank_neuro_treatment_side_effects_2',
                                             'condition' => [
                                                 'condition_dependency' => 'neuro_steroids',
-                                                'require_value' => 'true',
+                                                'require_value' => 'Да',
                                             ],
                                         ],
                                         [
@@ -819,7 +819,7 @@ get_header(); ?>
                                             'elma_name' => 'mank_neuro_gen_therapy_type',
                                             'condition' => [
                                                 'condition_dependency' => 'neuro_gen_therapy',
-                                                'require_value' => 'true',
+                                                'require_value' => 'Да',
                                             ],
                                         ],
                                         [
@@ -833,7 +833,7 @@ get_header(); ?>
                                             'elma_name' => 'mank_neuro_gen_therapy_start',
                                             'condition' => [
                                                 'condition_dependency' => 'neuro_gen_therapy',
-                                                'require_value' => 'true',
+                                                'require_value' => 'Да',
                                             ],
                                         ],
                                         [
@@ -866,7 +866,7 @@ get_header(); ?>
                                             'elma_name' => 'mank_neuro_muscle_study_ball',
                                             'condition' => [
                                                 'condition_dependency' => 'neuro_muscle_study',
-                                                'require_value' => 'true',
+                                                'require_value' => 'Да',
                                             ],
                                         ],
                                         [
@@ -975,7 +975,7 @@ get_header(); ?>
                                             'elma_name' => 'mank_orotho_scoliosis_details_2',
                                             'condition' => [
                                                 'condition_dependency' => 'orotho_scoliosis',
-                                                'require_value' => 'true',
+                                                'require_value' => 'Да',
                                             ],
                                         ],
                                         [
@@ -1060,7 +1060,7 @@ get_header(); ?>
                                             'elma_name' => 'mank_orotho_contracture_details_2',
                                             'condition' => [
                                                 'condition_dependency' => 'orotho_contracture',
-                                                'require_value' => 'true',
+                                                'require_value' => 'Да',
                                             ],
                                         ],
                                         [
@@ -1338,7 +1338,7 @@ get_header(); ?>
                                             'elma_name' => 'mank_endo_pubert_test_result_2',
                                             'condition' => [
                                                 'condition_dependency' => 'endo_pubert_test',
-                                                'require_value' => 'true',
+                                                'require_value' => 'Да',
                                             ],
                                         ],
                                         [
@@ -1624,7 +1624,7 @@ get_header(); ?>
                                             'elma_name' => 'mank_pulmo_gym_fact',
                                             'condition' => [
                                                 'condition_dependency' => 'pulmo_gym',
-                                                'require_value' => 'true',
+                                                'require_value' => 'Да',
                                             ],
                                         ],
                                         [
@@ -1842,7 +1842,7 @@ get_header(); ?>
                                             'elma_name' => 'mank_gastro_uzi',
                                             'condition' => [
                                                 'condition_dependency' => 'gastro_symptoms',
-                                                'require_value' => 'true',
+                                                'require_value' => 'Да',
                                             ],
                                         ],
                                     ],
@@ -1901,7 +1901,7 @@ get_header(); ?>
                                             'elma_name' => 'mank_cardio_therapy_cancel',
                                             'condition' => [
                                                 'condition_dependency' => 'cardio_therapy',
-                                                'require_value' => 'false',
+                                                'require_value' => 'Нет',
                                             ],
                                         ],
                                         [
@@ -1985,7 +1985,7 @@ get_header(); ?>
                                             'elma_name' => 'mank_surgery_state_fact_2',
                                             'condition' => [
                                                 'condition_dependency' => 'surgery_state',
-                                                'require_value' => 'true',
+                                                'require_value' => 'Да',
                                             ],
                                         ],
                                     ],
