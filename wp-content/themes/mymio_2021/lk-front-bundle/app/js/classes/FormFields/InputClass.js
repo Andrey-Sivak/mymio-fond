@@ -3,8 +3,9 @@
 import {InputDateClass} from "./inputs/InputDateClass";
 import {InputAddressClass} from "./inputs/InputAddressClass";
 import {TrainClass} from "./inputs/TrainClass";
+import {PhoneConfirmationClass} from "./inputs/PhoneConfirmationClass";
 
-export const InputClass = function (formField) {
+export const InputClass = function (formField, userData, blockIndex) {
     this.instance = null;
 
     this.setType = () => {
@@ -20,6 +21,12 @@ export const InputClass = function (formField) {
 
         if (formField.find('input.address').length) {
             this.instance = new InputAddressClass(formField);
+            return;
+        }
+
+        if (formField.hasClass('phone-confirm')) {
+            this.instance = new PhoneConfirmationClass(formField, userData, blockIndex);
+            return;
         }
     }
 
