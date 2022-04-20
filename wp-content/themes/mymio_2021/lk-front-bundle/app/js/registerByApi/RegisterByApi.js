@@ -61,14 +61,6 @@ export const RegisterByApi = function (email) {
         }
     }
 
-    this.createNewUser = async (elmaId) => {
-        try {
-            return await createUser(this.email, elmaId);
-        } catch (e) {
-            return false;
-        }
-    }
-
     this.check = async () => {
 
         const checkUserRes = await this.checkUser();
@@ -82,14 +74,13 @@ export const RegisterByApi = function (email) {
 
             if (await elmaId.id) {
                 modal.changeContent('Создание учетной записи...');
-                const created = await this.createNewUser(elmaId.id);
                 const register = await this.sendUserPasswordToElma(elmaId.id, checkUserRes);
 
-                if (!await created || !await register) {
+                if (await register) {
+                    modal.finish('Готово!');
+                } else {
                     success = false;
                     modal.finish('Ошибка сервера. Попробуйте позже.');
-                } else {
-                    modal.finish('Готово!');
                 }
             } else {
                 success = false;
