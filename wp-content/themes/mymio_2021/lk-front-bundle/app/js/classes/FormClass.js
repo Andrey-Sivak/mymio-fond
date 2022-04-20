@@ -6,7 +6,7 @@ import {getUserDataFromElma} from "../api/elmaApi";
 
 // set loader
 
-export const FormClass = function (form, idx, elmaId) {
+export const FormClass = function (form, idx, elmaId, userData, blockIndex) {
     const self = this;
     this.formIndex = parseInt(idx) + 1;
     this.formFieldsList = [];
@@ -19,7 +19,7 @@ export const FormClass = function (form, idx, elmaId) {
         const fields = form.find('.contact-form__form-field')
 
         fields.each(function () {
-            const formField = new FormFieldClass($(this));
+            const formField = new FormFieldClass($(this), userData, blockIndex);
             formField.init();
             self.formFieldsList.push(formField);
         })
