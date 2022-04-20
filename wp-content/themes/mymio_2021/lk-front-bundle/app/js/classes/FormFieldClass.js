@@ -107,13 +107,18 @@ export const FormFieldClass = function (formField, userData, blockIndex) {
         $(this).removeClass('show');
     }
 
-    this.handleConditionFields = function (e, value) {
-        self.currentValue = value;
+    this.handleConditionFields = function (value) {
 
-        if (self.conditionalFields === null
-            || self.currentValue === undefined) return;
+        if (self.conditionalFields === null || value === undefined) {
+            return;
+        }
 
         self.conditionalFields.each(self.displayConditionFields);
+    }
+
+    this.changeValue = function (e, value) {
+        self.currentValue = $(this).val() ? $(this).val() : value;
+        self.handleConditionFields(self.currentValue);
     }
 
     this.init = () => {
@@ -124,7 +129,16 @@ export const FormFieldClass = function (formField, userData, blockIndex) {
         if (this.formFieldClass) {
             this.formFieldClass.init();
 
-            formField.on( 'changeValue', this.handleConditionFields);
+            if (this.elmaField) {
+                if (this.formFieldClass instanceof SelectClass) {
+                    formField.on('changeValue', this.changeValue);
+                    return;
+                }
+
+                this.elmaField.on('change', self.changeValue);
+                return;
+            }
+            formField.on('changeValue', this.changeValue);
         }
     }
 }
