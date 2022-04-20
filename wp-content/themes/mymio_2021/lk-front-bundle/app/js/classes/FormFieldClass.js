@@ -5,7 +5,7 @@ import {SelectClass} from "./FormFields/SelectClass";
 import {CheckboxClass} from "./FormFields/CheckboxClass";
 import {RadioClass} from "./FormFields/RadioClass";
 
-export const FormFieldClass = function (formField) {
+export const FormFieldClass = function (formField, userData, blockIndex) {
     const self = this;
     this.formFieldClass = null;
     this.currentValue = null;
@@ -56,7 +56,7 @@ export const FormFieldClass = function (formField) {
                 this.formFieldClass = new RadioClass(formField);
                 break;
             case 'input':
-                this.formFieldClass = new InputClass(formField);
+                this.formFieldClass = new InputClass(formField, userData, blockIndex);
                 break;
         }
     }
