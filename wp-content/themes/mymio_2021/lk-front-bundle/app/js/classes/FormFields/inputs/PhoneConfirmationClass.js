@@ -140,7 +140,7 @@ export const PhoneConfirmationClass = function (formField, userData, blockIndex)
         self.setConfirmMessage(isCorrect);
         if (isCorrect) {
             self.hideResendMessage();
-            self.selectors.phoneConfirmInput.val('1');
+            self.selectors.phoneConfirmInput.val('true').trigger('change');
         }
     }
 
@@ -171,7 +171,7 @@ export const PhoneConfirmationClass = function (formField, userData, blockIndex)
             }
         } else {
             self.selectors.errorWrap.html('Неверный формат номера телефона.');
-            self.unblockBtn(currentButton, 10);
+            self.unblockBtn(currentButton, 0);
         }
     }
 
@@ -189,6 +189,6 @@ export const PhoneConfirmationClass = function (formField, userData, blockIndex)
         }
 
         this.selectors.sendConfirmationBtn.on('click', this.sendConfirmation);
-        this.selectors.checkConfirmationBtn.on('click', this.confirmation)
+        this.selectors.checkConfirmationBtn.on('click', this.confirmation);
     }
 }
