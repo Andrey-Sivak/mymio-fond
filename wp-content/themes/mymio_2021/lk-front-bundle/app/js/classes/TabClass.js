@@ -66,11 +66,11 @@ export const TabClass = function (wrapper, contentClass, tabClass, email = '') {
 
     this.lockNewTab = (idx) => {
         const index = parseInt(idx);
-        if (!index) {
-            return
+        if (isNaN(index)) {
+            return;
         }
 
-        self.lockTab(idx);
+        self.lockTab(index);
         const tabsToSave = self.saveLockedTabs();
 
         const formData = new FormData();
@@ -85,8 +85,8 @@ export const TabClass = function (wrapper, contentClass, tabClass, email = '') {
 
     this.lockTab = (idx) => {
         const index = parseInt(idx);
-        if (!index) {
-            return
+        if (isNaN(index)) {
+            return;
         }
 
         $(self.tabList[index]).addClass(self.lockedClass);
