@@ -670,6 +670,7 @@ textarea.contact-form__input {
 
 .lk-form-container .request-form-container {
     overflow: unset;
+    background-color: unset;
 }
 
 .lk-form-container .lk-form__tab_content.active/*,
