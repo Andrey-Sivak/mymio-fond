@@ -31,8 +31,11 @@ switch ($field_type) {
     case 'year':
         $additional_css_class = 'year-mask';
         break;
-    case 'city':
-        $additional_css_class = 'city';
+    case 'year-month':
+        $additional_css_class = 'year-month-mask';
+        break;
+    case 'mkb':
+        $additional_css_class = 'mkb';
         break;
 }
 ?>

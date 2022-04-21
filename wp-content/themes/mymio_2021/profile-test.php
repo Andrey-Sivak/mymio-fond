@@ -32,7 +32,7 @@ get_header(); ?>
 
     <main id="primary" class="site-main">
 
-        <div class="maxwidth-theme overfl">
+        <div class="maxwidth-theme">
             <div class="heading-article">
                 <h1 class="without-p">Личный кабинет</h1>
                 <p class="user-info__note">Дорогие участники Регистра! Если вы хотите оставить комментарий или
@@ -275,7 +275,7 @@ get_header(); ?>
                                     [
                                         'kind' => 'phone-confirm',
                                         'question' => 'Подтвердите номер телефона',
-                                        'required' => true,
+//                                        'required' => true,
                                         'name' => 'phone-confirm-main',
                                         'elma_name' => '',
                                     ],
@@ -569,7 +569,7 @@ get_header(); ?>
                                         ],
                                         [
                                             'kind' => 'input',
-                                            'type' => 'city',
+                                            'type' => 'mkb',
                                             'question' => 'Если вы не знаете точное название заболевания, не ориентируйтесь на подсказки.',
                                             'placeholder' => 'Выбор из МКБ',
                                             'label' => '',
@@ -832,7 +832,7 @@ get_header(); ?>
                                         ],
                                         [
                                             'kind' => 'input',
-                                            'type' => 'text',
+                                            'type' => 'year-month',
                                             'question' => 'Когда вы начали применение такой терапии? Укажите месяц и год',
                                             'placeholder' => 'Укажите месяц и год',
                                             'label' => 'Укажите месяц и год',
@@ -2157,7 +2157,7 @@ get_header(); ?>
                                     'form_fields' => [
                                         [
                                             'kind' => 'phone-confirm',
-                                            'required' => true,
+//                                            'required' => true,
                                             'name' => 'phone-confirm-medical',
                                             'elma_name' => 'mank_sign',
                                         ],
