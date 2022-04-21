@@ -9,7 +9,7 @@ export const TabClass = function (wrapper, contentClass, tabClass, email = '') {
     this.contentList = wrapper.find(`.${contentClass}`);
     this.tabList = wrapper.find(`.${tabClass}`)
     this.currentTab = null;
-    this.lockedTabs = null;
+    this.lockedTabs = [];
 
     this.Tab = new Proxy(self, {
         set(target, prop, value) {
@@ -91,6 +91,8 @@ export const TabClass = function (wrapper, contentClass, tabClass, email = '') {
 
         $(self.tabList[index]).addClass(self.lockedClass);
         $(self.contentList[index]).addClass(self.lockedClass);
+
+        self.lockedTabs.push(self.tabList[index]);
     }
 
     this.getLockedTabs = async () => {
