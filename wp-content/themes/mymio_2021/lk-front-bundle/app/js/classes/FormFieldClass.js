@@ -117,6 +117,7 @@ export const FormFieldClass = function (formField, userData, blockIndex) {
     }
 
     this.changeValue = function (e, value) {
+        console.log(123456667);
         self.currentValue = $(this).val() ? $(this).val() : value;
         self.handleConditionFields(self.currentValue);
     }
