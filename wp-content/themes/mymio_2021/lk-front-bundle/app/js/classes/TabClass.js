@@ -25,20 +25,20 @@ export const TabClass = function (wrapper, contentClass, tabClass, email = '') {
 
     this.switchTabs = function (tabNumber) {
         self.tabList.each(function (i) {
-           if (i === tabNumber) {
-               $(this).addClass(self.activeClass);
-               $(self.contentList[i]).addClass(self.activeClass);
-           } else {
+            if (i === tabNumber) {
+                $(this).addClass(self.activeClass);
+                $(self.contentList[i]).addClass(self.activeClass);
+            } else {
 
-               if ($(this).hasClass(self.activeClass)) {
-                   $(this).removeClass(self.activeClass);
-               }
+                if ($(this).hasClass(self.activeClass)) {
+                    $(this).removeClass(self.activeClass);
+                }
 
-               if ($(self.contentList[i]).hasClass(self.activeClass)) {
-                   $(self.contentList[i]).removeClass(self.activeClass);
-               }
-           }
-       })
+                if ($(self.contentList[i]).hasClass(self.activeClass)) {
+                    $(self.contentList[i]).removeClass(self.activeClass);
+                }
+            }
+        })
     }
 
     this.tabHandler = function (e) {
