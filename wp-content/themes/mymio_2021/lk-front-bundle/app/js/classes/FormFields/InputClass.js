@@ -6,7 +6,10 @@ import {TrainClass} from "./inputs/TrainClass";
 import {PhoneConfirmationClass} from "./inputs/PhoneConfirmationClass";
 
 export const InputClass = function (formField, userData, blockIndex) {
+    const self = this;
     this.instance = null;
+    this.isYearInput = formField.find('.year-mask');
+    this.isPhoneInput = formField.find('.phone-mask');
 
     this.setType = () => {
         if (formField.hasClass('date')) {
@@ -37,13 +40,22 @@ export const InputClass = function (formField, userData, blockIndex) {
         })
     }
 
+    this.phoneMask = ($, input) => {
+        $(input).inputmask({
+            mask: "+7(999)999-99-99",
+            "clearIncomplete": true
+        })
+    }
+
     this.init = () => {
         this.setType();
 
-        const isYearInput = formField.find('.year-mask');
+        if (self.isYearInput.length) {
+            this.yearMask(jQuery, self.isYearInput);
+        }
 
-        if (isYearInput.length) {
-            this.yearMask(jQuery, isYearInput);
+        if (self.isPhoneInput) {
+            this.phoneMask(jQuery, self.isPhoneInput);
         }
 
         if (this.instance) {
