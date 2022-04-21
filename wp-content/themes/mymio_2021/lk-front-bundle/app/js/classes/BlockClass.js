@@ -23,9 +23,11 @@ export const BlockClass = function (blockElement, blockIndex, elmaId, userData) 
     }
 
     this.lockTab = function (e, value) {
-        self.tabs.Tab.currentTab = value + 1;
-        self.tabs.lockNewTab(value);
-        self.questionnaireProgressCount();
+        if (blockIndex === 1) {
+            self.tabs.Tab.currentTab = value + 1;
+            self.tabs.lockNewTab(value);
+            self.questionnaireProgressCount();
+        }
     }
 
     this.setForms = () => {

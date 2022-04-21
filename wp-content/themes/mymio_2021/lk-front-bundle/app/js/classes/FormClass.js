@@ -98,12 +98,20 @@ export const FormClass = function (form, idx, elmaId, userData, blockIndex) {
         loader(form, 'show');
 
         const contextObject = self.createContextObject();
-        const requestBody = JSON.stringify({
+        const objectToSend = {
             id: elmaId,
-            form_id: self.formIndex,
-            // mank_ill_stage: stage,
-            context: contextObject
-        });
+            context: contextObject,
+        }
+
+        if (blockIndex === 1 && idx === 1) {
+            objectToSend.mank_ill_stage = self.setStage();
+        }
+
+        if ((blockIndex === 1 && idx !== 0) || blockIndex === 3) {
+            objectToSend.form_id = self.formIndex;
+        }
+
+        const requestBody = JSON.stringify(objectToSend);
         const requestOptions = {
             method: 'POST',
             body: requestBody,
@@ -124,6 +132,53 @@ export const FormClass = function (form, idx, elmaId, userData, blockIndex) {
                 self.submitResult('Ошибка отправки. Проверьте данные или попробуйте позже.', 'err');
                 loader(form);
             })
+    }
+
+    this.getDateFromString = (dateString) => {
+        const parts = dateString.split('.');
+        const date = new Date(parts[2], parts[1] - 1, parts[0]);
+        return  date.toDateString();
+    }
+
+    this.calculateAge = (birthday) => {
+        const birthdayDate = self.getDateFromString(birthday);
+        const ageDifMs = Date.now() - new Date(birthdayDate).getTime();
+        const ageDate = new Date(ageDifMs);
+        return Math.abs(ageDate.getUTCFullYear() - 1970);
+    }
+
+    this.setStage = () => {
+        const age = self.calculateAge(userData.child_birthdate);
+        const moveAbilities = $('select[data-elma="mank_motor_abilities_2"]').val();
+        const lostAge = $('select[data-elma="mank_neuro_lost_ability"]').val();
+
+        if (age <= 3) {
+            return 1;
+        }
+
+        if (moveAbilities === 'Ходит сам') {
+            return 2;
+        }
+
+        if (age >= 8 && moveAbilities === 'Ходит сам (но тяжело) или с поддержкой') {
+            return 3;
+        }
+
+        if (parseInt(lostAge) <= age - 3) {
+
+            if (moveAbilities === 'Пользуется инвалидным креслом (скутером или подобным), способен удерживать тело, не нужен подголовник, активно пользуется руками') {
+                return 4;
+            }
+        }
+
+        if (age - parseInt(lostAge) >= 4 ) {
+            if (moveAbilities === 'Пользуется инвалидным креслом (скутером или подобным), способен удерживать тело, не нужен подголовник, активно пользуется руками'
+                || moveAbilities === 'Использует кресло, требуется поддержка тела и головы. использует руки, но функциональность снижена') {
+                return 5;
+            }
+        }
+
+        return 0;
     }
 
     this.init = ($) => {
