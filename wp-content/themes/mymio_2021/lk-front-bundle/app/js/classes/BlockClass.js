@@ -13,7 +13,11 @@ export const BlockClass = function (blockElement, blockIndex, elmaId, userData) 
         const tabs = $(blockElement).find('.lk-form__tabs');
 
         if (tabs && tabs.length) {
-            this.tabs = new TabClass(blockElement, 'lk-form__tab_content', 'lk-form__tab', userData.email);
+            if (blockIndex === 1) {
+                this.tabs = new TabClass(blockElement, 'lk-form__tab_content', 'lk-form__tab', userData.email);
+            } else {
+                this.tabs = new TabClass(blockElement, 'lk-form__tab_content', 'lk-form__tab');
+            }
             await this.tabs.init();
         }
     }
