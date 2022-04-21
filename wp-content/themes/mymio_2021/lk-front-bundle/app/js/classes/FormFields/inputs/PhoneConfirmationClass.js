@@ -178,8 +178,8 @@ export const PhoneConfirmationClass = function (formField, userData, blockIndex)
     this.init = () => {
         if (blockIndex === 0) {
             this.setPhoneInput();
-            this.selectors.phoneInput.on('input', function () {
-                self.phoneNumber = $(this).val();
+            this.selectors.phoneInput.on('keypress', function () {
+                self.phoneNumber = self.sanitizePhoneNumber($(this).val());
                 self.clearError();
                 self.hideResendMessage();
                 self.unblockBtn(self.selectors.sendConfirmationBtn, 0);
