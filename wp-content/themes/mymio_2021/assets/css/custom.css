@@ -5980,6 +5980,11 @@ section#quote .wrap + .wrap {
     margin-top: -20px;
 }
 
+.contact-form__form-field.phone-confirm span.error {
+    left: 0;
+    bottom: -15px;
+}
+
 .phone-confirm__wrap {
     display: flex;
     align-items: center;
