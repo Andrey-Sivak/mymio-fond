@@ -39,7 +39,16 @@ get_header(); ?>
                     пожелание, как мы можем улучшить анкету, пожалуйста, напишите нам на почту <a
                             href="mailto:coordinator@mymiofond.ru">coordinator@mymiofond.ru</a></p>
                 <div class="user-info">
-                    <p class="user-info__caption">Личные данные</p>
+                    <div class="user-info__caption"
+                       style="display:flex;justify-content: space-between;align-items:center;">
+                        <span>Личные данные</span>
+                        <a style="margin-left: auto;"
+                           class="btn"
+                           href="<?= get_home_url() . '/custom_auth/exit.php' ?>"
+                        >
+                            Выйти
+                        </a>
+                    </div>
                     <div class="user-info__row">
                         <p>ФИО</p>
                         <p data-info="parent_fullname"></p>
@@ -97,7 +106,6 @@ get_header(); ?>
                         font-weight: bold;
                     }
                 </style>
-                <a href="<?= get_home_url() . '/custom_auth/exit.php' ?>">Выйти</a>
             </div>
             <div class="lk-container">
                 <div class="lk-tabs">
