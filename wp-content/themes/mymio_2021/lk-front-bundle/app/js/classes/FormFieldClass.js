@@ -15,6 +15,8 @@ export const FormFieldClass = function (formField, userData, blockIndex) {
     this.elmaName = null;
     this.requiredField = formField.find('[data-req="true"]');
     this.valueType = formField.data('valueType') || null;
+    this.sameFields = formField.data('sameFields') || null;
+    this.sameDependency = formField.data('sameDependency') || null;
 
     this.type = () => {
         if (formField.hasClass('check')) {
@@ -148,6 +150,7 @@ export const FormFieldClass = function (formField, userData, blockIndex) {
                 }
 
                 this.elmaField.on('change', self.changeValue);
+                this.elmaField.on('blur', self.changeValue);
             }
             formField.on('changeValue', this.changeValue);
         }

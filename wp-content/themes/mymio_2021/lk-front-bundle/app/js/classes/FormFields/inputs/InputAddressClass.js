@@ -59,6 +59,7 @@ export const InputAddressClass = function (element) {
 
         self.input.on('blur', function () {
             self.geocode(self.input);
+            element.trigger('changeValue', [$(this).val()]);
         })
     }
 }

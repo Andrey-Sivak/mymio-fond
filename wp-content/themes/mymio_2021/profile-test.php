@@ -306,6 +306,7 @@ get_header(); ?>
                                         'label' => '',
                                         'required' => true,
                                         'name' => 'address_act_pod',
+                                        'same_fields' => 'address_act_pod',
                                     ],
                                     [
                                         'kind' => 'text_block',
@@ -327,6 +328,7 @@ get_header(); ?>
                                         'placeholder' => 'Адрес фактического проживания законного представителя',
                                         'label' => 'Адрес регистрации',
                                         'name' => 'address_reg_pod',
+                                        'same_dependency' => 'address_act_pod',
                                         'condition' => [
                                             'condition_dependency' => 'diff_act_address',
                                             'require_value' => 'Нет',
@@ -352,6 +354,7 @@ get_header(); ?>
                                         'placeholder' => 'Почтовый адрес законного представителя',
                                         'label' => '',
                                         'name' => 'address_mail_pod',
+                                        'same_dependency' => 'address_act_pod',
                                         'condition' => [
                                             'condition_dependency' => 'diff_post_address',
                                             'require_value' => 'Нет',

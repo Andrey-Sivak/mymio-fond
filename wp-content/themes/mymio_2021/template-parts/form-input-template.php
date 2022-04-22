@@ -12,6 +12,8 @@ $validation = $object['validation'];
 $condition = $object['condition'];
 $require_value = $condition['require_value'];
 $value_type = $object['value_type'];
+$same_fields = $object['same_fields'];
+$same_dependency = $object['same_dependency'];
 
 if (is_array($require_value)) {
     $require_value = implode('|,|', $require_value);
@@ -50,6 +52,12 @@ switch ($field_type) {
     <?php endif; ?>
     <?php if ($value_type) : ?>
         data-value-type="<?php echo $value_type; ?>"
+    <?php endif; ?>
+    <?php if ($same_fields) : ?>
+        data-same-fields="<?php echo $same_fields; ?>"
+    <?php endif; ?>
+    <?php if ($same_dependency) : ?>
+        data-same-dependency="<?php echo $same_dependency; ?>"
     <?php endif; ?>
 >
 

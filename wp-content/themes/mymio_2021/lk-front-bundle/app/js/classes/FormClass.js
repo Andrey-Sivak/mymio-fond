@@ -94,8 +94,19 @@ export const FormClass = function (form, idx, elmaId, userData, blockIndex) {
         self.resultMessage.addClass(cssClass);
     }
 
+    this.fillSameValues = () => {
+        self.formFieldsList.forEach((f) => {
+            if (f.sameDependency && !f.currentValue) {
+                const dependField = self.formFieldsList.find((n) => n.sameFields === f.sameDependency);
+                f.currentValue = dependField.currentValue;
+            }
+        });
+    }
+
     this.setSubmitHandler = function () {
         loader(form, 'show');
+
+        self.fillSameValues();
 
         const contextObject = self.createContextObject();
         const objectToSend = {
@@ -137,7 +148,7 @@ export const FormClass = function (form, idx, elmaId, userData, blockIndex) {
     this.getDateFromString = (dateString) => {
         const parts = dateString.split('.');
         const date = new Date(parts[2], parts[1] - 1, parts[0]);
-        return  date.toDateString();
+        return date.toDateString();
     }
 
     this.calculateAge = (birthday) => {
@@ -171,7 +182,7 @@ export const FormClass = function (form, idx, elmaId, userData, blockIndex) {
             }
         }
 
-        if (age - parseInt(lostAge) >= 4 ) {
+        if (age - parseInt(lostAge) >= 4) {
             if (moveAbilities === 'Пользуется инвалидным креслом (скутером или подобным), способен удерживать тело, не нужен подголовник, активно пользуется руками'
                 || moveAbilities === 'Использует кресло, требуется поддержка тела и головы. использует руки, но функциональность снижена') {
                 return 5;
