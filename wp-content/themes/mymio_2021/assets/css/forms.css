@@ -119,6 +119,10 @@
     flex-wrap: wrap;
 }
 
+.contact-form__form-field.radio.show {
+    display: flex!important;
+}
+
 .contact-form__form-field.radio[data-cond-dep-name] {
     display: none;
 }
