@@ -21,10 +21,10 @@ export const SelectClass = function (element) {
 
         const content = elem.val();
 
-        if (content.includes('Другое')) {
+        if (content.includes('(указать')) {
             self.inputWrap.addClass('active');
             self.input.trigger('focus');
-        } else if (!content.includes('Другое') && self.inputWrap.hasClass('active')) {
+        } else if (!content.includes('(указать') && self.inputWrap.hasClass('active')) {
             self.inputWrap.removeClass('active');
         }
     }
