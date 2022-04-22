@@ -191,6 +191,10 @@
     transition: ease-in-out all .3s;
 }
 
+textarea + .contact-form__label {
+    display: none!important;
+}
+
 .contact-form__label.checkbox {
     position: relative;
     font-size: 12px;
