@@ -1,16 +1,16 @@
 <?php
 $object = $args['object'];
-$field_idx = $args['field_idx'];
-$required = $object['required'];
-$elmaName = $object['elma_name'];
-$form_index = $args['form_index'];
-$items = $object['items'];
-$question = $object['question'];
-$field_name = $object['name'] ?: $form_index . '_' . $field_idx;
-$condition_relation = $object['condition_relation'];
-$condition = $object['condition'];
-$require_value = $condition['require_value'];
-$condition_age = $object['condition_age'];
+$field_idx = $args['field_idx'] ?? null;
+$required = $object['required'] ?? null;
+$elmaName = $object['elma_name'] ?? null;
+$form_index = $args['form_index'] ?? null;
+$items = $object['items'] ?? null;
+$question = $object['question'] ?? null;
+$field_name = $object['name'] ?? $form_index . '_' . $field_idx;
+$condition_relation = $object['condition_relation'] ?? null;
+$condition = $object['condition'] ?? null;
+$require_value = $condition['require_value'] ?? null;
+$condition_age = $object['condition_age'] ?? null;
 
 if (is_array($require_value)) {
     $require_value = implode('|,|', $require_value);
@@ -32,22 +32,22 @@ if (is_array($require_value)) {
 >
 
     <?php if ($question) : ?>
-        <p class="contact-form__form-field_note"><?= $question; ?></p>
+        <p class="contact-form__form-field_note"><?php echo $question; ?></p>
     <?php endif; ?>
 
     <?php foreach ($items as $key => $item) : ?>
 
         <input type="radio"
-               value="<?= $item; ?>"
-               data-elma="<?= $elmaName; ?>"
+               value="<?php echo $item; ?>"
+               data-elma="<?php echo $elmaName; ?>"
             <?php if ($required && ($key == 1)) : ?>
                 data-req="true"
             <?php endif; ?>
-               name="<?= $field_name; ?>"
-               id="<?= $form_index . '_' . $field_idx . '_' . $key; ?>"
+               name="<?php echo $field_name; ?>"
+               id="<?php echo $form_index . '_' . $field_idx . '_' . $key; ?>"
                class="contact-form__input checkbox">
-        <label for="<?= $form_index . '_' . $field_idx . '_' . $key; ?>"
-               class="contact-form__label checkbox"><?= $item; ?></label>
+        <label for="<?php echo $form_index . '_' . $field_idx . '_' . $key; ?>"
+               class="contact-form__label checkbox"><?php echo $item; ?></label>
 
     <?php endforeach; ?>
 

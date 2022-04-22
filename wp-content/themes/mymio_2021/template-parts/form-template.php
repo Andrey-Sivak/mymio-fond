@@ -1,13 +1,13 @@
 <?php
 $form_fields = $args['form_fields'];
-$form_caption = $args['caption'] ?: '';
-$form_subcaption = $args['subcaption'] ?: '';
+$form_caption = $args['caption'] ?? '';
+$form_subcaption = $args['subcaption'] ?? '';
 $submit_button = $args['submit_button'];
-$data_tab = $args['tab'] ?: '';
+$data_tab = $args['tab'] ?? '';
 $form_name = $args['name'];
-$stage = $args['stage'];
-$action = $args['action_url'] ?: '#';
-$success_msg = $args['success_msg'] ?: 'Заявка успешно отправлена!';
+$stage = $args['stage'] ?? null;
+$action = $args['action_url'] ?? '#';
+$success_msg = $args['success_msg'] ?? 'Заявка успешно отправлена!';
 ?>
 
 <div class="request-form-container">
@@ -22,11 +22,11 @@ $success_msg = $args['success_msg'] ?: 'Заявка успешно отправ
         >
             <div class="contact-form__form-text">
                 <?php if ($form_caption) : ?>
-                    <p class="contact-form__caption"><?= $form_caption; ?></p>
+                    <p class="contact-form__caption"><?php echo $form_caption; ?></p>
                 <?php endif; ?>
 
                 <?php if ($form_subcaption) : ?>
-                    <p class="contact-form__subcaption"><?= $form_subcaption; ?></p>
+                    <p class="contact-form__subcaption"><?php echo $form_subcaption; ?></p>
                 <?php endif; ?>
             </div>
 
@@ -82,7 +82,7 @@ $success_msg = $args['success_msg'] ?: 'Заявка успешно отправ
             }
             ?>
 
-            <input type="submit" value="<?= $submit_button; ?>">
+            <input type="submit" value="<?php echo $submit_button; ?>">
             <?php get_template_part('/template-parts/loader', null, ['active' => false]); ?>
             <div class="disabler"></div>
             <p class="result"></p>

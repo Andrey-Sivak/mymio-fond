@@ -1,18 +1,18 @@
 <?php
 $object = $args['object'];
-$field_idx = $args['field_idx'];
-$form_index = $args['form_index'];
-$items = $object['items'];
-$elmaName = $object['elma_name'];
-$form_name = $args['form_name'];
+$field_idx = $args['field_idx'] ?? null;
+$form_index = $args['form_index'] ?? null;
+$items = $object['items'] ?? null;
+$elmaName = $object['elma_name'] ?? null;
+$form_name = $args['form_name'] ?? null;
 $_name = $object['name'] ? $form_name . '_' . $object['name'] : '';
-$required = $object['required'];
-$question = $object['question'];
-$is_input_exist = $object['is_input_exist'];
-$input_label = $object['input_label'];
-$condition = $object['condition'];
-$condition_relation = $object['condition_relation'];
-$require_value = $condition['require_value'];
+$required = $object['required'] ?? null;
+$question = $object['question'] ?? null;
+$is_input_exist = $object['is_input_exist'] ?? null;
+$input_label = $object['input_label'] ?? null;
+$condition = $object['condition'] ?? null;
+$condition_relation = $object['condition_relation'] ?? null;
+$require_value = $condition['require_value'] ?? null;
 
 if (is_array($require_value)) {
     $require_value = implode('|,|', $require_value);

@@ -1,10 +1,10 @@
 <?php
 $object = $args['object'];
-$form_name = $args['form_name'];
-$elmaName = $object['elma_name'];
+$form_name = $args['form_name'] ?? null;
+$elmaName = $object['elma_name'] ?? null;
 $field_name = $object['name'] ? $form_name . '_' . $object['name'] : '';
-$required = $object['required'];
-$question = $object['question'];
+$required = $object['required'] ?? null;
+$question = $object['question'] ?? null;
 ?>
 <div class="contact-form__form-field phone-confirm">
 

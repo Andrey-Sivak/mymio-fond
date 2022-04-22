@@ -17,7 +17,7 @@
         </script>
         <?php
         session_start();
-        $register_email = $_GET['eml'] ?: null;
+        $register_email = $_GET['eml'] ?? null;
 
         if (isset($register_email)) :
             $_SESSION['register-email'] = trim($register_email);
