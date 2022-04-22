@@ -37,10 +37,3 @@ $db->close();
 file_put_contents(__DIR__.'/unset-questionnaire.log', date('d-m-Y H:i:s') . ' ' . 'success unset questionnaire' . "\n", FILE_APPEND); // LOG
 
 echo true;
-
-/*session_start();
-
-$_SESSION['user_name'] = $user_name;
-$_SESSION['user_email'] = $user_email;
-$_SESSION['user_pass'] = $db_user_pass;
-$_SESSION['elma_id'] = $elma_id;*/
