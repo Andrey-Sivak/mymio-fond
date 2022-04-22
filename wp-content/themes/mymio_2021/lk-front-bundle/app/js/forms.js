@@ -1,8 +1,8 @@
 'use strict';
 
-import {getInputNames} from "./utils/getInputNames";
-import {formResultHandler} from "./utils/formResultHandler";
-import {getNeededInputs} from "./utils/getNeededInputs";
+import {getInputNames} from "./_utils/getInputNames";
+import {formResultHandler} from "./_utils/formResultHandler";
+import {getNeededInputs} from "./_utils/getNeededInputs";
 import {fillSameValues} from "./_mixins/fillSameValues";
 import {goToNextForm} from "./_mixins/goToNextForm";
 import {getStage} from "./_mixins/getStage";

@@ -10,7 +10,7 @@
 // import './formFunctions/train';
 // import {maskInit} from "./formFunctions/inputMask";
 // import {selectMkb} from "./formFunctions/selectMkb";
-// import {checkLastActiveTabs, checkLockedTabs, tabs} from "./utils/tabs";
+// import {checkLastActiveTabs, checkLockedTabs, tabs} from "./_utils/tabs";
 // import './forms';
 // import './_mixins/conditionFields';
 // import './formFunctions/yaMaps';
