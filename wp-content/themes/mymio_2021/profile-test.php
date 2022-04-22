@@ -122,7 +122,7 @@ get_header(); ?>
                             $form_settings = [
                                 'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/main/update',
                                 'caption' => 'Персональные данные Подопечного',
-                                'submit_button' => 'Подать заявку',
+                                'submit_button' => 'Сохранить изменения',
                                 'name' => 'main_info',
                                 'success_msg' => 'Заявка успешно отправлена!',
                                 'form_fields' => [
