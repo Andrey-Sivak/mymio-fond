@@ -110,9 +110,9 @@ forms.each(function () {
             const userEmailToCheck = ctxForm.find('input[name="contact_email"]').val();
             const userNameToCheck = ctxForm.find('input[name="contact_parent_fio"]').val();
             checkUserExist(userEmailToCheck, userNameToCheck)
-                .then(res => res.text())
-                .then(pass => {
-                    console.log(pass);
+                .then(res => res.json())
+                .then(data => {
+                    const pass = data.user_pass;
                     if (pass) {
                         const contextObject = getNeededInputs(pass);
                         const url = 'https://mymiofond.ru/Scripts/handler.php';
