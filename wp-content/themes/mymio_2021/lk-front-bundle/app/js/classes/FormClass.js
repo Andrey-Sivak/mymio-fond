@@ -3,6 +3,7 @@
 import {loader} from "../mixins/loader";
 import {FormFieldClass} from "./FormFieldClass";
 import {getUserDataFromElma} from "../api/elmaApi";
+import {calculateAge} from "../utils/dateUtils";
 
 // set loader
 
@@ -145,21 +146,8 @@ export const FormClass = function (form, idx, elmaId, userData, blockIndex) {
             })
     }
 
-    this.getDateFromString = (dateString) => {
-        const parts = dateString.split('.');
-        const date = new Date(parts[2], parts[1] - 1, parts[0]);
-        return date.toDateString();
-    }
-
-    this.calculateAge = (birthday) => {
-        const birthdayDate = self.getDateFromString(birthday);
-        const ageDifMs = Date.now() - new Date(birthdayDate).getTime();
-        const ageDate = new Date(ageDifMs);
-        return Math.abs(ageDate.getUTCFullYear() - 1970);
-    }
-
     this.setStage = () => {
-        const age = self.calculateAge(userData.child_birthdate);
+        const age = userData.age;
         const moveAbilities = $('select[data-elma="mank_motor_abilities_2"]').val();
         const lostAge = $('select[data-elma="mank_neuro_lost_ability"]').val();
 

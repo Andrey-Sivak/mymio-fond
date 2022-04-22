@@ -454,7 +454,6 @@ get_header(); ?>
                                                 '19',
                                                 '20',
                                             ],
-                                            'condition_relation' => 'diagnosis_age',
                                         ],
                                         [
                                             'kind' => 'select',
@@ -1333,10 +1332,7 @@ get_header(); ?>
                                             ],
                                             'elma_name' => 'mank_endo_pubert_test_2',
                                             'condition_relation' => 'endo_pubert_test',
-                                            'condition' => [
-                                                'condition_dependency' => 'diagnosis_age',
-                                                'require_value' => ['9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'],
-                                            ],
+                                            'condition_age' => '9+',
                                         ],
                                         [
                                             'kind' => 'radio',

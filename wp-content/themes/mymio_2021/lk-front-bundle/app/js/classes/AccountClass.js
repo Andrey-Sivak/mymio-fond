@@ -4,6 +4,7 @@ import {getUserDataFromElma} from '../api/elmaApi';
 import {loader} from "../mixins/loader";
 import {TabClass} from "./TabClass";
 import {BlockClass} from "./BlockClass";
+import {calculateAge} from "../utils/dateUtils";
 
 export const AccountClass = function () {
     const self = this;
@@ -35,6 +36,10 @@ export const AccountClass = function () {
         }
     }
 
+    this.setAge = () => {
+        self.userData.age = calculateAge(self.userData.child_birthdate);
+    }
+
     this.contentBlocks = async () => {
         this.blocks.each(function (idx) {
             const block = new BlockClass($(this), idx, self.elmaId, self.userData);
@@ -52,6 +57,7 @@ export const AccountClass = function () {
     this.init = async () => {
         this.getUserData(this.elmaId)
             .then(() => {
+                this.setAge();
                 this.tabs.init();
                 this.contentBlocks();
                 loader('body', 'hide');

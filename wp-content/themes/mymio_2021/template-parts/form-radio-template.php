@@ -10,6 +10,7 @@ $field_name = $object['name'] ?: $form_index . '_' . $field_idx;
 $condition_relation = $object['condition_relation'];
 $condition = $object['condition'];
 $require_value = $condition['require_value'];
+$condition_age = $object['condition_age'];
 
 if (is_array($require_value)) {
     $require_value = implode('|,|', $require_value);
@@ -17,13 +18,16 @@ if (is_array($require_value)) {
 
 <div class="contact-form__form-field radio"
     <?php if ($require_value) : ?>
-        data-cond-dep-value="<?= $require_value; ?>"
+        data-cond-dep-value="<?php echo $require_value; ?>"
     <?php endif;
     if ($condition['condition_dependency']) : ?>
-        data-cond-dep-name="<?= $condition['condition_dependency']; ?>"
+        data-cond-dep-name="<?php echo $condition['condition_dependency']; ?>"
     <?php endif;
     if ($condition_relation) : ?>
-        data-cond-relation="<?= $condition_relation; ?>"
+        data-cond-relation="<?php echo $condition_relation; ?>"
+    <?php endif;
+    if ($condition_age) : ?>
+        data-cond-age="<?php echo $condition_age; ?>"
     <?php endif; ?>
 >
 

@@ -17,6 +17,7 @@ export const FormFieldClass = function (formField, userData, blockIndex) {
     this.valueType = formField.data('valueType') || null;
     this.sameFields = formField.data('sameFields') || null;
     this.sameDependency = formField.data('sameDependency') || null;
+    this.ageDependency = formField.data('condAge') || null;
 
     this.type = () => {
         if (formField.hasClass('check')) {
