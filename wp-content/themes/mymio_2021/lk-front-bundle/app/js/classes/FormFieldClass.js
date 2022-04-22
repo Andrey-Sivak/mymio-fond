@@ -14,6 +14,7 @@ export const FormFieldClass = function (formField, userData, blockIndex) {
     this.elmaField = null;
     this.elmaName = null;
     this.requiredField = formField.find('[data-req="true"]');
+    this.valueType = formField.data('valueType') || null;
 
     this.type = () => {
         if (formField.hasClass('check')) {
@@ -117,7 +118,18 @@ export const FormFieldClass = function (formField, userData, blockIndex) {
     }
 
     this.changeValue = function (e, value) {
-        self.currentValue = $(this).val() ? $(this).val() : value;
+        const val = $(this).val() ? $(this).val() : value;
+
+        if (self.valueType === 'int') {
+            const intValue = parseFloat(val);
+            if (!isNaN(intValue)) {
+                self.currentValue = intValue;
+            } else {
+                self.currentValue = null;
+            }
+        }
+        self.currentValue = val;
+
         self.handleConditionFields(self.currentValue);
     }
 
@@ -136,7 +148,6 @@ export const FormFieldClass = function (formField, userData, blockIndex) {
                 }
 
                 this.elmaField.on('change', self.changeValue);
-                return;
             }
             formField.on('changeValue', this.changeValue);
         }

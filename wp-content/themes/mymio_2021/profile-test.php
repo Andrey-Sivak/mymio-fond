@@ -612,6 +612,7 @@ get_header(); ?>
                                         [
                                             'kind' => 'input',
                                             'type' => 'text',
+                                            'value_type' => 'int',
                                             'question' => 'Укажите вес ребенка в кг <br>(важно, чтобы данные были актуальными на момент заполнения)',
                                             'placeholder' => 'кг',
                                             'label' => '',
@@ -622,6 +623,7 @@ get_header(); ?>
                                         [
                                             'kind' => 'input',
                                             'type' => 'text',
+                                            'value_type' => 'int',
                                             'question' => 'Укажите рост ребенка в см <br>(важно, чтобы данные были актуальными на момент заполнения)',
                                             'placeholder' => 'см',
                                             'label' => '',
@@ -1444,6 +1446,7 @@ get_header(); ?>
                                         [
                                             'kind' => 'input',
                                             'type' => 'text',
+                                            'value_type' => 'int',
                                             'placeholder' => 'ФЖЕЛ (%)',
                                             'required' => false,
                                             'question' => 'Введите показатели ФЖЕЛ (форсированная жизненная емкость легких)',
@@ -1462,6 +1465,7 @@ get_header(); ?>
                                             'kind' => 'input',
                                             'type' => 'text',
                                             'required' => false,
+                                            'value_type' => 'int',
                                             'placeholder' => 'ЖЕЛ (%)',
                                             'question' => 'Введите показатели ЖЕЛ (жизненная емкость легких)',
                                             'label' => '',
@@ -1478,6 +1482,7 @@ get_header(); ?>
                                         [
                                             'kind' => 'input',
                                             'type' => 'text',
+                                            'value_type' => 'int',
                                             'placeholder' => 'ПКС (л/мин)',
                                             'question' => 'Ведители показатели — ПКС (пиковая скорость кашля)',
                                             'label' => '',

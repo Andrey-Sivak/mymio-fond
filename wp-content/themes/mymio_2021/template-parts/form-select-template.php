@@ -8,7 +8,7 @@ $field_name = $object['name'];
 $input_label = null;
 $options = $object['options'];
 if ($is_input_exist) {
-    $input_label = $object['label_for_input'] ?: $placeholder;
+    $input_label = $object['label_for_input'] ?: 'Указать';
 }
 $question = $object['question'];
 $condition = $object['condition'];
@@ -55,9 +55,6 @@ if (is_array($require_value)) {
     <?php if ($is_input_exist) : ?>
         <div class="select-input">
             <input type="text"
-                <?php if ($input_label) : ?>
-                    placeholder="<?= $input_label; ?>"
-                <?php endif; ?>
                    class="select-input__input">
             <label class="contact-form__label"><?= $input_label; ?></label>
         </div>
