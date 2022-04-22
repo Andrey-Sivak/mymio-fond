@@ -19,6 +19,23 @@ export const FormFieldClass = function (formField, userData, blockIndex) {
     this.sameDependency = formField.data('sameDependency') || null;
     this.ageDependency = formField.data('condAge') || null;
 
+    this.computeAgeDependency = () => {
+        if (self.ageDependency) {
+            const requireAge = parseInt(self.ageDependency);
+            const currentAge = parseInt(userData.age);
+
+            if (self.ageDependency.includes('+')
+                && currentAge >= requireAge ) {
+
+                self.showFormField();
+            } else if (self.ageDependency.includes('-')
+                && currentAge <= requireAge) {
+
+                self.showFormField();
+            }
+        }
+    }
+
     this.type = () => {
         if (formField.hasClass('check')) {
             return 'checkbox';
@@ -62,6 +79,12 @@ export const FormFieldClass = function (formField, userData, blockIndex) {
             case 'input':
                 this.formFieldClass = new InputClass(formField, userData, blockIndex);
                 break;
+        }
+    }
+
+    this.showFormField = () => {
+        if (!formField.hasClass('show')) {
+            formField.addClass('show');
         }
     }
 
@@ -145,6 +168,8 @@ export const FormFieldClass = function (formField, userData, blockIndex) {
             this.formFieldClass.init();
 
             if (this.elmaField) {
+                this.computeAgeDependency();
+
                 if (this.formFieldClass instanceof SelectClass) {
                     formField.on('changeValue', this.changeValue);
                     return;
