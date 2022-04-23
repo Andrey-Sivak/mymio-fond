@@ -3,17 +3,19 @@
 import {TabClass} from "./TabClass";
 import {FormClass} from "./FormClass";
 
-export const BlockClass = function (blockElement, blockIndex, elmaId, userData) {
+export const BlockClass = function (blockElement, blockIndex, elmaId, userData, filledMedicalFields) {
     const self = this;
     this.tabs = null;
-    this.forms = $(blockElement).find('.contact-form__form');
+    this.forms = [];
+    this.index = parseInt(blockIndex);
+    this.formsList = $(blockElement).find('.contact-form__form');
     this.questionnaireProgress = $(blockElement).find('.lk-progress-inner');
 
     this.setTabs = async () => {
         const tabs = $(blockElement).find('.lk-form__tabs');
 
         if (tabs && tabs.length) {
-            if (blockIndex === 1) {
+            if (this.index === 1) {
                 this.tabs = new TabClass(blockElement, 'lk-form__tab_content', 'lk-form__tab', userData.email);
             } else {
                 this.tabs = new TabClass(blockElement, 'lk-form__tab_content', 'lk-form__tab');
@@ -23,7 +25,7 @@ export const BlockClass = function (blockElement, blockIndex, elmaId, userData) 
     }
 
     this.lockTab = function (e, value) {
-        if (blockIndex === 1) {
+        if (self.index === 1) {
             self.tabs.Tab.currentTab = value + 1;
             self.tabs.lockNewTab(value);
             self.questionnaireProgressCount();
@@ -31,11 +33,12 @@ export const BlockClass = function (blockElement, blockIndex, elmaId, userData) 
     }
 
     this.setForms = () => {
-        if (this.forms.length) {
-            this.forms.each(function (i) {
-                const form = new FormClass($(this), i, elmaId, userData, blockIndex);
+        if (this.formsList.length) {
+            this.formsList.each(function (i) {
+                const form = new FormClass($(this), i, elmaId, userData, self.index, filledMedicalFields);
                 form.init(jQuery);
                 $(this).on('submitSuccess', self.lockTab);
+                self.forms.push(form);
             })
         }
     }

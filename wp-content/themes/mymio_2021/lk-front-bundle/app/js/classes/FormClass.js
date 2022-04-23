@@ -3,11 +3,10 @@
 import {loader} from "../mixins/loader";
 import {FormFieldClass} from "./FormFieldClass";
 import {getUserDataFromElma} from "../api/elmaApi";
-import {calculateAge} from "../utils/dateUtils";
 
 // set loader
 
-export const FormClass = function (form, idx, elmaId, userData, blockIndex) {
+export const FormClass = function (form, idx, elmaId, userData, blockIndex, filledMedicalFields) {
     const self = this;
     this.formIndex = parseInt(idx) + 1;
     this.formFieldsList = [];
@@ -16,15 +15,15 @@ export const FormClass = function (form, idx, elmaId, userData, blockIndex) {
     this.resultMessage = form.find('.result');
     this.successMessage = form.data('success');
 
-    (this.setFormFields = () => {
+    this.setFormFields = () => {
         const fields = form.find('.contact-form__form-field')
 
         fields.each(function () {
-            const formField = new FormFieldClass($(this), userData, blockIndex);
+            const formField = new FormFieldClass($(this), userData, blockIndex, filledMedicalFields);
             formField.init();
             self.formFieldsList.push(formField);
         })
-    })()
+    }
 
     this.setRule = (element) => {
         const name = element.attr('name');
@@ -181,6 +180,7 @@ export const FormClass = function (form, idx, elmaId, userData, blockIndex) {
     }
 
     this.init = ($) => {
+        this.setFormFields();
 
         const valid = $(form).validate({
             ignore: [],

@@ -9,9 +9,11 @@ import {calculateAge} from "../utils/dateUtils";
 export const AccountClass = function () {
     const self = this;
     this.userData = null;
+    this.filledMedicalFields = null;
+    this.bloks = [];
     this.elmaId = $('#elma-id').html();
     this.tabs = new TabClass($('.lk-container'), 'lk-form', 'lk-tab');
-    this.blocks = $('.lk-form');
+    this.blocksList = $('.lk-form');
 
     this.getUserData = async (elmaId) => {
         try {
@@ -24,9 +26,10 @@ export const AccountClass = function () {
 
             if (await rawData) {
                 const data = await rawData.json();
-                this.userData = await data;
+                this.userData = await data.user_data;
+                this.filledMedicalFields = await data.medical_fields;
 
-                this.setUserData(await Object.entries(data));
+                this.setUserData(await Object.entries(data.user_data));
                 return true;
             }
 
@@ -41,9 +44,10 @@ export const AccountClass = function () {
     }
 
     this.contentBlocks = async () => {
-        this.blocks.each(function (idx) {
-            const block = new BlockClass($(this), idx, self.elmaId, self.userData);
+        this.blocksList.each(function (idx) {
+            const block = new BlockClass($(this), idx, self.elmaId, self.userData, self.filledMedicalFields);
             block.init();
+            self.bloks.push(block);
         })
     }
 
@@ -54,7 +58,14 @@ export const AccountClass = function () {
         }
     }
 
+    this.checkIndex = async (address) => {
+        const res = await fetch(`https://api.delivery.yandex.ru/location/postal-code?address=${address}&apikey=38dd7e92-7031-44d8-8dbf-0b7bb9549406`);
+        console.log(await res);
+    }
+
     this.init = async () => {
+        // await this.checkIndex('Россия, Москва, Мясницкая улица, 24/7с1');
+
         this.getUserData(this.elmaId)
             .then(() => {
                 this.setAge();

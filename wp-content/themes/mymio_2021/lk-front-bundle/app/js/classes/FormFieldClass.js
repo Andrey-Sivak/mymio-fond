@@ -5,7 +5,7 @@ import {SelectClass} from "./FormFields/SelectClass";
 import {CheckboxClass} from "./FormFields/CheckboxClass";
 import {RadioClass} from "./FormFields/RadioClass";
 
-export const FormFieldClass = function (formField, userData, blockIndex) {
+export const FormFieldClass = function (formField, userData, blockIndex, filledMedicalFields) {
     const self = this;
     this.formFieldClass = null;
     this.currentValue = null;
@@ -18,6 +18,20 @@ export const FormFieldClass = function (formField, userData, blockIndex) {
     this.sameFields = formField.data('sameFields') || null;
     this.sameDependency = formField.data('sameDependency') || null;
     this.ageDependency = formField.data('condAge') || null;
+
+    this.fillMedicalFields = () => {
+        if (!filledMedicalFields
+            || Object.keys(filledMedicalFields).length === 0) {
+            return;
+        }
+
+        for (const [key, value] of Object.entries(filledMedicalFields)) {
+            if (key === self.elmaName) {
+                self.currentValue = value;
+                this.handleConditionFields(value);
+            }
+        }
+    }
 
     this.computeAgeDependency = () => {
         if (self.ageDependency) {
@@ -113,6 +127,7 @@ export const FormFieldClass = function (formField, userData, blockIndex) {
 
     this.displayConditionFields = function () {
         const needValue = $(this).data('condDepValue');
+        console.log($(this), needValue);
 
         if (typeof needValue === 'string') {
 
@@ -169,6 +184,7 @@ export const FormFieldClass = function (formField, userData, blockIndex) {
 
             if (this.elmaField) {
                 this.computeAgeDependency();
+                this.fillMedicalFields();
 
                 if (this.formFieldClass instanceof SelectClass) {
                     formField.on('changeValue', this.changeValue);
