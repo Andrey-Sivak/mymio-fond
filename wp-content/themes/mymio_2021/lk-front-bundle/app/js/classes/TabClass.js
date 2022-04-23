@@ -101,7 +101,10 @@ export const TabClass = function (wrapper, contentClass, tabClass, email = '') {
                 method: 'GET',
             });
             const data = await res.text();
-            return await data.split(',');
+            if (data) {
+                return await data.split(',');
+            }
+            return false;
         } catch (e) {
             return false;
         }
@@ -111,7 +114,9 @@ export const TabClass = function (wrapper, contentClass, tabClass, email = '') {
         if (email !== '') {
             try {
                 const lockedTabsArr = await this.getLockedTabs();
-                await lockedTabsArr.forEach(self.lockTab);
+                if (await lockedTabsArr) {
+                    lockedTabsArr.forEach(self.lockTab);
+                }
             } catch (e) {
                 return false;
             }
