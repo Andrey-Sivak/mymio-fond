@@ -10,11 +10,14 @@ file_put_contents(__DIR__.'/data.log', "\n" . '---------------------------------
 
 file_put_contents(__DIR__.'/data.log', date('d-m-Y H:i:s') . ' ' . $elma_id . ' ' . $user_email . ' ' . $user_name . "\n", FILE_APPEND); // LOG
 
-if (!$user_email || !$elma_id) {
+if (!isset($user_email)
+    || !isset($elma_id)
+    || !isset($user_name)) {
+    file_put_contents(__DIR__.'/data.log', date('d-m-Y H:i:s') . ' failed' . "\n", FILE_APPEND); // LOG
     exit();
 }
 
-file_put_contents(__DIR__.'/data.log', date('d-m-Y H:i:s') . ' ' . 'success get params' . "\n", FILE_APPEND); // LOG
+file_put_contents(__DIR__.'/data.log', date('d-m-Y H:i:s') . ' success get params' . "\n", FILE_APPEND); // LOG
 
 require_once('../Scripts/connect.php');
 
@@ -29,11 +32,11 @@ if (!$result->num_rows) {
 
 file_put_contents(__DIR__.'/data.log', date('d-m-Y H:i:s') . ' ' . 'success get user' . "\n", FILE_APPEND); // LOG
 
-$query = "UPDATE `custom_users` SET `elma_id` = '$elma_id', `name` = '$user_name' WHERE `email` = '$user_email'";
+$query = "UPDATE `custom_users` SET `name` = '$user_name', `elma_id` = '$elma_id' WHERE `email` = '$user_email'";
 $db->query($query);
 
 $db->close();
 
-file_put_contents(__DIR__.'/data.log', date('d-m-Y H:i:s') . ' ' . 'success update user elmaId' . "\n", FILE_APPEND); // LOG
+file_put_contents(__DIR__.'/data.log', date('d-m-Y H:i:s') . ' success update user elmaId' . "\n", FILE_APPEND); // LOG
 
 echo true;
