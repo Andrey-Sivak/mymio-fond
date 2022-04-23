@@ -1,7 +1,7 @@
 <?php
 
 
-if ($_GET['user_email']) {
+if ($_GET['user_email'] && !($_POST['tabs_string'])) {
     $user_email = $_GET['user_email'];
     $check_user_email = filter_var(trim($user_email), FILTER_SANITIZE_STRING);
 
