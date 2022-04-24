@@ -43,6 +43,9 @@ export const TabClass = function (wrapper, contentClass, tabClass, email = '') {
 
     this.tabHandler = function (e) {
         e.preventDefault();
+        if ($(this).hasClass('locked')) {
+            return;
+        }
         const index = self.tabList.index(this);
         self.Tab.currentTab = parseInt(index);
         localStorageSet(tabClass, index);
