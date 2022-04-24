@@ -127,7 +127,6 @@ export const FormFieldClass = function (formField, userData, blockIndex, filledM
 
     this.displayConditionFields = function () {
         const needValue = $(this).data('condDepValue');
-        console.log($(this), needValue);
 
         if (typeof needValue === 'string') {
 
