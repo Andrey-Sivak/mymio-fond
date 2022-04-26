@@ -15,17 +15,28 @@
         <script>
             let homeUrl = '<?= get_home_url(); ?>';
         </script>
+        <?php session_start();?>
+
         <?php
-        session_start();
+        $ward_refusal = $_GET['ward-refusal'] ?? null;
+
+        if (isset($ward_refusal)) :
+            $_SESSION['ward-refusal'] = trim($ward_refusal);
+            header('Location: /?refusal');
+            return;
+        endif; ?>
+
+        <?php
         $register_email = $_GET['eml'] ?? null;
 
         if (isset($register_email)) :
             $_SESSION['register-email'] = trim($register_email);
-            header('Location: /?register');
 
             if(isset($_SESSION['user_name'])) {
                 unset($_SESSION['user_name']);
             }
+
+            header('Location: /?register');
             return;
         endif; ?>
 
@@ -33,6 +44,7 @@
 
         <script>
             let registerEmail = '<?php echo $_SESSION['register-email'] ?: ''; ?>';
+            let wardRefusalEmail = '<?php echo $_SESSION['ward-refusal'] ?: ''; ?>';
         </script>
         <meta charset="<?php bloginfo('charset'); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,6 +88,20 @@
 endif;
 
 unset($_SESSION['register-email']); ?>
+
+<?php
+$ward_refusal_email = $_SESSION['ward-refusal'] ?? null;
+if (isset($ward_refusal_email)) : ?>
+    <div class="modal--register active" data-close>
+        <div class="modal--window">
+            <p class="modal--content">Нам очень жаль, что вы не смогли быть с нами.
+                <br>С уважением к Вашему решению, фонд “МойМио”</p>
+            <a href="#" class="modal--btn btn hide" data-close="true">Закрыть</a>
+        </div>
+    </div>
+<?php endif;
+unset($_SESSION['ward-refusal']);?>
+
     <div id="page-loading">
         <img id="page-loading-image" src="<? echo get_template_directory_uri() ?>/assets/images/mymio_loader.gif"
              alt="Loading..."/>

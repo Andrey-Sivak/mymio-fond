@@ -1,7 +1,7 @@
 'use strict';
 
 import {getUserDataFromElma} from "../api/elmaApi";
-import {checkUserExist, createUser, deleteUserData} from "../api/customApi";
+import {checkUserExist, deleteUserData} from "../api/customApi";
 import {loader} from "../mixins/loader";
 
 export const RegisterByApi = function (email) {
