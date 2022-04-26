@@ -6,20 +6,22 @@ import {getUserDataFromElma} from "../api/elmaApi";
 
 // set loader
 
-export const FormClass = function (form, idx, elmaId, userData, blockIndex, filledMedicalFields) {
+export const FormClass = function (form, idx, elmaId, userData, parentBlock, filledMedicalFields) {
     const self = this;
+    this.blockIndex = parentBlock.index;
     this.formIndex = parseInt(idx) + 1;
     this.formFieldsList = [];
     this.rules = Object.create({});
     this.actionUrl = form.data('action');
     this.resultMessage = form.find('.result');
     this.successMessage = form.data('success');
+    this.submitButton = form.find('input[type="submit"]');
 
     this.setFormFields = () => {
         const fields = form.find('.contact-form__form-field')
 
         fields.each(function () {
-            const formField = new FormFieldClass($(this), userData, blockIndex, filledMedicalFields);
+            const formField = new FormFieldClass($(this), userData, self.blockIndex, filledMedicalFields);
             formField.init();
             self.formFieldsList.push(formField);
         })
@@ -57,13 +59,13 @@ export const FormClass = function (form, idx, elmaId, userData, blockIndex, fill
         Object.defineProperty(self.rules, name, attributes);
     }
 
-    (this.setRules = () => {
+    this.setRules = () => {
         self.formFieldsList.forEach(f => {
             if (f.requiredField.length) {
                 self.setRule($(f.requiredField));
             }
         });
-    })()
+    }
 
     this.createContextObject = () => {
         const object = Object.create({});
@@ -114,11 +116,11 @@ export const FormClass = function (form, idx, elmaId, userData, blockIndex, fill
             context: contextObject,
         }
 
-        if (blockIndex === 1 && idx === 1) {
+        if (self.blockIndex === 1 && idx === 1) {
             objectToSend.mank_ill_stage = self.setStage();
         }
 
-        if ((blockIndex === 1 && idx !== 0) || blockIndex === 3) {
+        if ((self.blockIndex === 1 && idx !== 0) || self.blockIndex === 3) {
             objectToSend.form_id = self.formIndex;
         }
 
@@ -179,10 +181,49 @@ export const FormClass = function (form, idx, elmaId, userData, blockIndex, fill
         return 0;
     }
 
+    this.disableSubmitButton = () => {
+        self.submitButton.addClass('disabled');
+    }
+
+    this.enableSubmitButton = () => {
+        if (self.submitButton.hasClass('disabled')) {
+            self.submitButton.removeClass('disabled');
+        }
+    }
+
+    this.checkIsButtonEnable = () => {
+        if (self.blockIndex !== 1) {
+            return;
+        }
+
+        if (!parentBlock.tabs.lockedTabs.length && idx === 0) {
+            self.enableSubmitButton();
+            return;
+        }
+
+        if (parentBlock.tabs.lockedTabs.length === idx) {
+            self.enableSubmitButton();
+            return;
+        }
+
+        self.disableSubmitButton();
+
+        console.log(parentBlock.tabs);
+    }
+
     this.init = ($) => {
         this.setFormFields();
+        this.setRules();
 
-        const valid = $(form).validate({
+        this.checkIsButtonEnable();
+
+        this.submitButton.on('click', function (e) {
+            if ($(this).hasClass('disabled')) {
+                e.preventDefault();
+            }
+        })
+
+        $(form).validate({
             ignore: [],
             errorClass: 'error',
             validClass: 'success',

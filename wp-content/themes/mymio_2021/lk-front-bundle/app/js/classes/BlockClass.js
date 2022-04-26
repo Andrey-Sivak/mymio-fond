@@ -24,20 +24,21 @@ export const BlockClass = function (blockElement, blockIndex, elmaId, userData, 
         }
     }
 
-    this.lockTab = function (e, value) {
+    this.formHandler = function (e, value) {
         if (self.index === 1) {
             self.tabs.Tab.currentTab = value + 1;
             self.tabs.lockNewTab(value);
             self.questionnaireProgressCount();
+            self.forms[value + 1].checkIsButtonEnable();
         }
     }
 
     this.setForms = () => {
         if (this.formsList.length) {
             this.formsList.each(function (i) {
-                const form = new FormClass($(this), i, elmaId, userData, self.index, filledMedicalFields);
+                const form = new FormClass($(this), i, elmaId, userData, self, filledMedicalFields);
                 form.init(jQuery);
-                $(this).on('submitSuccess', self.lockTab);
+                $(this).on('submitSuccess', self.formHandler);
                 self.forms.push(form);
             })
         }

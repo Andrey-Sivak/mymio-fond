@@ -1922,6 +1922,25 @@ div[id*="leyka-pf-"] {
     margin: 30px 0 0 0;
 }
 
+.request-form-container input[type="submit"].disabled {
+    background-color: #aaa;
+    cursor: no-drop;
+    border-color: #aaa;
+}
+
+.disabled-note {
+    display: none;
+}
+
+.request-form-container input[type="submit"].disabled + .disabled-note {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    line-height: 120%;
+    margin-top: 5px;
+}
+
 .request-form-container input[type="checkbox"]:checked {
     background: none;
     color: #000;

@@ -83,6 +83,7 @@ $success_msg = $args['success_msg'] ?? 'Заявка успешно отправ
             ?>
 
             <input type="submit" value="<?php echo $submit_button; ?>">
+            <span class="disabled-note">Заполните предыдущие формы</span>
             <?php get_template_part('/template-parts/loader', null, ['active' => false]); ?>
             <div class="disabler"></div>
             <p class="result"></p>
