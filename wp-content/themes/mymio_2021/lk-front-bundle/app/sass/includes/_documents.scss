@@ -1,0 +1,36 @@
+.documents {
+  max-width: 90%;
+  padding-top: 10px;
+  margin: 0 auto;
+
+  &__notice {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 50px;
+    font-weight: bold;
+  }
+
+  &__wrap {
+    margin-top: 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__item {
+    flex: 0 0 30%;
+    margin: 0 15px;
+
+    &_img {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+
+      embed {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

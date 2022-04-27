@@ -2175,7 +2175,10 @@ get_header(); ?>
                         </section>
                     </div>
                     <div class="lk-form">
-                        Документы
+                        <div class="documents">
+                            <p class="documents__notice">У вас пока нет сформированных документов</p>
+                            <div class="documents__wrap"></div>
+                        </div>
                     </div>
                     <div class="lk-form">
                         <section class="lk-form-container">

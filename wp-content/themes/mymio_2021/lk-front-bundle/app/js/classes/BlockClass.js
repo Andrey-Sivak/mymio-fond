@@ -2,6 +2,7 @@
 
 import {TabClass} from "./TabClass";
 import {FormClass} from "./FormClass";
+import {DocumentsClass} from "./DocumentsClass";
 
 export const BlockClass = function (blockElement, blockIndex, elmaId, userData, filledMedicalFields) {
     const self = this;
@@ -10,6 +11,7 @@ export const BlockClass = function (blockElement, blockIndex, elmaId, userData, 
     this.index = parseInt(blockIndex);
     this.formsList = $(blockElement).find('.contact-form__form');
     this.questionnaireProgress = $(blockElement).find('.lk-progress-inner');
+    this.documentsBlock = null;
 
     this.setTabs = async () => {
         const tabs = $(blockElement).find('.lk-form__tabs');
@@ -33,7 +35,7 @@ export const BlockClass = function (blockElement, blockIndex, elmaId, userData, 
         }
     }
 
-    this.setForms = () => {
+    this.setContent = () => {
         if (this.formsList.length) {
             this.formsList.each(function (i) {
                 const form = new FormClass($(this), i, elmaId, userData, self, filledMedicalFields);
@@ -41,6 +43,11 @@ export const BlockClass = function (blockElement, blockIndex, elmaId, userData, 
                 $(this).on('submitSuccess', self.formHandler);
                 self.forms.push(form);
             })
+        }
+
+        if (this.index === 2) {
+            this.documentsBlock = new DocumentsClass(this, elmaId);
+            this.documentsBlock.init();
         }
     }
 
@@ -53,7 +60,7 @@ export const BlockClass = function (blockElement, blockIndex, elmaId, userData, 
 
     this.init = async () => {
         await this.setTabs();
-        this.setForms();
+        this.setContent();
         if (await this.tabs && this.questionnaireProgress.length) {
             this.questionnaireProgressCount();
         }
