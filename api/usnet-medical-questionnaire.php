@@ -8,7 +8,7 @@ $is_first_year = filter_var($is_first_year, FILTER_VALIDATE_BOOLEAN);
 
 file_put_contents(__DIR__ . '/unset-questionnaire.log', "\n" . '-----------------------------------------------------------------' . "\n\n", FILE_APPEND); // LOG
 
-file_put_contents(__DIR__ . '/unset-questionnaire.log', date('d-m-Y H:i:s') . ' ' . $user_email . ' ' . $is_first_year . "\n", FILE_APPEND); // LOG
+file_put_contents(__DIR__ . '/unset-questionnaire.log', date('d-m-Y H:i:s') . ' ' . $user_email . ' ' . $is_first_year ? '1' : '0' . "\n", FILE_APPEND); // LOG
 
 if (!$user_email) {
     file_put_contents(__DIR__ . '/unset-questionnaire.log', date('d-m-Y H:i:s') . ' failed' . "\n", FILE_APPEND); // LOG
