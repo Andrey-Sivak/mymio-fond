@@ -18,7 +18,7 @@ $user_email = $_SESSION['user_email'];
 
 require_once(ABSPATH . 'Scripts/connect.php');
 
-$query = "SELECT `elma_id` FROM `custom_users` WHERE `email` = '$user_email'";
+$query = "SELECT * FROM `custom_users` WHERE `email` = '$user_email'";
 $result = $db->query($query);
 $result = mysqli_fetch_all($result, MYSQLI_ASSOC);
 $db->close();
@@ -28,7 +28,8 @@ get_header(); ?>
     <!--    --><?php //get_template_part('/template-parts/loader', null, ['active' => true]); ?>
 
 
-    <span style="display: none;" id="elma-id"><?= $result[0]['elma_id']; ?></span>
+    <span style="display: none;" id="elma-id"><?php echo $result[0]['elma_id']; ?></span>
+    <span style="display: none;" id="is-first-year"><?php echo $result[0]['is_first_year']; ?></span>
 
     <main id="primary" class="site-main">
 

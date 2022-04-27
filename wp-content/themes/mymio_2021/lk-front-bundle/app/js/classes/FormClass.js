@@ -8,6 +8,7 @@ import {getUserDataFromElma} from "../api/elmaApi";
 
 export const FormClass = function (form, idx, elmaId, userData, parentBlock, filledMedicalFields) {
     const self = this;
+    this.isFirstYear = parseInt($('#is-first-year').html());
     this.blockIndex = parentBlock.index;
     this.formIndex = parseInt(idx) + 1;
     this.formFieldsList = [];
@@ -207,14 +208,21 @@ export const FormClass = function (form, idx, elmaId, userData, parentBlock, fil
         }
 
         self.disableSubmitButton();
+    }
 
-        console.log(parentBlock.tabs);
+    this.changeAction = () => {
+        console.log(self.isFirstYear);
+        if (parentBlock.index === 1
+            && self.formIndex === 2
+            && !self.isFirstYear) {
+            self.actionUrl = parentBlock.forms[self.formIndex - 2].actionUrl;
+        }
     }
 
     this.init = ($) => {
         this.setFormFields();
         this.setRules();
-
+        this.changeAction();
         this.checkIsButtonEnable();
 
         this.submitButton.on('click', function (e) {
