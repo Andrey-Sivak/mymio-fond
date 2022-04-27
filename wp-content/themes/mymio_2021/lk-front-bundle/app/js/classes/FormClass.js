@@ -117,12 +117,28 @@ export const FormClass = function (form, idx, elmaId, userData, parentBlock, fil
             context: contextObject,
         }
 
-        if (self.blockIndex === 1 && idx === 1) {
-            objectToSend.mank_ill_stage = self.setStage();
+        if (self.blockIndex === 1) {
+            if (idx === 0) {
+                objectToSend.is_first_year = true;
+            }
+
+            if (idx === 1) {
+                objectToSend.mank_ill_stage = self.setStage();
+
+                if (!self.isFirstYear) {
+                    objectToSend.is_first_year = false;
+                }
+            }
         }
 
-        if ((self.blockIndex === 1 && idx !== 0) || self.blockIndex === 3) {
-            objectToSend.form_id = self.formIndex;
+        if (self.isFirstYear) {
+            if ((self.blockIndex === 1 && idx !== 0) || self.blockIndex === 3) {
+                objectToSend.form_id = self.formIndex;
+            }
+        } else {
+            if ((self.blockIndex === 1 && idx > 1) || self.blockIndex === 3) {
+                objectToSend.form_id = self.formIndex;
+            }
         }
 
         const requestBody = JSON.stringify(objectToSend);
