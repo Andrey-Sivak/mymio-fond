@@ -52,14 +52,33 @@ export const InputAddressClass = function (element) {
         $(notice).css('display', 'block');
     }
 
+    this.getPostalCode = async (address) => {
+        try {
+            const res = await fetch(`https://mymiofond.ru/api/get-postal-code.php/?address=${address}`, {
+                method: 'GET',
+                mode: 'no-cors',
+            });
+            return await res.json();
+        } catch (e) {
+            return e;
+        }
+    }
+
     this.init = () => {
         const suggestView = new ymaps.SuggestView(self.inputId);
 
-        if (!suggestView) return;
-
-        self.input.on('blur', function () {
+        self.input.on('blur', async function () {
             self.geocode(self.input);
-            element.trigger('changeValue', [$(this).val()]);
+            const val = $(this).val()
+            const postalCode = await self.getPostalCode(val);
+
+            if (await postalCode && await postalCode.length) {
+
+                const fullAddress = `${val}, ${postalCode[0].postalCode}`;
+                self.input.val(fullAddress).trigger('change');
+
+                element.trigger('changeValue', [fullAddress]);
+            }
         })
     }
 }

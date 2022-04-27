@@ -58,14 +58,7 @@ export const AccountClass = function () {
         }
     }
 
-    this.checkIndex = async (address) => {
-        const res = await fetch(`https://api.delivery.yandex.ru/location/postal-code?address=${address}&apikey=38dd7e92-7031-44d8-8dbf-0b7bb9549406`);
-        console.log(await res);
-    }
-
     this.init = async () => {
-        // await this.checkIndex('Россия, Москва, Мясницкая улица, 24/7с1');
-
         this.getUserData(this.elmaId)
             .then(() => {
                 this.setAge();
