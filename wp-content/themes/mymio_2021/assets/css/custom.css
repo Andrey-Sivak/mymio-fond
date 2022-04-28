@@ -5975,6 +5975,10 @@ section#quote .wrap + .wrap {
     transition: all ease .3s;
 }
 
+.modal--content {
+    margin-bottom: 10px;
+}
+
 .close {
     position: absolute;
     color: #000;
