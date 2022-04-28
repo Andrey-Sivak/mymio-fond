@@ -94,8 +94,7 @@ $ward_refusal_email = $_SESSION['ward-refusal'] ?? null;
 if (isset($ward_refusal_email)) : ?>
     <div class="modal--register active" data-close>
         <div class="modal--window">
-            <p class="modal--content">Нам очень жаль, что вы не смогли быть с нами.
-                <br>С уважением к Вашему решению, фонд “МойМио”</p>
+            <div class="modal--content"><?php get_template_part('/template-parts/loader', null, ['active' => true]); ?></div>
             <a href="#" class="modal--btn btn hide" data-close="true">Закрыть</a>
         </div>
     </div>

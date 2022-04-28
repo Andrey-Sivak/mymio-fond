@@ -50,8 +50,20 @@ export const RefusalByApi = function (email) {
         }
 
         getUserDataFromElma(url, requestOptions)
-            .then(modal.finish())
-            .catch(modal.finish('Ошибка сервера. <br>Попробуйте позднее'));
+            .then((res) => res.json())
+            .then(data => {
+                if (data.status) {
+                    modal.finish(`Нам очень жаль, что вы не смогли быть с нами.
+                    <br>С уважением к Вашему решению,
+                    <br>фонд "МойМио"`);
+                } else {
+                    modal.finish('Ошибка сервера. <br>Попробуйте позднее');
+                }
+            })
+            .catch((e) => {
+                modal.finish('Ошибка сервера. <br>Попробуйте позднее');
+                console.log(e);
+            });
     }
 
     this.init = async () => {
