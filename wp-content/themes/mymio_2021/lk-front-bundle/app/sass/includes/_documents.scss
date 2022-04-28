@@ -12,24 +12,35 @@
 
   &__wrap {
     margin-top: 50px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
   }
 
   &__item {
-    flex: 0 0 30%;
-    margin: 0 15px;
+    display: flex;
+    align-items: baseline;
 
-    &_img {
-      width: 100%;
-      position: relative;
-      overflow: hidden;
+    &:not(:last-of-type) {
+      margin-bottom: 20px;
+    }
 
-      embed {
-        display: block;
-        width: 100%;
-        height: auto;
+    &_idx {
+      font-size: 14px;
+      margin-right: 5px;
+    }
+
+    &_title {
+      font-size: 16px;
+      margin-right: 10px;
+      margin-bottom: 0;
+    }
+
+    &_link {
+      font-weight: bold;
+      font-size: 16px;
+      color: #009d9a;
+
+      &:hover {
+        text-decoration: underline;
+        color: inherit;
       }
     }
   }
