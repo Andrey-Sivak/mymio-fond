@@ -38,6 +38,9 @@ if (is_array($require_value)) {
         $field_name = $item['name'];
         $label = $item['label'];
         $condition_relation = $item['condition_relation'];
+
+        $is_privacy_confirmation = $label == 'Согласен на обработку персональных данных'
+            ? 'Согласен на обработку <a href="https://mymiofond.ru/docs/privacy_police.pdf" target="_blank">персональных данных</a>' : null;
         ?>
 
         <input type="checkbox"
@@ -45,7 +48,7 @@ if (is_array($require_value)) {
                value="<?= $label; ?>"
                class="contact-form__input checkbox">
         <label for="<?= $field_name ?: $form_index . '_' . $field_idx . '_' . $key; ?>"
-               class="contact-form__label checkbox"><?= $label; ?></label>
+               class="contact-form__label checkbox"><?php echo $is_privacy_confirmation ?? $label; ?></label>
 
     <?php endforeach; ?>
 

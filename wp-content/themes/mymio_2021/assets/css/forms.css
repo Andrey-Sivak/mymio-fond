@@ -212,6 +212,16 @@ textarea + .contact-form__label {
     opacity: 1;
 }
 
+.contact-form__label.checkbox a {
+    color: #009D9A;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.contact-form__label.checkbox a:hover {
+    text-decoration: underline;
+}
+
 .contact-form__label.checkbox:before,
 .contact-form__label.checkbox:after {
     position: absolute;
