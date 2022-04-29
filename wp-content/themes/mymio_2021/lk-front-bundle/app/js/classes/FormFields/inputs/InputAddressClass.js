@@ -39,9 +39,13 @@ export const InputAddressClass = function (element) {
             if (error) {
                 self.showError(input, error);
             }
+
+            setTimeout(() => {
+                input.trigger('change');
+            }, 500);
         }, function (e) {
             console.log(e)
-        })
+        });
     }
 
     this.showError = (input, message) => {
@@ -56,7 +60,6 @@ export const InputAddressClass = function (element) {
         try {
             const res = await fetch(`https://mymiofond.ru/api/get-postal-code.php/?address=${address}`, {
                 method: 'GET',
-                mode: 'no-cors',
             });
             return await res.json();
         } catch (e) {
@@ -65,20 +68,48 @@ export const InputAddressClass = function (element) {
     }
 
     this.init = () => {
-        const suggestView = new ymaps.SuggestView(self.inputId);
+        ymaps.ready({
+            successCallback: () => {
+                const suggestView = new ymaps.SuggestView(self.inputId);
+            }
+        });
 
         self.input.on('blur', async function () {
             self.geocode(self.input);
+            /*const val = $(this).val()
+            const postalCode = await self.getPostalCode(val);
+
+            if (await postalCode && await postalCode.length) {
+
+                const code = postalCode[0].postalCode;
+
+                if (val.includes(code)) {
+                    return;
+                }
+
+                const fullAddress = `${val}, ${code}`;
+
+                element.trigger('changeValue', [fullAddress]);
+            }*/
+        });
+
+        self.input.on('change', async function () {
+            console.log(123);
             const val = $(this).val()
             const postalCode = await self.getPostalCode(val);
 
             if (await postalCode && await postalCode.length) {
 
-                const fullAddress = `${val}, ${postalCode[0].postalCode}`;
-                self.input.val(fullAddress).trigger('change');
+                const code = postalCode[0].postalCode;
+
+                if (val.includes(code)) {
+                    return;
+                }
+
+                const fullAddress = `${val}, ${code}`;
 
                 element.trigger('changeValue', [fullAddress]);
             }
-        })
+        });
     }
 }
