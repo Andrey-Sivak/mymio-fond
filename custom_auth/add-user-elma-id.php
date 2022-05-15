@@ -24,6 +24,8 @@ require_once('../Scripts/connect.php');
 $query = "SELECT * FROM `custom_users` WHERE `email` = '$user_email'";
 $result = $db->query($query);
 
+file_put_contents(__DIR__.'/data.log', date('d-m-Y H:i:s') . print_r($result->num_rows) . "\n", FILE_APPEND); // LOG
+
 if (!$result->num_rows) {
     $db->close();
     echo false;

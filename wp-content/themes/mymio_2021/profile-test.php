@@ -2305,7 +2305,10 @@ get_header(); ?>
                         </section>
                     </div>
                     <div class="lk-form">
-                        <p>Форма 5</p>
+                        <div class="documents">
+                            <p class="documents__notice">У вас пока нет заполненных мед.анкет</p>
+                            <div class="documents__wrap"></div>
+                        </div>
                     </div>
                 </div>
             </div>

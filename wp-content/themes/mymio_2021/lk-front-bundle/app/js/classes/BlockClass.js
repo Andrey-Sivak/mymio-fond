@@ -7,20 +7,21 @@ import {DocumentsClass} from "./DocumentsClass";
 export const BlockClass = function (blockElement, blockIndex, elmaId, userData, filledMedicalFields) {
     const self = this;
     this.tabs = null;
+    this.block = blockElement;
     this.forms = [];
     this.index = parseInt(blockIndex);
-    this.formsList = $(blockElement).find('.contact-form__form');
-    this.questionnaireProgress = $(blockElement).find('.lk-progress-inner');
+    this.formsList = $(self.block).find('.contact-form__form');
+    this.questionnaireProgress = $(self.block).find('.lk-progress-inner');
     this.documentsBlock = null;
 
     this.setTabs = async () => {
-        const tabs = $(blockElement).find('.lk-form__tabs');
+        const tabs = $(self.block).find('.lk-form__tabs');
 
         if (tabs && tabs.length) {
             if (this.index === 1) {
-                this.tabs = new TabClass(blockElement, 'lk-form__tab_content', 'lk-form__tab', userData.email);
+                this.tabs = new TabClass(self.block, 'lk-form__tab_content', 'lk-form__tab', userData.email);
             } else {
-                this.tabs = new TabClass(blockElement, 'lk-form__tab_content', 'lk-form__tab');
+                this.tabs = new TabClass(self.block, 'lk-form__tab_content', 'lk-form__tab');
             }
             await this.tabs.init();
         }
@@ -45,8 +46,8 @@ export const BlockClass = function (blockElement, blockIndex, elmaId, userData, 
             })
         }
 
-        if (this.index === 2) {
-            this.documentsBlock = new DocumentsClass(this, elmaId);
+        if (this.index === 2 || this.index === 4) {
+            this.documentsBlock = new DocumentsClass(this.index, this, elmaId);
             this.documentsBlock.init();
         }
     }
