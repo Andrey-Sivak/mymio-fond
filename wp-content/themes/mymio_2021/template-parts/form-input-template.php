@@ -14,6 +14,7 @@ $require_value = $condition['require_value'] ?? null;
 $value_type = $object['value_type'] ?? null;
 $same_fields = $object['same_fields'] ?? null;
 $same_dependency = $object['same_dependency'] ?? null;
+$max_symbols = $object['max'] ?? null;
 
 if (is_array($require_value)) {
     $require_value = implode('|,|', $require_value);
@@ -73,6 +74,9 @@ switch ($field_type) {
         <?php endif; ?>
         <?php if ($required) : ?>
             data-req="true"
+        <?php endif; ?>
+        <?php if ($max_symbols) : ?>
+            maxlength="<?php echo $max_symbols; ?>"
         <?php endif; ?>
         <?php if ($validation) : ?>
             data-validation="<?php echo $validation; ?>"

@@ -13,7 +13,20 @@ export const SelectClass = function (element) {
         }).on('select2:select', function () {
             element.trigger('changeValue', [$(this).val()]);
             self.displayInput(self.selectField);
+            self.removeError();
         });
+    }
+
+    this.removeError = () => {
+        const err = element.find('span.error');
+
+        if (err.length) {
+            err.remove();
+        }
+
+        if (self.selectField.hasClass('error')) {
+            self.selectField.removeClass('error');
+        }
     }
 
     this.displayInput = function (elem) {

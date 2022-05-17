@@ -11,8 +11,11 @@ export const CheckboxClass = function (element) {
         const hiddenInputValue = self.hiddenInput.val();
 
         if (is_check) {
+            self.removeError();
 
-            if ($(this).val().includes('(указать')) return;
+            if ($(this).val().includes('(указать')) {
+                return;
+            }
 
             if (!hiddenInputValue.includes($(this).val())) {
 
@@ -24,12 +27,25 @@ export const CheckboxClass = function (element) {
 
         if ($(this).val().includes('(указать')) {
             //TODO: fix me;
-            // self.removeValueFromInput()
+            //self.removeValueFromInput()
         }
 
         if (hiddenInputValue.includes($(this).val())) {
             const newValue = hiddenInputValue.replace(` | ${$(this).val()}`, '');
             self.hiddenInput.val(newValue).trigger('change');
+        }
+    }
+
+    this.removeError = () => {
+        const err = element.find('span.error');
+        const inputErr = element.find('input.error');
+
+        if (err.length) {
+            err.remove();
+        }
+
+        if (inputErr.length) {
+            inputErr.removeClass('error');
         }
     }
 

@@ -48,7 +48,7 @@ if (is_array($require_value)) {
             <?php endforeach;
 
             if ($is_input_exist) : ?>
-                <option value="Другое">Другое (указать)</option>
+                <option value="Другое (указать)">Другое (указать)</option>
             <?php endif; ?>
         </select>
     </div>

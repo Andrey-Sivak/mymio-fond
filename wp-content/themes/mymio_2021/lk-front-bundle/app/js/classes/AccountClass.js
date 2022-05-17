@@ -15,6 +15,10 @@ export const AccountClass = function () {
     this.tabs = new TabClass($('.lk-container'), 'lk-form', 'lk-tab');
     this.blocksList = $('.lk-form');
 
+    this.checkNotisendApi = () => {
+
+    }
+
     this.getUserData = async (elmaId) => {
         try {
             const url = `https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/get/appgs?id=${elmaId}`;
