@@ -185,7 +185,7 @@ export const PhoneConfirmationClass = function (formField, userData, blockIndex)
                 self.unblockBtn(self.selectors.sendConfirmationBtn, 0);
             })
         } else if (blockIndex === 1) {
-            // this.setPhoneNumber(userData.contact_phone.tel);
+            this.setPhoneNumber(userData.contact_phone.tel);
         }
 
         this.selectors.sendConfirmationBtn.on('click', this.sendConfirmation);
