@@ -9,6 +9,11 @@ export const CheckboxClass = function (element) {
     this.checkHandler = function () {
         const is_check = $(this).prop("checked");
         const hiddenInputValue = self.hiddenInput.val();
+        let valueArr = [];
+
+        if (hiddenInputValue.length !== 0) {
+            valueArr = hiddenInputValue.split(' | ');
+        }
 
         if (is_check) {
             self.removeError();
@@ -17,9 +22,16 @@ export const CheckboxClass = function (element) {
                 return;
             }
 
-            if (!hiddenInputValue.includes($(this).val())) {
+            if (!valueArr.includes($(this).val())) {
 
-                self.hiddenInput.val(`${hiddenInputValue} | ${$(this).val()}`).trigger('change');
+                if (!valueArr.length) {
+                    self.hiddenInput.val($(this).val());
+                    return;
+                }
+
+                const string = valueArr.join(' | ');
+
+                self.hiddenInput.val(`${string} | ${$(this).val()}`).trigger('change');
                 return;
             }
             return;
@@ -30,8 +42,10 @@ export const CheckboxClass = function (element) {
             //self.removeValueFromInput()
         }
 
-        if (hiddenInputValue.includes($(this).val())) {
-            const newValue = hiddenInputValue.replace(` | ${$(this).val()}`, '');
+        if (valueArr.includes($(this).val())) {
+            const newValueArr = valueArr.filter(v => v !== $(this).val());
+            const newValue = newValueArr.join(' | ');
+
             self.hiddenInput.val(newValue).trigger('change');
         }
     }
