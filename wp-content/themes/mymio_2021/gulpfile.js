@@ -13,11 +13,11 @@ let isProd = !isDev;
 let webpackConfig = {
     output: {
         filename: '[name].js',
-        path: __dirname + '/dist',
+        path: __dirname + '/assets/account-dist',
     },
     entry: {
-        lk_forms: './app/js/main.js',
-        register: './app/js/register.js',
+        lk_forms: './assets/account-src/js/main.js',
+        register: './assets/account-src/js/register.js',
     },
     module: {
         rules: [
@@ -32,17 +32,17 @@ let webpackConfig = {
 };
 
 function styles() {
-    return gulp.src('./app/sass/**/*.scss')
+    return gulp.src('./assets/account-src/sass/**/*.scss')
         .pipe(sass.sync({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
         .pipe(replace('../../', '../'))
-        .pipe(gulp.dest('./dist/css'));
+        .pipe(gulp.dest('./assets/account-dist/css'));
 }
 
 function scripts() {
-    return gulp.src('app/js/main.js')
+    return gulp.src('./assets/account-src/js/main.js')
         .pipe(webpack(webpackConfig))
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('./assets/account-dist/js'));
 }
 
 function watch() {
@@ -51,12 +51,12 @@ function watch() {
             baseDir: './'
         }
     });
-    gulp.watch('./app/sass/**/*.scss', styles);
-    gulp.watch('./app/js/**/*.js', scripts);
+    gulp.watch('./assets/account-src/sass/**/*.scss', styles);
+    gulp.watch('./assets/account-src/js/**/*.js', scripts);
 }
 
 function clean() {
-    return del(['dist/*']);
+    return del(['./assets/account-dist/*']);
 }
 
 gulp.task('styles', styles);

@@ -167,9 +167,9 @@ function mymio_2021_scripts() {
         wp_enqueue_script('forms-select', get_template_directory_uri() . '/assets/js/select2.min.js', array(), _S_VERSION, true );
         wp_enqueue_script('forms-mask', get_template_directory_uri() . '/assets/js/jquery.inputmask.min.js', array('forms-select'), _S_VERSION, true );
         wp_enqueue_script('forms-validate', get_template_directory_uri() . '/assets/js/jquery.validate.min.js', array(), _S_VERSION, true );
-        wp_enqueue_script('lk_forms-script', get_template_directory_uri() . '/lk-front-bundle/dist/js/lk_forms.js', array('forms-mask', 'forms-validate', 'jquery-ui-datepicker'), _S_VERSION, true );
+        wp_enqueue_script('lk_forms-script', get_template_directory_uri() . '/assets/account-dist/js/lk_forms.js', array('forms-mask', 'forms-validate', 'jquery-ui-datepicker'), _S_VERSION, true );
     } else {
-        wp_enqueue_script('custom-register', get_template_directory_uri() . '/lk-front-bundle/dist/js/register.js', array(), _S_VERSION, true );
+        wp_enqueue_script('custom-register', get_template_directory_uri() . '/assets/account-dist/js/register.js', array(), _S_VERSION, true );
     }
 }
 add_action( 'wp_enqueue_scripts', 'mymio_2021_scripts' );
@@ -190,7 +190,7 @@ function mymio_2021_css() {
         wp_enqueue_style ('forms-select', get_template_directory_uri() .'/assets/css/select2.css', array(), _S_VERSION);
         wp_enqueue_style ('lk-forms-style', get_template_directory_uri() .'/assets/css/lk-styles.css', array(), _S_VERSION);
         wp_enqueue_style ('forms-style', get_template_directory_uri() .'/assets/css/forms.css', array(), _S_VERSION);
-        wp_enqueue_style ('forms-style2', get_template_directory_uri() .'/lk-front-bundle/dist/css/main.css', array(), _S_VERSION);
+        wp_enqueue_style ('forms-style2', get_template_directory_uri() .'/assets/account-dist/css/main.css', array(), _S_VERSION);
     }
 
     if ( get_page_template_slug() == 'new_index.php' ) {

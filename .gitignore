@@ -24,4 +24,4 @@ wp-content/themes/*
 wp-content/plugins/*
 
 !wp-content/themes/mymio_2021/
-wp-content/themes/mymio_2021/lk-front-bundle/node_modules
+wp-content/themes/mymio_2021/node_modules
