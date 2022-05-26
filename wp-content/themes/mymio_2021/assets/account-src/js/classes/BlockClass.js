@@ -8,6 +8,7 @@ export const BlockClass = function (blockElement, blockIndex, elmaId, userData, 
     const self = this;
     this.tabs = null;
     this.block = blockElement;
+    this.blockTop = $('.lk-container').offset().top - 120;
     this.forms = [];
     this.index = parseInt(blockIndex);
     this.formsList = $(self.block).find('.contact-form__form');
@@ -29,12 +30,24 @@ export const BlockClass = function (blockElement, blockIndex, elmaId, userData, 
 
     this.formHandler = function (e, value) {
         if (self.index === 1) {
-            self.tabs.Tab.currentTab = value + 1;
-            self.tabs.lockNewTab(value);
-            self.questionnaireProgressCount();
-            self.forms[value + 1].checkIsButtonEnable();
+            setTimeout(() => {
+                if (value + 1 !== self.tabs.tabList.length) {
+                    self.tabs.Tab.currentTab = value + 1;
+                }
+                self.tabs.lockNewTab(value);
+                self.questionnaireProgressCount();
+                self.forms[value + 1].checkIsButtonEnable();
+                self.scrollToTop();
+            }, 1500);
         }
     }
+
+    this.scrollToTop = () => {
+        window.scroll({
+            top: self.blockTop,
+            behavior: 'smooth',
+        });
+    };
 
     this.setContent = () => {
         if (this.formsList.length) {

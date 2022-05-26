@@ -47,6 +47,7 @@ export const TabClass = function (wrapper, contentClass, tabClass, email = '') {
             return;
         }
         const index = self.tabList.index(this);
+        console.log(index);
         self.Tab.currentTab = parseInt(index);
         localStorageSet(tabClass, index);
     }
@@ -91,6 +92,8 @@ export const TabClass = function (wrapper, contentClass, tabClass, email = '') {
         if (isNaN(index)) {
             return;
         }
+
+        console.log(123);
 
         $(self.tabList[index]).addClass(self.lockedClass);
         $(self.contentList[index]).addClass(self.lockedClass);

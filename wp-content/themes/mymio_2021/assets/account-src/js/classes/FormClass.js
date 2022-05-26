@@ -227,7 +227,6 @@ export const FormClass = function (form, idx, elmaId, userData, parentBlock, fil
     }
 
     this.changeAction = () => {
-        console.log(self.isFirstYear);
         if (parentBlock.index === 1
             && self.formIndex === 2
             && !self.isFirstYear) {
