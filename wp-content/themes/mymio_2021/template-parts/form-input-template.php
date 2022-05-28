@@ -66,26 +66,41 @@ switch ($field_type) {
         <p class="contact-form__form-field_note"><?php echo $question; ?></p>
     <?php endif; ?>
 
-    <input
-        <?php if ($value_type == 'int') : ?>
-            type="number"
-        <?php else : ?>
-            type="text"
-        <?php endif; ?>
-        <?php if ($required) : ?>
-            data-req="true"
-        <?php endif; ?>
-        <?php if ($max_symbols) : ?>
-            maxlength="<?php echo $max_symbols; ?>"
-        <?php endif; ?>
-        <?php if ($validation) : ?>
-            data-validation="<?php echo $validation; ?>"
-        <?php endif; ?>
-            data-elma="<?php echo $elmaName; ?>"
-            name="<?php echo $field_name; ?>"
-            id="<?php echo $field_name; ?>"
-            placeholder="<?php echo $placeholder ?>"
-            class="contact-form__input<?php echo " $additional_css_class"; ?>">
+    <?php if ($field_type == 'address') : ?>
+        <textarea name="<?php echo $field_name; ?>"
+                  placeholder="<?php echo $placeholder ?>"
+                  data-elma="<?php echo $elmaName; ?>"
+                  <?php if ($validation) : ?>
+                      data-validation="<?php echo $validation; ?>"
+                  <?php endif;
+                  if ($required) : ?>
+                      data-req="true"
+                  <?php endif; ?>
+                  class="contact-form__input<?php echo " $additional_css_class"; ?>"
+                  id="<?php echo $field_name; ?>"></textarea>
+    <?php else : ?>
+        <input
+            <?php if ($value_type == 'int') : ?>
+                type="number"
+            <?php else : ?>
+                type="text"
+            <?php endif; ?>
+            <?php if ($required) : ?>
+                data-req="true"
+            <?php endif; ?>
+            <?php if ($max_symbols) : ?>
+                maxlength="<?php echo $max_symbols; ?>"
+            <?php endif; ?>
+            <?php if ($validation) : ?>
+                data-validation="<?php echo $validation; ?>"
+            <?php endif; ?>
+                data-elma="<?php echo $elmaName; ?>"
+                name="<?php echo $field_name; ?>"
+                id="<?php echo $field_name; ?>"
+                placeholder="<?php echo $placeholder ?>"
+                class="contact-form__input<?php echo " $additional_css_class"; ?>">
+    <?php endif; ?>
+
     <label for="<?php echo $field_name; ?>" class="contact-form__label"><?php echo $label; ?></label>
 
     <?php if ($field_type == 'address') : ?>

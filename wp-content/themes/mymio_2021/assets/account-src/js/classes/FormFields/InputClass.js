@@ -24,7 +24,7 @@ export const InputClass = function (formField, userData, blockIndex) {
             return;
         }
 
-        if (formField.find('input.address').length) {
+        if (formField.find('textarea.address').length) {
             this.instance = new InputAddressClass(formField);
             return;
         }

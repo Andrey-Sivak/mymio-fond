@@ -165,6 +165,14 @@
     transition: all ease .3s;
 }
 
+.contact-form__input.address {
+    height: 50px;
+    min-height: 50px;
+    overflow: hidden;
+    display: block;
+    padding-bottom: 12px;
+}
+
 .contact-form__input.address + .contact-form__label + span.error {
     display: none;
 }

@@ -2,7 +2,7 @@
 
 export const InputAddressClass = function (element) {
     const self = this;
-    this.input = element.find('input');
+    this.input = element.find('textarea');
     this.inputId = this.input.attr('id');
 
     this.geocode = (input) => {
@@ -67,6 +67,19 @@ export const InputAddressClass = function (element) {
         }
     }
 
+    this.textareaHandleInput = () => {
+        const input = self.input.get(0);
+
+        if (input.value === '') {
+            input.style.height = '50px';
+            return;
+        }
+
+        if (input.scrollHeight > input.clientHeight) {
+            input.style.height = input.scrollHeight + 'px';
+        }
+    }
+
     this.init = () => {
         ymaps.ready({
             successCallback: () => {
@@ -74,28 +87,9 @@ export const InputAddressClass = function (element) {
             }
         });
 
-        self.input.on('blur', async function () {
+        this.input.on('blur', async function () {
             self.geocode(self.input);
-            /*const val = $(this).val()
-            const postalCode = await self.getPostalCode(val);
-
-            if (await postalCode && await postalCode.length) {
-
-                const code = postalCode[0].postalCode;
-
-                if (val.includes(code)) {
-                    return;
-                }
-
-                const fullAddress = `${val}, ${code}`;
-
-                element.trigger('changeValue', [fullAddress]);
-            }*/
-        });
-
-        self.input.on('change', async function () {
-            console.log(123);
-            const val = $(this).val()
+            const val = $(this).val();
             const postalCode = await self.getPostalCode(val);
 
             if (await postalCode && await postalCode.length) {
@@ -110,6 +104,26 @@ export const InputAddressClass = function (element) {
 
                 element.trigger('changeValue', [fullAddress]);
             }
+            self.textareaHandleInput();
+        });
+
+        this.input.on('change', async function () {
+            const val = $(this).val();
+            const postalCode = await self.getPostalCode(val);
+
+            if (await postalCode && await postalCode.length) {
+
+                const code = postalCode[0].postalCode;
+
+                if (val.includes(code)) {
+                    return;
+                }
+
+                const fullAddress = `${val}, ${code}`;
+
+                element.trigger('changeValue', [fullAddress]);
+            }
+            self.textareaHandleInput();
         });
     }
 }
