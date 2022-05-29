@@ -125,5 +125,7 @@ export const InputAddressClass = function (element) {
             }
             self.textareaHandleInput();
         });
+
+        this.input.on('input', this.textareaHandleInput);
     }
 }
