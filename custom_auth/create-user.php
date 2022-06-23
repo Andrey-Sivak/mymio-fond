@@ -21,6 +21,9 @@ if (!$user_name) {
     $user_name = '';
 }
 
+//MTXYLBxaDw
+//a11sda@as.as
+
 require_once('../Scripts/connect.php');
 
 $query = "SELECT * FROM `custom_users` WHERE `email` = '$user_email'";

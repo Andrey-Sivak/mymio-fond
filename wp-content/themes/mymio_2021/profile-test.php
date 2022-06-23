@@ -125,7 +125,7 @@ get_header(); ?>
                                 'caption' => 'Персональные данные Подопечного',
                                 'submit_button' => 'Сохранить изменения',
                                 'name' => 'main_info',
-                                'success_msg' => 'Заявка успешно отправлена!',
+                                'success_msg' => 'Данные обновлены!',
                                 'form_fields' => [
                                     [
                                         'kind' => 'select',
@@ -334,6 +334,7 @@ get_header(); ?>
                                         'elma_name' => 'main_ank_rel_address_act_pred',
                                         'placeholder' => 'Адрес фактического проживания законного представителя',
                                         'label' => 'Адрес регистрации',
+                                        'question' => 'Введите адрес фактического проживания законного представителя',
                                         'name' => 'address_reg_pod',
                                         'same_dependency' => 'address_act_pod',
                                         'condition' => [
@@ -359,6 +360,7 @@ get_header(); ?>
                                         'elma_name' => 'main_ank_address_mail_pod',
                                         'type' => 'address',
                                         'placeholder' => 'Почтовый адрес законного представителя',
+                                        'question' => 'Введите почтовый адрес законного представителя',
                                         'label' => '',
                                         'name' => 'address_mail_pod',
                                         'same_dependency' => 'address_act_pod',
@@ -366,6 +368,16 @@ get_header(); ?>
                                             'condition_dependency' => 'diff_post_address',
                                             'require_value' => 'Нет',
                                         ]
+                                    ],
+                                    [
+                                        'kind' => 'input',
+                                        'elma_name' => 'main_ank_mail_index',
+                                        'question' => 'Введите почтовый индекс',
+                                        'type' => 'text',
+                                        'max' => 6,
+                                        'placeholder' => 'Почтовый индекс',
+                                        'label' => '',
+                                        'name' => 'main_ank_mail_index',
                                     ],
                                     [
                                         'kind' => 'checkbox',

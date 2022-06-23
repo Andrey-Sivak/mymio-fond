@@ -15,6 +15,7 @@
 
 wp-admin/
 wp-includes/
+vendor/
 
 wp-content/*
 !wp-content/themes/
