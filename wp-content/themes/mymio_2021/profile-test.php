@@ -41,7 +41,7 @@ get_header(); ?>
                             href="mailto:coordinator@mymiofond.ru">coordinator@mymiofond.ru</a></p>
                 <div class="user-info">
                     <div class="user-info__caption"
-                       style="display:flex;justify-content: space-between;align-items:center;">
+                         style="display:flex;justify-content: space-between;align-items:center;">
                         <span>Личные данные</span>
                         <a style="margin-left: auto;"
                            class="btn"
@@ -2205,6 +2205,8 @@ get_header(); ?>
                             <div class="lk-form__tabs">
                                 <span class="lk-form__tab">Адресная помощь</span>
                                 <span class="lk-form__tab">Мы вместе</span>
+                                <span class="lk-form__tab">Клиника МДД</span>
+                                <span class="lk-form__tab">Помощь юриста</span>
                             </div>
 
                             <div class="lk-form__tab_content">
@@ -2315,6 +2317,70 @@ get_header(); ?>
                                                 'condition_dependency' => 'program_camp_select',
                                                 'require_value' => 'Интеграционный лагерь',
                                             ],
+                                        ],
+                                    ],
+                                ];
+
+                                get_template_part('/template-parts/form-template', null, $form_settings); ?>
+                            </div>
+
+                            <div class="lk-form__tab_content">
+                                <?php
+                                $form_settings = [
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/create/apppr',
+                                    'caption' => 'Клиника МДД',
+                                    'submit_button' => 'Подать заявку',
+                                    'tab' => '3',
+                                    'name' => 'mdd_clinic_block',
+                                    'success_msg' => 'Заявка успешно отправлена!',
+                                    'form_fields' => [
+                                        [
+                                            'kind' => 'input',
+                                            'required' => true,
+                                            'elma_name' => 'program_MDD_reason',
+                                            'placeholder' => 'Причина',
+                                            'question' => 'Напишите, пожалуйста, почему вы хотите принять участие в клинике МДД?',
+                                            'label' => '',
+                                            'name' => 'program_MDD_reason'
+                                        ],
+                                        [
+                                            'kind' => 'input',
+                                            'required' => true,
+                                            'elma_name' => 'program_MDD_last_hosp',
+                                            'placeholder' => 'Указать',
+                                            'question' => 'Где ваш сын последний раз проходил госпитализацию и когда?',
+                                            'label' => '',
+                                            'name' => 'program_MDD_last_hosp'
+                                        ],
+                                    ],
+                                ];
+
+                                get_template_part('/template-parts/form-template', null, $form_settings); ?>
+                            </div>
+
+                            <div class="lk-form__tab_content">
+                                <?php
+                                $form_settings = [
+                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/create/apppr',
+                                    'caption' => '',
+                                    'submit_button' => 'Подать заявку',
+                                    'tab' => '4',
+                                    'name' => 'law_support_block',
+                                    'success_msg' => 'Заявка успешно отправлена!',
+                                    'form_fields' => [
+                                        [
+                                            'kind' => 'text_block',
+                                            'caption' => 'Помощь юриста',
+                                            'text' => 'Фонд работает над тем, чтобы семьи детей с миодистрофией Дюшенна своевременно обеспечивались всем необходимым в рамках государственной программы помощи. В фонде есть юрист с опытом работы более 25 лет, который занимается юридическим сопровождением семей, регулярно отправляет запросы в государственные органы, отстаивает права подопечных в сложных ситуациях и помогает разбираться семьям в правовых вопросах.'
+                                        ],
+                                        [
+                                            'kind' => 'input',
+                                            'required' => true,
+                                            'elma_name' => 'program_legal_question',
+                                            'placeholder' => 'Вопрос юристу',
+                                            'question' => 'Вопрос юристу',
+                                            'label' => '',
+                                            'name' => 'program_legal_question'
                                         ],
                                     ],
                                 ];
