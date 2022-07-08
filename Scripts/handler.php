@@ -1,16 +1,16 @@
 <?php
 
-define('_COMPANY', 'aeqlmvgvlxcee');
+define('_COMPANY', '3mxk6vwcpahuu');
 define('_ZONE', 'ru');
 define('_NAMESPACE', '_clients');
 define('_CODE', '_leads');
-define('_TOKEN', '2f3cf8e6-d375-4c90-a5c2-55090eda587d');
+define('_TOKEN', 'a9521f77-657f-4830-9c9b-d81c3b6de22d');
 
 $input = $_POST['context'];
 
 if (!empty($input)) {
 
-    $funnel = '98fde1bc-3063-4a68-a280-9451442ab6f7';
+    $funnel = '00000000-0000-0000-0000-000000000000';
 
     file_put_contents(__DIR__.'/data.log', $input."\n\n", FILE_APPEND); // LOG
 
@@ -86,7 +86,7 @@ if(!empty($input)) {
 
 	switch ($formID) {
 		case '41310':
-			$funnel = '98fde1bc-3063-4a68-a280-9451442ab6f7';
+			$funnel = '00000000-0000-0000-0000-000000000000';
 			
 			$mail = [
 				'type' => 'main',

@@ -21,7 +21,7 @@ export const AccountClass = function () {
 
     this.getUserData = async (elmaId) => {
         try {
-            const url = `https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/get/appgs?id=${elmaId}`;
+            const url = `https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/get/appgs?id=${elmaId}`;
             const requestOptions = {
                 method: 'GET',
             };

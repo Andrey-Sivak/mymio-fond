@@ -1,10 +1,10 @@
 <?php
 
-define('_COMPANY', 'aeqlmvgvlxcee');
+define('_COMPANY', '3mxk6vwcpahuu');
 define('_ZONE', 'ru');
 define('_NAMESPACE', '_clients');
 define('_CODE', '_leads');
-define('_TOKEN', '2f3cf8e6-d375-4c90-a5c2-55090eda587d');
+define('_TOKEN', 'a9521f77-657f-4830-9c9b-d81c3b6de22d');
 
 $input = $_POST['context'];
 
@@ -15,7 +15,7 @@ if (!empty($input)) {
     $form = json_decode($input, 1);
     $data = $form['context'];
 
-    $funnel = '98fde1bc-3063-4a68-a280-9451442ab6f7';
+    $funnel = '00000000-0000-0000-0000-000000000000';
 
     $birtdate = DateTime::createFromFormat('d.m.Y', $data['birthdate']);
     $birtdate = date_format($birtdate,'c');
@@ -45,7 +45,7 @@ if (!empty($input)) {
         'description' => $data['description'],
         'citizenship' => $data['citizenship'],
         'pa_diagnosis' => $data['pa_diagnosis'],
-        'pa_relationship' => $data['pa_relationship'],
+        'pa_relation' => $data['pa_relation'],
     ];
 
     $postfields = [
@@ -87,7 +87,7 @@ if(!empty($input)) {
 
 	switch ($formID) {
 		case '30698':
-			$funnel = '98fde1bc-3063-4a68-a280-9451442ab6f7';
+			$funnel = '00000000-0000-0000-0000-000000000000';
 			
 			$mail = [
 				'type' => 'main',

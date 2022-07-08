@@ -42,7 +42,7 @@ export const DocumentsClass = function (idx, parentBlock, elmaId) {
     }
 
     this.setApiUrl = (idx) => {
-        const baseUrl = 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/';
+        const baseUrl = 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/ward/';
         switch (idx) {
             case 2 :
                 self.apiUrl = `${baseUrl}documents`;

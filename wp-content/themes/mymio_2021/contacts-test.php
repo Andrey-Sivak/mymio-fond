@@ -110,7 +110,7 @@ get_header();
                              'placeholder' => 'Кем вы приходитесь ребенку?',
                              'required' => true,
                              'name' => 'relation',
-                             'elma_name' => 'pa_relationship',
+                             'elma_name' => 'pa_relation',
                              'options' => [
                                  'Родитель',
                                  'Опекун',

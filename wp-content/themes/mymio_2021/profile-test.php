@@ -121,7 +121,7 @@ get_header(); ?>
                         <section class="lk-form-container">
                             <?php
                             $form_settings = [
-                                'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/ward/main/update',
+                                'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/ward/main/update',
                                 'caption' => 'Персональные данные Подопечного',
                                 'submit_button' => 'Сохранить изменения',
                                 'name' => 'main_info',
@@ -435,7 +435,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Общая информация о пациенте и заболевании
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/create',
+                                    'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/medical_form/create',
                                     'caption' => 'Общая информация о пациенте и заболевании',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Анкета заполняется законным представителем подопечного. Даже если вы наш совершеннолетний подопечный, просим заполнять анкету вместе с представителем. От полноты и правильности данных зависит работа Регистра. Спасибо вам!',
@@ -608,7 +608,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Неврология
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
+                                    'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/medical_form/update',
                                     'caption' => 'Неврология',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Неврология вы заполняете за прошедший год.',
@@ -948,7 +948,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Ортопедия
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
+                                    'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/medical_form/update',
                                     'caption' => 'Ортопедия',
                                     'stage' => '2,3,4,5',
                                     'submit_button' => 'Продолжить',
@@ -1119,7 +1119,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php //Реабилитация
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
+                                    'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/medical_form/update',
                                     'caption' => 'Реабилитация',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Реабилитация вы заполняете за прошедший год.',
@@ -1280,7 +1280,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Эндокринология
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
+                                    'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/medical_form/update',
                                     'caption' => 'Эндокринология',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Эндокринология вы заполняете за прошедший год.',
@@ -1399,7 +1399,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Пульмонология
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
+                                    'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/medical_form/update',
                                     'caption' => 'Пульмонология',
                                     'stage' => '3,4,5',
                                     'submit_button' => 'Продолжить',
@@ -1726,7 +1726,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Гастроэнтерология
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
+                                    'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/medical_form/update',
                                     'caption' => 'Гастроэнтерология',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Гастроэнтерология вы заполняете за прошедший год.',
@@ -1886,7 +1886,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Кардиология
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
+                                    'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/medical_form/update',
                                     'caption' => 'Кардиология',
                                     'stage' => '1,2,4,5',
                                     'submit_button' => 'Продолжить',
@@ -1987,7 +1987,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Хирургические вмешательства
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
+                                    'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/medical_form/update',
                                     'caption' => 'Хирургические вмешательства',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Хирургические вмешательства вы заполняете за прошедший год.',
@@ -2029,7 +2029,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Социальный/Возможности среды
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
+                                    'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/medical_form/update',
                                     'caption' => 'Социальный/Возможности среды',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по блоку Социальный/Возможности среды вы заполняете за прошедший год.',
@@ -2117,7 +2117,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php // Социально–психологический блок
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
+                                    'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/medical_form/update',
                                     'caption' => 'Социально–психологический блок',
                                     'submit_button' => 'Продолжить',
                                     'subcaption' => 'Обратите, пожалуйста, внимание: информацию по Социально–психологическому блоку вы заполняете за прошедший год.',
@@ -2172,7 +2172,7 @@ get_header(); ?>
 
                             <div class="lk-form__tab_content">
                                 <?php $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/medical_form/update',
+                                    'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/medical_form/update',
                                     'caption' => 'Подтверждение данных',
                                     'submit_button' => 'Подтвердить',
                                     'tab' => '12',
@@ -2212,7 +2212,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/create/apppr',
+                                    'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/create/apppr',
                                     'caption' => 'Адресная помощь',
                                     'submit_button' => 'Подать заявку',
                                     'tab' => '1',
@@ -2237,7 +2237,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/create/apppr',
+                                    'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/create/apppr',
                                     'caption' => 'Мы вместе',
                                     'submit_button' => 'Подать заявку',
                                     'tab' => '2',
@@ -2327,7 +2327,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/create/apppr',
+                                    'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/create/apppr',
                                     'caption' => 'Клиника МДД',
                                     'submit_button' => 'Подать заявку',
                                     'tab' => '3',
@@ -2361,7 +2361,7 @@ get_header(); ?>
                             <div class="lk-form__tab_content">
                                 <?php
                                 $form_settings = [
-                                    'action_url' => 'https://aeqlmvgvlxcee.elma365.ru/api/extensions/3d15932c-766e-4e91-b8ff-fed442649de2/script/create/apppr',
+                                    'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/create/apppr',
                                     'caption' => '',
                                     'submit_button' => 'Подать заявку',
                                     'tab' => '4',

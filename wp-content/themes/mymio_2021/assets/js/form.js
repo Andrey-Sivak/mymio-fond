@@ -201,7 +201,7 @@ function getNeededInputs(pass) {
         setObjectProperty(object.context, $(this));
     });
 
-    Object.defineProperty(object.context, 'user_password', {
+    Object.defineProperty(object.context, 'password', {
         value: pass,
         writable: true,
         enumerable: true,

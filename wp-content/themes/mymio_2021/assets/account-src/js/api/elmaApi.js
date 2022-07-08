@@ -1,6 +1,6 @@
 'use strict';
 
-const TOKEN = '8657d620-f5eb-4552-997d-d3ec43688c29';
+const TOKEN = 'a9521f77-657f-4830-9c9b-d81c3b6de22d';
 
 export const getUserDataFromElma = async (url, options) => {
 
