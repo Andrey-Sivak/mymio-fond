@@ -2204,8 +2204,8 @@ get_header(); ?>
 
                             <div class="lk-form__tabs">
                                 <span class="lk-form__tab">Адресная помощь</span>
-                                <span class="lk-form__tab">Мы вместе</span>
-                                <span class="lk-form__tab">Клиника МДД</span>
+<!--                                <span class="lk-form__tab">Мы вместе</span>-->
+<!--                                <span class="lk-form__tab">Клиника МДД</span>-->
                                 <span class="lk-form__tab">Помощь юриста</span>
                             </div>
 
@@ -2234,9 +2234,9 @@ get_header(); ?>
                                 get_template_part('/template-parts/form-template', null, $form_settings); ?>
                             </div>
 
-                            <div class="lk-form__tab_content">
+                            <!--<div class="lk-form__tab_content">
                                 <?php
-                                $form_settings = [
+/*                                $form_settings = [
                                     'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/create/apppr',
                                     'caption' => 'Мы вместе',
                                     'submit_button' => 'Подать заявку',
@@ -2321,12 +2321,12 @@ get_header(); ?>
                                     ],
                                 ];
 
-                                get_template_part('/template-parts/form-template', null, $form_settings); ?>
+                                get_template_part('/template-parts/form-template', null, $form_settings); */?>
                             </div>
 
                             <div class="lk-form__tab_content">
                                 <?php
-                                $form_settings = [
+/*                                $form_settings = [
                                     'action_url' => 'https://3mxk6vwcpahuu.elma365.ru/api/extensions/49bd5171-49b3-4dec-aba8-be894465f9d9/script/create/apppr',
                                     'caption' => 'Клиника МДД',
                                     'submit_button' => 'Подать заявку',
@@ -2355,8 +2355,8 @@ get_header(); ?>
                                     ],
                                 ];
 
-                                get_template_part('/template-parts/form-template', null, $form_settings); ?>
-                            </div>
+                                get_template_part('/template-parts/form-template', null, $form_settings); */?>
+                            </div>-->
 
                             <div class="lk-form__tab_content">
                                 <?php
