@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( '_S_VERSION', '1.0.1' );
 }
 
 if ( ! function_exists( 'mymio_2021_setup' ) ) :
@@ -156,7 +156,7 @@ function mymio_2021_scripts() {
 
     wp_enqueue_script('custom-auth', get_template_directory_uri() . '/assets/js/custom-auth.js', array('jquery'), _S_VERSION, true );
 
-	if (get_the_ID() == 40184) {
+	if (get_the_ID() == 30669) {
         wp_enqueue_script('forms-select', get_template_directory_uri() . '/assets/js/select2.min.js', array(), _S_VERSION, true );
         wp_enqueue_script('forms-mask', get_template_directory_uri() . '/assets/js/jquery.inputmask.min.js', array('forms-select'), _S_VERSION, true );
         wp_enqueue_script('forms-validate', get_template_directory_uri() . '/assets/js/jquery.validate.min.js', array('forms-select'), _S_VERSION, true );
@@ -181,7 +181,7 @@ function mymio_2021_css() {
     wp_enqueue_style ('fancybox_css', get_template_directory_uri() .'/assets/fancybox-master/dist/jquery.fancybox.min.css');
     wp_enqueue_style ('auth-style', get_template_directory_uri() .'/assets/css/auth.css');
 
-    if (get_the_ID() == 40184) {
+    if (get_the_ID() == 30669) {
         wp_enqueue_style ('forms-select', get_template_directory_uri() .'/assets/css/select2.css', array(), _S_VERSION);
         wp_enqueue_style ('forms-style', get_template_directory_uri() .'/assets/css/forms.css', array(), _S_VERSION);
     }

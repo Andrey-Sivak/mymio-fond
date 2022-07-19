@@ -196,6 +196,18 @@ body .maxwidth-theme {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.header-wrapper__lk-button {
+    padding: 6px 10px;
+    border-radius: 21px;
+    border: 1px solid #009D9A;
+    color: #009D9A !important;
+    text-align: center;
+    margin-left: auto;
+    width: 195px;
+    margin-bottom: 6px;
 }
 .info .header-wrapper {
     width: -webkit-fit-content;
@@ -3493,6 +3505,15 @@ span.sub-item {
 #roditelyam .row > div:first-child > span {
     font-size: 16px;
     line-height: 24.8px;
+}
+
+.roditelyam-btn {
+    width: 288px;
+}
+
+.roditelyam-btn span {
+    display: block;
+    width: 100%;
 }
 
 #roditelyam .now {

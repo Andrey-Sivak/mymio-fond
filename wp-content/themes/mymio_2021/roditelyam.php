@@ -130,7 +130,9 @@ get_header();
                        <div class="col-xs-12 col-sm-7">
                            <span>Вы не должны оставаться один на один с болезнью. Вместе — мы сильнее. Все программы фонда разработаны с учетом особенностей редкой болезни и нацелены на комплексную и системную помощь детям с миодистрофией Дюшенна и их семьям.</span>
                            <div>
-                           <a href="<?php echo get_home_url(); ?>/kontakty/.request-form-container"><span class="btn to-help now">Стать подопечным фонда</span></a></div>
+                           <a href="<?php echo get_home_url(); ?>/kontakty/.request-form-container"><span class="btn to-help now">Стать подопечным фонда</span></a>
+                               <a href="/lk-test/"><span class="btn to-help now">Личный кабинет</span></a>
+                           </div>
                        </div>
                        <img src="<? echo get_template_directory_uri()?>/assets/images/icons/roditelyam.svg" alt="">
                        <?/*<div class="img-abs"></div>*/?>

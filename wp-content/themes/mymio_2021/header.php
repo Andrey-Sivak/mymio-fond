@@ -143,6 +143,7 @@ unset($_SESSION['ward-refusal']);?>
                         </div>
                         <div class="search-block">
                             <div class="header-wrapper">
+                                <a href="/lk-test/" class="header-wrapper__lk-button">Личный кабинет</a>
                                 <div id="title-search_fixed">
                                     <form method="get" action="<?php echo home_url('/'); ?>" class="search">
                                         <div class="search-input-div">
@@ -156,9 +157,6 @@ unset($_SESSION['ward-refusal']);?>
                                         </div>
                                     </form>
                                 </div>
-                                <? /*<div class="search-icon">
-                                <img src="<?php bloginfo('template_url');?>/images/icons/search_color.svg">
-                            </div>*/ ?>
                             </div>
                         </div>
                         <div class="info">
